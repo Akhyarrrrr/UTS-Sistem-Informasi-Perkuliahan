@@ -1,0 +1,1234 @@
+{
+    "captured": "2026-10-04T02:45:50+07:00",
+    "database": "uts_perkuliahan",
+    "mysql": "8.0.46",
+    "laravel": "13.34.0",
+    "counts": {
+        "users": 19,
+        "fakultas": 2,
+        "prodi": 3,
+        "mahasiswa": 14,
+        "dosen": 4,
+        "matakuliah": 9,
+        "periode": 2,
+        "ruang": 3,
+        "kelas": 12,
+        "jadwal": 12,
+        "krs": 12,
+        "krs_detail": 40,
+        "komponen_nilai": 48,
+        "nilai_komponen": 107,
+        "skala_nilai": 14,
+        "pertemuan": 7,
+        "presensi": 43,
+        "activity_log": 11
+    },
+    "dictionary": {
+        "users": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "name",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "email",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "email_verified_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "password",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "remember_token",
+                "COLUMN_TYPE": "varchar(100)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "updated_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "role",
+                "COLUMN_TYPE": "enum('admin','dosen','mahasiswa')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "mahasiswa"
+            }
+        ],
+        "fakultas": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(12)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "prodi": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "fakultas_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(12)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "batas_sks",
+                "COLUMN_TYPE": "tinyint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "24"
+            }
+        ],
+        "mahasiswa": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "prodi_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "npm",
+                "COLUMN_TYPE": "varchar(20)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(100)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "angkatan",
+                "COLUMN_TYPE": "smallint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "dosen": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "prodi_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(20)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(100)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "matakuliah": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "prodi_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(20)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "sks",
+                "COLUMN_TYPE": "tinyint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "periode": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(60)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "tahun_mulai",
+                "COLUMN_TYPE": "smallint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "semester",
+                "COLUMN_TYPE": "enum('Ganjil','Genap')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "krs_mulai",
+                "COLUMN_TYPE": "date",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "krs_selesai",
+                "COLUMN_TYPE": "date",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "aktif",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "0"
+            }
+        ],
+        "ruang": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(20)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "UNI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(100)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kapasitas",
+                "COLUMN_TYPE": "smallint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "kelas": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "matakuliah_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "periode_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "dosen_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kode",
+                "COLUMN_TYPE": "varchar(12)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kapasitas",
+                "COLUMN_TYPE": "smallint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "published_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "first_published_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "jadwal": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kelas_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "ruang_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "hari",
+                "COLUMN_TYPE": "tinyint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "mulai",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "selesai",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "mode",
+                "COLUMN_TYPE": "enum('Luring','Daring')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "Luring"
+            },
+            {
+                "COLUMN_NAME": "tautan",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "krs": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "mahasiswa_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "periode_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('draf','diajukan','disetujui','dikembalikan')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "draf"
+            },
+            {
+                "COLUMN_NAME": "catatan",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "updated_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "krs_detail": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "krs_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kelas_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "komponen_nilai": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kelas_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nama",
+                "COLUMN_TYPE": "varchar(30)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "bobot",
+                "COLUMN_TYPE": "decimal(5,2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "nilai_komponen": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "krs_detail_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "komponen_nilai_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nilai",
+                "COLUMN_TYPE": "decimal(5,2)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "skala_nilai": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "periode_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "huruf",
+                "COLUMN_TYPE": "varchar(2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "minimum",
+                "COLUMN_TYPE": "decimal(5,2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "angka",
+                "COLUMN_TYPE": "decimal(3,2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "pertemuan": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "kelas_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "nomor",
+                "COLUMN_TYPE": "tinyint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "tanggal",
+                "COLUMN_TYPE": "date",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "topik",
+                "COLUMN_TYPE": "varchar(160)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "presensi": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "pertemuan_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "krs_detail_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('Hadir','Izin','Sakit','Alpa')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            }
+        ],
+        "activity_log": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "PRI",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "MUL",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "aksi",
+                "COLUMN_TYPE": "varchar(80)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "entitas",
+                "COLUMN_TYPE": "varchar(50)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "record_id",
+                "COLUMN_TYPE": "bigint unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "detail",
+                "COLUMN_TYPE": "json",
+                "IS_NULLABLE": "YES",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": null
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_KEY": "",
+                "COLUMN_DEFAULT": "CURRENT_TIMESTAMP"
+            }
+        ]
+    },
+    "queries": {
+        "rekonstruksi": "SELECT m.npm,p.nama periode,mk.kode,k.kode kelas,c.nama komponen,c.bobot,n.nilai FROM mahasiswa m JOIN krs r ON r.mahasiswa_id=m.id JOIN periode p ON p.id=r.periode_id JOIN krs_detail d ON d.krs_id=r.id JOIN kelas k ON k.id=d.kelas_id JOIN matakuliah mk ON mk.id=k.matakuliah_id JOIN komponen_nilai c ON c.kelas_id=k.id LEFT JOIN nilai_komponen n ON n.krs_detail_id=d.id AND n.komponen_nilai_id=c.id WHERE m.npm='260820701100010' AND r.status='disetujui' ORDER BY p.tahun_mulai,k.id,c.id",
+        "total_sks": "SELECT m.npm,p.nama periode,SUM(mk.sks) sks FROM krs r JOIN mahasiswa m ON m.id=r.mahasiswa_id JOIN periode p ON p.id=r.periode_id JOIN krs_detail d ON d.krs_id=r.id JOIN kelas k ON k.id=d.kelas_id JOIN matakuliah mk ON mk.id=k.matakuliah_id WHERE m.npm='260820701100010' GROUP BY m.npm,p.nama ORDER BY p.nama",
+        "yatim": "SELECT (SELECT COUNT(*) FROM krs_detail d LEFT JOIN krs r ON r.id=d.krs_id WHERE r.id IS NULL)+(SELECT COUNT(*) FROM nilai_komponen n LEFT JOIN krs_detail d ON d.id=n.krs_detail_id WHERE d.id IS NULL)+(SELECT COUNT(*) FROM presensi a LEFT JOIN pertemuan p ON p.id=a.pertemuan_id WHERE p.id IS NULL) total_yatim",
+        "ketidaksesuaian": "SELECT (SELECT COUNT(*) FROM krs_detail d JOIN krs r ON r.id=d.krs_id JOIN kelas k ON k.id=d.kelas_id WHERE r.periode_id<>k.periode_id)+(SELECT COUNT(*) FROM nilai_komponen n JOIN krs_detail d ON d.id=n.krs_detail_id JOIN komponen_nilai c ON c.id=n.komponen_nilai_id WHERE d.kelas_id<>c.kelas_id)+(SELECT COUNT(*) FROM presensi a JOIN krs_detail d ON d.id=a.krs_detail_id JOIN pertemuan p ON p.id=a.pertemuan_id WHERE d.kelas_id<>p.kelas_id) tidak_sesuai"
+    },
+    "results": {
+        "rekonstruksi": [
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "70.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "75.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "72.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "85.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "82.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "84.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "70.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "75.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "72.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "90.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "85.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPD301",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "95.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPE302",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "74.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPE302",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPE302",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "70.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "MPE302",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "78.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": "85.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "90.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": "88.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "AIK303",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": "90.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "Tugas",
+                "bobot": "20.00",
+                "nilai": null
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "Kuis",
+                "bobot": "10.00",
+                "nilai": "80.00"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "UTS",
+                "bobot": "30.00",
+                "nilai": null
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "kode": "PSD304",
+                "kelas": "A",
+                "komponen": "UAS",
+                "bobot": "40.00",
+                "nilai": null
+            }
+        ],
+        "total_sks": [
+            {
+                "npm": "260820701100010",
+                "periode": "2025\/2026 Genap",
+                "sks": "9"
+            },
+            {
+                "npm": "260820701100010",
+                "periode": "2026\/2027 Ganjil",
+                "sks": "11"
+            }
+        ],
+        "yatim": [
+            {
+                "total_yatim": 0
+            }
+        ],
+        "ketidaksesuaian": [
+            {
+                "tidak_sesuai": 0
+            }
+        ],
+        "update_delete": {
+            "updated": 1,
+            "after_update": {
+                "id": 6,
+                "kode": "SQL-TEST",
+                "nama": "Ruang uji SQL",
+                "kapasitas": 12
+            },
+            "deleted": 1,
+            "persisted": false
+        }
+    },
+    "ips": {
+        "rows": [
+            {
+                "id": 4,
+                "mk_id": 4,
+                "kode": "PSD304",
+                "nama": "Pemrograman untuk Sains Data",
+                "sks": 3,
+                "published_at": null,
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": null
+            },
+            {
+                "id": 3,
+                "mk_id": 3,
+                "kode": "AIK303",
+                "nama": "Kecerdasan Artifisial",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 88.4,
+                    "huruf": "A",
+                    "angka": 4
+                }
+            },
+            {
+                "id": 2,
+                "mk_id": 2,
+                "kode": "MPE302",
+                "nama": "Metode Penelitian",
+                "sks": 2,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 75,
+                    "huruf": "B",
+                    "angka": 3
+                }
+            },
+            {
+                "id": 1,
+                "mk_id": 1,
+                "kode": "MPD301",
+                "nama": "Manajemen dan Pemodelan Data",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 88.5,
+                    "huruf": "A",
+                    "angka": 4
+                }
+            }
+        ],
+        "sks": 8,
+        "ip": 3.75,
+        "pending": 1
+    },
+    "ipk": {
+        "rows": [
+            {
+                "id": 7,
+                "mk_id": 4,
+                "kode": "PSD304",
+                "nama": "Pemrograman untuk Sains Data",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2025\/2026 Genap",
+                "tahun_mulai": 2025,
+                "semester": "Genap",
+                "hasil": {
+                    "nilai": 75.1,
+                    "huruf": "B",
+                    "angka": 3
+                }
+            },
+            {
+                "id": 6,
+                "mk_id": 3,
+                "kode": "AIK303",
+                "nama": "Kecerdasan Artifisial",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2025\/2026 Genap",
+                "tahun_mulai": 2025,
+                "semester": "Genap",
+                "hasil": {
+                    "nilai": 82.7,
+                    "huruf": "B+",
+                    "angka": 3.5
+                }
+            },
+            {
+                "id": 5,
+                "mk_id": 1,
+                "kode": "MPD301",
+                "nama": "Manajemen dan Pemodelan Data",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2025\/2026 Genap",
+                "tahun_mulai": 2025,
+                "semester": "Genap",
+                "hasil": {
+                    "nilai": 75.1,
+                    "huruf": "B",
+                    "angka": 3
+                }
+            },
+            {
+                "id": 4,
+                "mk_id": 4,
+                "kode": "PSD304",
+                "nama": "Pemrograman untuk Sains Data",
+                "sks": 3,
+                "published_at": null,
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": null
+            },
+            {
+                "id": 3,
+                "mk_id": 3,
+                "kode": "AIK303",
+                "nama": "Kecerdasan Artifisial",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 88.4,
+                    "huruf": "A",
+                    "angka": 4
+                }
+            },
+            {
+                "id": 2,
+                "mk_id": 2,
+                "kode": "MPE302",
+                "nama": "Metode Penelitian",
+                "sks": 2,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 75,
+                    "huruf": "B",
+                    "angka": 3
+                }
+            },
+            {
+                "id": 1,
+                "mk_id": 1,
+                "kode": "MPD301",
+                "nama": "Manajemen dan Pemodelan Data",
+                "sks": 3,
+                "published_at": "2026-10-04 01:27:58",
+                "periode": "2026\/2027 Ganjil",
+                "tahun_mulai": 2026,
+                "semester": "Ganjil",
+                "hasil": {
+                    "nilai": 88.5,
+                    "huruf": "A",
+                    "angka": 4
+                }
+            }
+        ],
+        "sks": 11,
+        "ip": 3.55,
+        "pending": 1
+    }
+}

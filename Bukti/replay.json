@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-04",
+  "url": "http://localhost:8089",
+  "database": "uts_perkuliahan_replay",
+  "installed_from_zip": true,
+  "install": [
+    "composer install",
+    "migrate --seed",
+    "npm ci",
+    "npm run build"
+  ],
+  "flow": [
+    "mahasiswa mengajukan KRS",
+    "admin menyetujui",
+    "publikasi nilai kosong ditolak",
+    "dosen menyimpan 80,90,85,95 dan menerbitkan",
+    "dosen menyimpan Hadir",
+    "mahasiswa melihat 88.50/A/IPS 4.00"
+  ],
+  "passed": true
+}

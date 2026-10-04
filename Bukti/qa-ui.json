@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-04",
+  "checks": [
+    {
+      "width": 1536,
+      "height": 720,
+      "label": "lebar efektif zoom 125% dari 1920 px",
+      "client": 1521,
+      "menuExpanded": "false",
+      "scroll": 1521,
+      "viewport": 1536
+    },
+    {
+      "width": 1280,
+      "height": 600,
+      "label": "lebar efektif zoom 150% dari 1920 px",
+      "client": 1265,
+      "menuExpanded": "false",
+      "scroll": 1265,
+      "viewport": 1280
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "label": "tablet",
+      "client": 753,
+      "menuExpanded": "false",
+      "scroll": 753,
+      "viewport": 768
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "label": "ponsel",
+      "client": 375,
+      "menuExpanded": "false",
+      "scroll": 375,
+      "viewport": 390
+    }
+  ],
+  "contrast": [
+    {
+      "theme": "light",
+      "ink": 12.76,
+      "muted": 6.02,
+      "copper": 6.07,
+      "button": 9.99,
+      "danger": 6.43,
+      "navigation": 9.59,
+      "focus": 5.07
+    },
+    {
+      "theme": "dark",
+      "ink": 12.05,
+      "muted": 7.55,
+      "copper": 8.62,
+      "button": 9.01,
+      "danger": 8.57,
+      "navigation": 14.31,
+      "focus": 9.23
+    }
+  ],
+  "keyboard": {
+    "mobile_closed_inert": true,
+    "menu_opens_with_focus": true,
+    "shift_tab_wraps_to_last_link": true,
+    "escape_closes_and_restores_focus": true,
+    "focus_outline": "3px solid copper"
+  },
+  "zoom_method": "Viewport CSS yang setara dengan zoom 125–150% pada layar 1920 px; shortcut zoom Chrome tidak mengubah DPR/viewport melalui API."
+}

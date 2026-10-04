@@ -1,0 +1,211 @@
+{
+  "reference_method": "Decimal dari baris JOIN komponen; NULL dipertahankan, pembulatan dua desimal",
+  "pengambilan": [
+    {
+      "periode": "2025/2026 Genap",
+      "kode": "MPD301",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "70.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "75.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "72.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "80.00"
+        }
+      ],
+      "nilai_manual": "75.10",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2025/2026 Genap",
+      "kode": "AIK303",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "80.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "85.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "82.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "84.00"
+        }
+      ],
+      "nilai_manual": "82.70",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2025/2026 Genap",
+      "kode": "PSD304",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "70.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "75.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "72.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "80.00"
+        }
+      ],
+      "nilai_manual": "75.10",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2026/2027 Ganjil",
+      "kode": "MPD301",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "80.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "90.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "85.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "95.00"
+        }
+      ],
+      "nilai_manual": "88.50",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2026/2027 Ganjil",
+      "kode": "MPE302",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "74.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "80.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "70.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "78.00"
+        }
+      ],
+      "nilai_manual": "75.00",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2026/2027 Ganjil",
+      "kode": "AIK303",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": "85.00"
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "90.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": "88.00"
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": "90.00"
+        }
+      ],
+      "nilai_manual": "88.40",
+      "sesuai_service": true
+    },
+    {
+      "periode": "2026/2027 Ganjil",
+      "kode": "PSD304",
+      "kelas": "A",
+      "formula": [
+        {
+          "komponen": "Tugas",
+          "bobot": "20.00",
+          "nilai": null
+        },
+        {
+          "komponen": "Kuis",
+          "bobot": "10.00",
+          "nilai": "80.00"
+        },
+        {
+          "komponen": "UTS",
+          "bobot": "30.00",
+          "nilai": null
+        },
+        {
+          "komponen": "UAS",
+          "bobot": "40.00",
+          "nilai": null
+        }
+      ],
+      "nilai_manual": null,
+      "sesuai_service": true
+    }
+  ],
+  "ips_manual": "30/8 = 3.75",
+  "ipk_manual": "39/11 = 3.55",
+  "passed": true
+}

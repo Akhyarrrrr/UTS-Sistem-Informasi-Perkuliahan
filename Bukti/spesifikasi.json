@@ -1,0 +1,18 @@
+﻿{
+    "manufacturer":  "ASUSTeK COMPUTER INC.",
+    "model":  "ASUS TUF Gaming A15 FA506IC_FA506IC",
+    "cpu":  "AMD Ryzen 7 4800H with Radeon Graphics         ",
+    "cores":  8,
+    "threads":  16,
+    "ram_gb":  31.42,
+    "os":  "Microsoft Windows 11 Home Single Language",
+    "os_version":  "10.0.26200",
+    "architecture":  "64-bit",
+    "workspace_drive":  "D:",
+    "capacity_gb":  953.87,
+    "free_gb":  894.89,
+    "php":  "8.5.0",
+    "node":  "v24.18.0",
+    "composer":  "Composer version 2.8.12 2025-09-19 13:41:59",
+    "captured":  "2026-10-04 01:56:49"
+}

@@ -1,0 +1,12 @@
+{
+    "uji": "dua pengajuan untuk satu kursi tersisa",
+    "hasil": [
+        "diterima",
+        "ditolak"
+    ],
+    "kapasitas": 2,
+    "kursi_awal": 1,
+    "kursi_akhir": 2,
+    "lulus": true,
+    "database": "uts_perkuliahan_test"
+}
