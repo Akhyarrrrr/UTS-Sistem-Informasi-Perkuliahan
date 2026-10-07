@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Sistem Informasi Perkuliahan karya Akhyar: dari rencana studi hingga hasil perkuliahan, dengan basis data relasional dan tiga ruang kerja akademik.">
     <meta name="theme-color" content="#143d2e">
-    <title>Perkuliahan · Rencana bertemu hasil</title>
+    <title>Perkuliahan · Rencana dan hasil studi</title>
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     @include('partials.theme-init')
     @vite(['resources/css/app.css','resources/css/home.css','resources/js/app.js'])
@@ -24,17 +24,17 @@
     <section class="home-hero" aria-labelledby="hero-title">
         <div class="hero-copy">
             <p class="home-kicker">UTS Manajemen dan Pemodelan Data / Kelas A</p>
-            <h1 id="hero-title">Rencana<br>bertemu <em>hasil.</em></h1>
-            <p class="hero-lead">Satu alur untuk memilih kelas, mencatat perkuliahan, dan melihat hasil studi. Rencana, proses, dan hasil terhubung dalam satu catatan akademik.</p>
-            <div class="hero-actions"><a class="button primary icon-action" href="#alur" aria-label="Ikuti alur perkuliahan" title="Ikuti alur perkuliahan"><x-icon name="relations"/><span class="control-label sr-only">Ikuti alur perkuliahan</span></a><a class="home-text-link" href="#jalankan">Jalankan di komputer saya</a></div>
+            <h1 id="hero-title">Pilih kelas.<br>Pantau <em>hasil.</em></h1>
+            <p class="hero-lead">Susun rencana studi, ikuti perkuliahan, dan lihat nilai yang sudah diterbitkan. Mahasiswa, dosen, dan admin bekerja dengan data yang saling terhubung.</p>
+            <div class="hero-actions"><a class="button primary icon-action" href="#alur" aria-label="Ikuti alur perkuliahan" title="Ikuti alur perkuliahan"><x-icon name="relations"/><span class="control-label sr-only">Ikuti alur perkuliahan</span></a><a class="home-text-link" href="#jalankan">Panduan akses aplikasi</a></div>
             <div class="hero-credit"><span>Dirancang dan disusun oleh</span><strong>Akhyar</strong><span>260820701100010 · Universitas Syiah Kuala</span></div>
         </div>
         <div class="hero-study" data-reveal>
-            <div class="study-caption"><span>Rekam studi / PDB308</span><span class="home-simulation">Data simulasi</span></div>
+            <div class="study-caption"><span>Contoh hasil studi / PDB308</span><span class="home-simulation">Data simulasi</span></div>
             <div class="study-record"><span class="record-code">PDB308 / A</span><h2>Praktikum Basis Data</h2><p>Raka Wijaya · 2026/2027 Ganjil</p></div>
-            <div class="study-orbit" role="img" aria-label="Nilai akhir 88,50 dari 100, grade A. KRS disetujui dan presensi Hadir.">
+            <div class="study-orbit" role="img" aria-label="Nilai akhir 88,50 dari 100, huruf A. KRS disetujui dan presensi Hadir.">
                 <svg viewBox="0 0 240 240" aria-hidden="true"><circle class="orbit-track" cx="120" cy="120" r="84"/><circle class="orbit-score" cx="120" cy="120" r="84" stroke-dasharray="467.09 527.79"/><circle class="orbit-core" cx="120" cy="120" r="62"/><path class="orbit-axis" d="M4 120h22m188 0h22M120 4v22m0 188v22"/></svg>
-                <div class="orbit-grade"><span>Grade terbit</span><strong>A</strong><span>88,50 / 100</span></div>
+                <div class="orbit-grade"><span>Nilai huruf</span><strong>A</strong><span>88,50 / 100</span></div>
                 <span class="orbit-status orbit-krs"><x-icon name="check"/>KRS disetujui</span><span class="orbit-status orbit-attendance"><x-icon name="calendar"/>Hadir</span>
             </div>
             <div class="component-bars" aria-label="Nilai komponen dan bobot">
@@ -49,7 +49,7 @@
     </section>
 
     <section id="sistem" class="home-section system-story" aria-labelledby="system-title">
-        <div><p class="section-index">01 / Dasar rancangan</p><h2 id="system-title">Satu mahasiswa.<br>Banyak hubungan.</h2></div>
+        <div><p class="section-index">01 / Dasar rancangan</p><h2 id="system-title">Data mahasiswa<br>saling terhubung.</h2></div>
         <div class="system-visual" data-reveal><div class="network-scroll" tabindex="0" role="region" aria-label="Peta hubungan akademik. Gunakan tombol panah untuk menggeser diagram pada layar kecil.">
             <svg class="academic-network" viewBox="0 0 720 350" role="img" aria-labelledby="network-title network-desc">
                 <title id="network-title">Peta hubungan catatan akademik</title><desc id="network-desc">Mahasiswa memiliki KRS; KRS memiliki detail yang merujuk kelas. Kelas terhubung dengan dosen, mata kuliah, dan periode. Nilai komponen merujuk detail KRS.</desc>
@@ -61,13 +61,13 @@
                 <g class="network-cardinality"><text x="175" y="160">1:N</text><text x="355" y="160">1:N</text><text x="535" y="160">N:1</text></g>
             </svg></div>
             <p class="network-hint">Geser peta untuk melihat seluruh hubungan.</p>
-            <dl class="network-legend"><div><dt><x-icon name="database"/>PK / FK</dt><dd>Penghubung catatan</dd></div><div><dt><x-icon name="relations"/>JOIN</dt><dd>Rekonstruksi data</dd></div><div><dt><x-icon name="chart"/>Σ bobot × nilai</dt><dd>Hasil penilaian</dd></div></dl>
+            <dl class="network-legend"><div><dt><x-icon name="database"/>PK / FK</dt><dd>Kunci utama dan kunci penghubung</dd></div><div><dt><x-icon name="relations"/>JOIN</dt><dd>Menggabungkan data antar tabel</dd></div><div><dt><x-icon name="chart"/>Σ bobot × nilai</dt><dd>Hasil penilaian</dd></div></dl>
         </div>
 
     </section>
 
     <section id="alur" class="home-section journey-section" aria-labelledby="journey-title">
-        <div class="journey-intro"><p class="section-index">02 / Alur demonstrasi</p><h2 id="journey-title">Dari pilihan kelas<br>sampai kartu hasil.</h2><p>Ikuti satu pengambilan mata kuliah. Perubahan status menentukan tindakan berikutnya dan siapa yang dapat melakukannya.</p><div class="journey-visual" aria-hidden="true"><span class="journey-node">Mahasiswa</span><span class="journey-line"></span><span class="journey-node">Admin</span><span class="journey-line"></span><span class="journey-node">Dosen</span><span class="journey-line"></span><span class="journey-node">Hasil studi</span></div></div>
+        <div class="journey-intro"><p class="section-index">02 / Alur demonstrasi</p><h2 id="journey-title">Dari KRS<br>hingga KHS.</h2><p>Kartu Rencana Studi (KRS) mencatat kelas yang dipilih. Setelah perkuliahan dan penilaian selesai, hasilnya tampil pada Kartu Hasil Studi (KHS).</p><div class="journey-visual" aria-hidden="true"><span class="journey-node">Mahasiswa</span><span class="journey-line"></span><span class="journey-node">Admin</span><span class="journey-line"></span><span class="journey-node">Dosen</span><span class="journey-line"></span><span class="journey-node">Hasil studi</span></div></div>
         <ol class="journey-steps">
             @foreach([
                 ['Mahasiswa','Pilih kelas, simpan rencana.','Pilih kelas sesuai prodi, periode, SKS, dan jadwal. Draf belum memesan kursi.','Draf KRS'],
@@ -83,14 +83,14 @@
     </section>
 
     <section id="peran" class="home-section role-section" aria-labelledby="role-title">
-        <div class="section-heading"><div><p class="section-index">03 / Ruang kerja</p><h2 id="role-title">Tugas berbeda.<br>Catatan yang terhubung.</h2></div><p>Tampilan dari aplikasi lokal. Setiap akun hanya memperoleh tindakan dan catatan yang sesuai dengan perannya.</p></div>
+        <div class="section-heading"><div><p class="section-index">03 / Ruang kerja</p><h2 id="role-title">Ruang kerja<br>untuk tiga peran.</h2></div><p>Setiap peran memiliki tugas dan batas akses. Pilih ikon peran untuk melihat contoh ruang kerjanya.</p></div>
         <div class="role-tabs" aria-label="Pilih ruang kerja" data-role-tabs>
             <button type="button" data-role="mahasiswa" aria-controls="role-mahasiswa" aria-pressed="true" aria-label="Mahasiswa" title="Mahasiswa" class="icon-action"><x-icon name="student"/><span class="control-label sr-only">Mahasiswa</span></button><button type="button" data-role="dosen" aria-controls="role-dosen" aria-pressed="false" aria-label="Dosen" title="Dosen" class="icon-action"><x-icon name="teacher"/><span class="control-label sr-only">Dosen</span></button><button type="button" data-role="admin" aria-controls="role-admin" aria-pressed="false" aria-label="Admin" title="Admin" class="icon-action"><x-icon name="users"/><span class="control-label sr-only">Admin</span></button>
         </div>
         @foreach([
-            'mahasiswa'=>['Rencana dan hasil, dalam satu ruang.','Susun KRS, lihat jadwal, periksa presensi, dan pantau hasil yang sudah diterbitkan. Nilai yang belum lengkap tetap terlihat sebagai proses yang belum selesai.',['KRS dengan jumlah SKS pilihan','KHS, IPS sementara, dan IPK','Jadwal serta presensi sendiri'],'mahasiswa.png','KHS mahasiswa simulasi pada aplikasi Perkuliahan'],
-            'dosen'=>['Fokus pada kelas yang diampu.','Catat pertemuan, kelola presensi, dan isi komponen nilai peserta yang telah disetujui. Pemeriksaan kelengkapan berlangsung sebelum hasil diterbitkan.',['Presensi per pertemuan','Komponen nilai dan bobot kelas','Publikasi serta koreksi beralasan'],'dosen.png','Penilaian kelas dosen pada aplikasi Perkuliahan'],
-            'admin'=>['Kelola hubungan, tinjau keputusan.','Rawat katalog akademik, tawarkan kelas, atur jadwal, dan tinjau pengajuan KRS. Jejak perubahan membantu memeriksa keputusan yang telah dilakukan.',['CRUD seluruh master akademik','Persetujuan dan pengembalian KRS','Rekap serta riwayat perubahan'],'admin.png','Dashboard admin pada aplikasi Perkuliahan'],
+            'mahasiswa'=>['Susun KRS dan lihat hasil studi.','Susun KRS, lihat jadwal, periksa presensi, dan pantau hasil yang sudah diterbitkan. Nilai yang belum lengkap tetap terlihat sebagai proses yang belum selesai.',['KRS dengan jumlah SKS pilihan','KHS, IPS sementara, dan IPK','Jadwal serta presensi sendiri'],'mahasiswa.png','KHS mahasiswa simulasi pada aplikasi Perkuliahan'],
+            'dosen'=>['Kelola kelas yang Anda ajar.','Catat pertemuan, kelola presensi, dan isi komponen nilai peserta yang telah disetujui. Pemeriksaan kelengkapan berlangsung sebelum hasil diterbitkan.',['Presensi per pertemuan','Komponen nilai dan bobot kelas','Publikasi serta koreksi beralasan'],'dosen.png','Penilaian kelas dosen pada aplikasi Perkuliahan'],
+            'admin'=>['Kelola data dan tinjau KRS.','Kelola mahasiswa, dosen, mata kuliah, kelas, dan jadwal. Setujui atau kembalikan pengajuan KRS, lalu periksa perubahan melalui riwayat.',['Tambah, lihat, ubah, dan hapus data master','Persetujuan dan pengembalian KRS','Rekap serta riwayat perubahan'],'admin.png','Dashboard admin pada aplikasi Perkuliahan'],
         ] as $key=>$role)
         <div class="role-panel" id="role-{{ $key }}" data-role-panel="{{ $key }}">
             <div class="role-copy"><p class="role-name">Ruang kerja {{ ucfirst($key) }}</p><h3>{{ $role[0] }}</h3><p>{{ $role[1] }}</p><ul>@foreach($role[2] as $feature)<li>{{ $feature }}</li>@endforeach</ul><a class="home-text-link" href="{{ auth()->check()?route('dashboard'):route('login') }}">{{ auth()->check()?'Buka ruang kerja saya':'Masuk dengan akun pribadi' }}</a></div>
@@ -101,18 +101,18 @@
     </section>
 
     <section id="data" class="home-section data-section" aria-labelledby="data-title">
-        <div class="section-heading"><div><p class="section-index">04 / Model relasional</p><h2 id="data-title">Hubungan disimpan.<br>Hasil dihitung.</h2></div><p>Visual ini merangkum relasi utama. ERD lengkap, kamus data, dan dekomposisi sampai 3NF tersedia pada laporan UTS.</p></div>
+        <div class="section-heading"><div><p class="section-index">04 / Model relasional</p><h2 id="data-title">Data saling terhubung.<br>Nilai dihitung otomatis.</h2></div><p>Diagram ini menunjukkan hubungan utama antar tabel. Diagram lengkap (ERD), kamus data, dan tahapan normalisasi sampai 3NF dijelaskan dalam laporan UTS.</p></div>
         <div class="relation-map" data-reveal>
-            <div class="relation-entity"><x-icon name="student"/><span>Identitas</span><h3>Mahasiswa</h3><p>NPM unik<br>Referensi program studi</p></div><span class="relation-connector">1 : N</span>
+            <div class="relation-entity"><x-icon name="student"/><span>Identitas</span><h3>Mahasiswa</h3><p>NPM unik<br>Terhubung ke program studi</p></div><span class="relation-connector">1 : N</span>
             <div class="relation-entity"><x-icon name="book"/><span>Rencana</span><h3>KRS</h3><p>Mahasiswa + periode<br>Status dan keputusan</p></div><span class="relation-connector">1 : N</span>
-            <div class="relation-entity"><x-icon name="relations"/><span>Pengambilan</span><h3>Detail KRS</h3><p>Referensi KRS<br>Referensi kelas</p></div><span class="relation-connector">N : 1</span>
+            <div class="relation-entity"><x-icon name="relations"/><span>Pengambilan</span><h3>Detail KRS</h3><p>KRS mahasiswa<br>Kelas yang dipilih</p></div><span class="relation-connector">N : 1</span>
             <div class="relation-entity"><x-icon name="calendar"/><span>Penawaran</span><h3>Kelas</h3><p>Mata kuliah + periode<br>Pengampu dan kapasitas</p></div>
         </div>
-        <div class="data-notes"><article><span>Integritas</span><h3>Referensi yang dapat diperiksa.</h3><p>PK dan FK menghubungkan entitas. UNIQUE menjaga identitas; CHECK membatasi domain nilai. Trigger memeriksa kesesuaian kelas dan periode pada relasi transaksi.</p></article><article><span>Normalisasi</span><h3>Setiap informasi punya tempat.</h3><p>Katalog, penawaran, peserta, komponen nilai, jadwal, dan presensi dipisahkan menurut ketergantungannya. Nama master dibaca melalui JOIN, bukan disalin ke catatan transaksi.</p></article><article><span>Perhitungan</span><h3>Nilai dapat ditelusuri kembali.</h3><p>Nilai akhir memakai bobot komponen. IPS memakai SKS yang nilainya terbit. IPK memakai pengambilan terbaru yang sudah terbit untuk setiap mata kuliah.</p></article></div>
+        <div class="data-notes"><article><span>Integritas</span><h3>Referensi yang dapat diperiksa.</h3><p>Kunci utama (PK) mengenali setiap data, sedangkan kunci asing (FK) menghubungkan tabel. Aturan unik mencegah duplikasi. Batas nilai serta pemeriksaan kelas dan periode menjaga data tetap sesuai.</p></article><article><span>Normalisasi</span><h3>Setiap informasi punya tempat.</h3><p>Identitas mahasiswa, mata kuliah, kelas, nilai, jadwal, dan presensi disimpan dalam tabel yang sesuai. Nama dibaca dari data master, sehingga perubahan nama tidak perlu dilakukan di banyak tempat.</p></article><article><span>Perhitungan</span><h3>Nilai dapat ditelusuri kembali.</h3><p>Nilai akhir dihitung dari nilai dan bobot tiap komponen. IPS merangkum hasil satu semester. IPK merangkum seluruh semester; untuk mata kuliah yang diulang, sistem memakai pengambilan terbaru yang nilainya sudah terbit.</p></article></div>
     </section>
 
     <section id="bukti" class="home-section evidence-section" aria-labelledby="evidence-title">
-        <div><p class="section-index">05 / Pengerjaan UTS</p><h2 id="evidence-title">Rancangan bertemu<br>bukti implementasi.</h2><p>Enam bagian laporan mengikuti soal UTS. Fokus utamanya adalah basis data, relasi, SQL, dan normalisasi.</p><p class="evidence-note">Data serta aturan akademik merupakan simulasi. Sistem ini dibuat untuk pembelajaran dan demonstrasi UTS.</p></div>
+        <div><p class="section-index">05 / Pengerjaan UTS</p><h2 id="evidence-title">Enam bagian UTS.<br>Bukti yang dapat diperiksa.</h2><p>Enam bagian laporan mengikuti soal UTS. Fokus utamanya adalah basis data, relasi, SQL, dan normalisasi.</p><p class="evidence-note">Data serta aturan akademik merupakan simulasi. Sistem ini dibuat untuk pembelajaran dan demonstrasi UTS.</p></div>
         <dl class="evidence-list">
             <div><dt>01 / Komputer dan web server</dt><dd>Spesifikasi aktual, konfigurasi localhost, serta diagram browser–Laravel–MySQL.</dd></div>
             <div><dt>02 / Pemrograman web</dt><dd>Struktur proyek, autentikasi, validasi, dan potongan CRUD dari implementasi.</dd></div>
@@ -124,10 +124,10 @@
     </section>
 
     <section id="jalankan" class="home-section run-section" aria-labelledby="run-title">
-        <div><p class="section-index">06 / Akses aplikasi</p><h2 id="run-title">Buka sistem.<br>Telusuri catatannya.</h2><p>Masuk melalui web menggunakan akun pribadi sesuai peran. Untuk menjalankan salinan di komputer, ikuti instalasi lokal dalam paket aplikasi dan README.</p><a class="button primary icon-action" href="{{ auth()->check()?route('dashboard'):route('login') }}" aria-label="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}" title="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}"><x-icon name="login"/><span class="control-label sr-only">{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}</span></a></div>
+        <div><p class="section-index">06 / Akses aplikasi</p><h2 id="run-title">Masuk ke sistem.<br>Ikuti alur studi.</h2><p>Masuk melalui web menggunakan akun pribadi sesuai peran. Untuk menjalankan salinan di komputer, ikuti instalasi lokal dalam paket aplikasi dan README.</p><a class="button primary icon-action" href="{{ auth()->check()?route('dashboard'):route('login') }}" aria-label="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}" title="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}"><x-icon name="login"/><span class="control-label sr-only">{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}</span></a></div>
         <div class="run-guide"><ol><li><strong>Periksa kebutuhan</strong><code>powershell -ExecutionPolicy Bypass -File check.ps1</code></li><li><strong>Pasang dan jalankan</strong><code>powershell -ExecutionPolicy Bypass -File install.ps1</code><code>powershell -ExecutionPolicy Bypass -File start.ps1</code></li><li><strong>Masuk melalui localhost</strong><p>Akses <code>http://localhost:8088</code>. Akun dan kata sandi tersedia pada <code>Runtime/akses-demo.txt</code> yang dibuat saat instalasi.</p></li></ol><p class="small">Instalasi pertama memerlukan internet untuk dependensi. Setelah build, font dan aset dilayani secara lokal.</p></div>
     </section>
 </main>
-<footer class="home-footer"><a class="identity" href="{{ route('home') }}"><span class="identity-mark">P</span><span>Perkuliahan<small>Rencana bertemu hasil.</small></span></a><p>Akhyar · 260820701100010<br>Magister Kecerdasan Artifisial · USK · 2026</p><a href="#main">Kembali ke atas</a></footer>
+<footer class="home-footer"><a class="identity" href="{{ route('home') }}"><span class="identity-mark">P</span><span>Perkuliahan<small>Rencana dan hasil studi.</small></span></a><p>Akhyar · 260820701100010<br>Magister Kecerdasan Artifisial · USK · 2026</p><a href="#main">Kembali ke atas</a></footer>
 </body>
 </html>

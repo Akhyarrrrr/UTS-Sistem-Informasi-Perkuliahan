@@ -89,7 +89,7 @@ document.querySelectorAll('form[data-busy]').forEach(form => form.addEventListen
     form.classList.add('is-busy');
     form.setAttribute('aria-busy', 'true');
     const status = form.querySelector('.form-status');
-    if (status) status.textContent = 'Menyimpan, mohon tunggu…';
+    if (status) status.textContent = 'Memproses, mohon tunggu…';
 }));
 window.addEventListener('pageshow', () => document.querySelectorAll('form[data-busy]').forEach(form => {
     delete form.dataset.submitting;
@@ -159,12 +159,14 @@ if (home) {
         const lines = [...document.querySelectorAll('.journey-line')];
         const stages = [0, 0, 1, 2, 2, 3];
         const steps = [...document.querySelectorAll('[data-journey-step]')];
+        let currentStage = -1;
         const journeyObserver = new IntersectionObserver(entries => entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            const stage = stages[steps.indexOf(entry.target)];
-            nodes.forEach((node, index) => node.classList.toggle('active', index <= stage));
-            lines.forEach((line, index) => line.classList.toggle('active', index < stage));
-        }), { rootMargin: '-20% 0px -40% 0px' });
+            currentStage = Math.max(currentStage, stages[steps.indexOf(entry.target)]);
+            nodes.forEach((node, index) => node.classList.toggle('active', index <= currentStage));
+            lines.forEach((line, index) => line.classList.toggle('active', index < currentStage));
+            journeyObserver.unobserve(entry.target);
+        }), { rootMargin: '-15% 0px -25% 0px' });
         steps.forEach(step => journeyObserver.observe(step));
     }
 }

@@ -1,0 +1,59 @@
+{
+  "deployment": "https://uts-sistem-informasi-perkuliahan-mxiab1p7i-akhyarrrrrs-projects.vercel.app",
+  "environment": "preview",
+  "student": "Intan Safira",
+  "steps": [
+    {
+      "name": "Login mahasiswa",
+      "passed": true
+    },
+    {
+      "name": "Draf kelas MPD301 B 3 SKS",
+      "passed": true
+    },
+    {
+      "name": "Pengajuan memesan kursi 1 menjadi 2 dari kapasitas 3",
+      "passed": true
+    },
+    {
+      "name": "Admin mengembalikan dengan catatan",
+      "passed": true
+    },
+    {
+      "name": "Mahasiswa membaca catatan, menyimpan revisi dan mengajukan ulang",
+      "passed": true
+    },
+    {
+      "name": "Admin menyetujui KRS Intan",
+      "passed": true
+    },
+    {
+      "name": "Dosen membuat pertemuan dan mencatat Hadir untuk peserta yang disetujui",
+      "passed": true
+    },
+    {
+      "name": "Nilai 0 tersimpan berbeda dari NULL; publikasi tidak lengkap ditolak",
+      "passed": true
+    },
+    {
+      "name": "80×20% + 90×10% + 85×30% + 95×40% = 88.50 / A",
+      "passed": true
+    },
+    {
+      "name": "Nilai terbit terkunci; koreksi beralasan UAS 96 menghasilkan 88.90 / A, terbit ulang",
+      "passed": true
+    },
+    {
+      "name": "KHS mahasiswa: 88.90 A, 3 SKS, IPS 4.00 dan IPK 4.00",
+      "passed": true
+    },
+    {
+      "name": "CSV KHS terunduh dan berisi Intan 88.9 A; presensi Hadir tampil kepada mahasiswa",
+      "passed": true
+    },
+    {
+      "name": "Data KHS bertahan pada deployment preview berikutnya 95b895e",
+      "passed": true
+    }
+  ]
+}

@@ -8,6 +8,31 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const source = fs.readFileSync(path.join(root, 'Aplikasi/resources/js/app.js'), 'utf8');
 const init = fs.readFileSync(path.join(root, 'Aplikasi/resources/views/partials/theme-init.blade.php'), 'utf8').replace(/<\/?script>/g, '');
 const checks = [];
+const journeyNodes = Array.from({length:4}, () => ({active:false, classList:{toggle(name,value){this.owner.active=value;}}}));
+journeyNodes.forEach(node => { node.classList.owner=node; });
+const journeyLines = Array.from({length:3}, () => ({classList:{toggle(){}}}));
+const journeySteps = Array.from({length:6}, (_, index) => ({index}));
+const observers = [], released = [];
+const journeyObserverMock = class {
+    constructor(callback){this.callback=callback;observers.push(this);}
+    observe(){}
+    unobserve(element){released.push(element.index);}
+};
+const mockControl = {classList:{add(){},remove(){},toggle(){}},setAttribute(){},addEventListener(){}};
+const journeyContext = vm.createContext({
+    document:{documentElement:{dataset:{}},querySelector:selector=>['.home-body','.home-menu-button'].includes(selector)?mockControl:null,getElementById:id=>id==='home-navigation'?mockControl:null,querySelectorAll:selector=>selector==='.journey-node'?journeyNodes:selector==='.journey-line'?journeyLines:selector==='[data-journey-step]'?journeySteps:[],addEventListener(){}},
+    window:{IntersectionObserver:journeyObserverMock,matchMedia:()=>({matches:false,addEventListener(){}}),addEventListener(){}},
+    IntersectionObserver:journeyObserverMock,
+});
+vm.runInContext(source, journeyContext);
+observers.at(-1).callback([{target:journeySteps[3],isIntersecting:true}]);
+assert.deepEqual(journeyNodes.map(node=>node.active),[true,true,true,false]);
+observers.at(-1).callback([{target:journeySteps[0],isIntersecting:true}]);
+assert.deepEqual(journeyNodes.map(node=>node.active),[true,true,true,false]);
+observers.at(-1).callback([{target:journeySteps[5],isIntersecting:true}]);
+assert.deepEqual(journeyNodes.map(node=>node.active),[true,true,true,true]);
+assert.deepEqual(released,[3,0,5]);
+checks.push({journeyProgressNeverReverses:'PASS',journeyStopsObservingCompletedSteps:'PASS'});
 for (const settings of [
     {saved: 'dark', reduced: false, observer: true},
     {saved: 'invalid', reduced: true, observer: true},
@@ -58,7 +83,7 @@ const isolated = vm.createContext({document: {documentElement: {dataset: {}}, qu
 vm.runInContext(source, isolated);
 let cancelled=event();handlers.submit.forEach(fn=>fn(cancelled));assert.equal(cancelled.defaultPrevented,true);assert.equal(form.dataset.submitting,undefined);
 assert.equal(message.textContent,form.dataset.confirm); dialog.returnValue='cancel';handlers['dialog-close'].forEach(fn=>fn());assert.equal(submittedCount,0);assert.equal(focusCount,1);
-let submitted=event();handlers.submit.forEach(fn=>fn(submitted));assert.equal(submitted.defaultPrevented,true);dialog.returnValue='delete';handlers['dialog-close'].forEach(fn=>fn());assert.equal(submittedCount,1);assert.equal(attributes['aria-busy'],'true');assert.ok(status.textContent.includes('Menyimpan'));
+let submitted=event();handlers.submit.forEach(fn=>fn(submitted));assert.equal(submitted.defaultPrevented,true);dialog.returnValue='delete';handlers['dialog-close'].forEach(fn=>fn());assert.equal(submittedCount,1);assert.equal(attributes['aria-busy'],'true');assert.ok(status.textContent.includes('Memproses'));
 let repeated=event();handlers.submit.forEach(fn=>fn(repeated));assert.equal(repeated.defaultPrevented,true);assert.equal(dialogCount,2);assert.equal(submittedCount,1);
 handlers.pageshow.forEach(fn=>fn());assert.equal(form.dataset.submitting,undefined);assert.equal(attributes['aria-busy'],undefined);assert.equal(status.textContent,'');
 let escaped=event();handlers.submit.forEach(fn=>fn(escaped));assert.equal(dialog.returnValue,'');handlers['dialog-close'].forEach(fn=>fn());assert.equal(submittedCount,1);

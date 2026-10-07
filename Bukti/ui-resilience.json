@@ -2,6 +2,10 @@
   "method": "Node VM executes actual theme initializer and app.js with controlled storage, motion preference, dialog return value and form events; CSS reduction rules checked. This supplements actual browser dialog and keyboard tests.",
   "checks": [
     {
+      "journeyProgressNeverReverses": "PASS",
+      "journeyStopsObservingCompletedSteps": "PASS"
+    },
+    {
       "saved": "dark",
       "reduced": false,
       "observer": true,
