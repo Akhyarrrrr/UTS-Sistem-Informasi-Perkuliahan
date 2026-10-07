@@ -98,7 +98,7 @@ CREATE TABLE `ruang` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ruang_kode_unique` (`kode`),
   CONSTRAINT `chk_ruang_0` CHECK ((`kapasitas` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `kelas` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -151,7 +151,7 @@ CREATE TABLE `krs` (
   KEY `krs_periode_id_foreign` (`periode_id`),
   CONSTRAINT `krs_mahasiswa_id_foreign` FOREIGN KEY (`mahasiswa_id`) REFERENCES `mahasiswa` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `krs_periode_id_foreign` FOREIGN KEY (`periode_id`) REFERENCES `periode` (`id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `krs_detail` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -162,7 +162,7 @@ CREATE TABLE `krs_detail` (
   KEY `krs_detail_kelas_id_foreign` (`kelas_id`),
   CONSTRAINT `krs_detail_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `krs_detail_krs_id_foreign` FOREIGN KEY (`krs_id`) REFERENCES `krs` (`id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `komponen_nilai` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -186,7 +186,7 @@ CREATE TABLE `nilai_komponen` (
   CONSTRAINT `nilai_komponen_komponen_nilai_id_foreign` FOREIGN KEY (`komponen_nilai_id`) REFERENCES `komponen_nilai` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `nilai_komponen_krs_detail_id_foreign` FOREIGN KEY (`krs_detail_id`) REFERENCES `krs_detail` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `chk_nilai_komponen_0` CHECK (((`nilai` is null) or (`nilai` between 0 and 100)))
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `skala_nilai` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -212,7 +212,7 @@ CREATE TABLE `pertemuan` (
   UNIQUE KEY `pertemuan_kelas_id_nomor_unique` (`kelas_id`,`nomor`),
   CONSTRAINT `pertemuan_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `chk_pertemuan_0` CHECK ((`nomor` between 1 and 32))
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `presensi` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -224,7 +224,7 @@ CREATE TABLE `presensi` (
   KEY `presensi_krs_detail_id_foreign` (`krs_detail_id`),
   CONSTRAINT `presensi_krs_detail_id_foreign` FOREIGN KEY (`krs_detail_id`) REFERENCES `krs_detail` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `presensi_pertemuan_id_foreign` FOREIGN KEY (`pertemuan_id`) REFERENCES `pertemuan` (`id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `activity_log` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -237,7 +237,7 @@ CREATE TABLE `activity_log` (
   PRIMARY KEY (`id`),
   KEY `activity_log_user_id_foreign` (`user_id`),
   CONSTRAINT `activity_log_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DELIMITER $$
 CREATE TRIGGER `check_krs_detail_insert` BEFORE INSERT ON `krs_detail` FOR EACH ROW BEGIN IF (SELECT periode_id FROM kelas WHERE id=NEW.kelas_id) <> (SELECT periode_id FROM krs WHERE id=NEW.krs_id) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Periode kelas harus sama dengan KRS'; END IF; END$$

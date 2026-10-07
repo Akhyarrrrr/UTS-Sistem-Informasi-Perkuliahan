@@ -2,7 +2,9 @@
 
 NPM 260820701100010 · Kelas A · Manajemen dan Pemodelan Data
 
-Aplikasi Laravel 13 / PHP 8.5 / MySQL 8.0. Semua profil, nilai, jadwal, dan kebijakan akademik adalah data simulasi; identitas penyusun dipakai pada laporan dan satu profil demonstrasi.
+Aplikasi Laravel 13 / PHP 8.5 / MySQL 8.0 lokal dan MySQL 8.4 online. Semua profil, nilai, jadwal, dan kebijakan akademik adalah data simulasi; identitas penyusun dipakai pada laporan dan satu profil demonstrasi.
+
+**[Akses aplikasi online](https://uts-sistem-informasi-perkuliahan.vercel.app/)**. Halaman pengenalan terbuka untuk publik. Akun ruang akademik dan kata sandi online disimpan pada `Runtime/akses-online.txt` pribadi; tidak ada kredensial publik. Panduan instalasi berikut ditujukan untuk menjalankan salinan aplikasi pada komputer Windows.
 
 ## Instalasi pertama di Windows
 
@@ -44,7 +46,7 @@ powershell -ExecutionPolicy Bypass -File .\stop.ps1
 - Dosen utama: MPD301 A/B, PSD304 A, serta PDB308 A. PSD304 mempunyai nilai yang belum lengkap untuk demonstrasi validasi.
 - Akhyar: KRS 11 SKS, 8 SKS bernilai terbit, IPS sementara 3,75, IPK 3,55. Satu nilai belum terbit.
 - Raka Wijaya: PDB308, presensi Hadir, nilai 88,50/A, IPS 4,00. `DemonstrationSeeder` mereproduksi hasil akhir demonstrasi browser; audit menyebut sumber seeder secara jelas.
-- `mhs12@demo.test`: belum memiliki KRS dan dapat dipakai untuk mencoba alur baru. Mata kuliah dengan nilai terbit tidak menerima peserta baru. Gunakan kelas B atau kelas lain yang belum terbit.
+- Instalasi baru melalui seeder: `mhs12@demo.test` (Intan) belum memiliki KRS dan dapat dipakai untuk mencoba alur baru. Pada aplikasi online serta snapshot SQL final, alurnya telah selesai: MPD301 B, 3 SKS, nilai 88,90/A, IPS/IPK 4,00. Untuk alur baru, pilih profil tanpa KRS dan kelas yang belum menerbitkan nilai.
 
 Admin membuat/meninjau kelas, mahasiswa menyimpan dan mengajukan KRS, admin menyetujui atau mengembalikan dengan alasan, dosen mencatat pertemuan/presensi dan nilai, lalu menerbitkan nilai. Nilai kosong berarti belum dinilai. Koreksi hasil terbit membutuhkan alasan; bobot tetap dikunci setelah terbit pertama.
 
@@ -77,7 +79,7 @@ File struktur disediakan untuk penilaian DDL dan pembuatan tabel akademik pada d
 
 ## Hosting
 
-Proyek `uts-sistem-informasi-perkuliahan` telah dibuat pada akun Vercel `akhyarrrrr`, dengan Root Directory `Aplikasi` dan Node 22.x. Konfigurasi menggunakan `vercel-php@0.9.0`, entry point `api/index.php`, build `npm ci`/`npm run build`, serta aset statis dalam `public`. Deployment produksi dan koneksi MySQL online belum terverifikasi.
+Proyek `uts-sistem-informasi-perkuliahan` pada akun Vercel `akhyarrrrr` terhubung dengan repo `Akhyarrrrr/UTS-Sistem-Informasi-Perkuliahan`, Root Directory `Aplikasi`, dan Node 22.x. Runtime `vercel-php@0.9.0` menjalankan PHP 8.5.2, entry point `api/index.php`, serta aset statis dalam `public`. Aiven MySQL 8.4.8 gratis berada di Bangalore; region fungsi `bom1`. Production, preview, dan tes memakai database/akun terpisah. Aplikasi online telah diperiksa melalui HTTPS dan alur akademik; URL utama tercantum di atas.
 
 Panduan environment, pemisahan database dan izin akun, TLS, pengujian preview, backup, rollback, serta batas Aiven gratis tersedia dalam [README aplikasi](Aplikasi/README.md). Sesi dan cache online memakai database; berkas sementara serta kompilasi Blade memakai `/tmp`. Kata sandi dan kunci aplikasi disimpan secara pribadi. Migration dan seeding dilakukan terpisah dari build.
 
@@ -95,7 +97,9 @@ Font Times New Roman dan Consolas harus tersedia. Semua gambar dan cuplikan kode
 
 Audit lokal awal meluluskan 35 tes Laravel dengan 285 asersi serta perbandingan DDL/metadata 18 tabel dan enam trigger antara database utama, hasil migration baru, dan impor SQL. Setelah persiapan Vercel, suite meluluskan 38 tes dengan 294 asersi dan tiga tes konkurensi pada MySQL lokal 8.0.46 serta Aiven MySQL 8.4.8 pada 7 Oktober 2026. Bukti: `Bukti/phpunit-vercel-local-20261007.xml`, `Bukti/phpunit-aiven-20261007.xml`, `Bukti/concurrency-vercel-local-20261007.json`, `Bukti/concurrency-aiven-20261007.json`, `Bukti/schema-aiven-20261007.json`, dan `Bukti/vercel-adapter-local-20261007.json`.
 
-Lihat `Bukti/PEMERIKSAAN_DAN_BUKTI.md`, `Bukti/MATRIKS_UTS.md`, serta `Bukti/DELIVERY_GATE.md` untuk audit lokal sebelumnya. Pemeriksaan online masih berlangsung; PDF dan ZIP dalam `Hasil` tetap menjadi baseline lokal sampai paket akhir diregenerasikan dari sumber yang sudah diuji. Salinan GitHub belum diperbarui.
+Suite final Aiven meluluskan **39 tes dan 318 asersi**, disusul tiga tes konkurensi berurutan (`Bukti/phpunit-aiven-final-20261007.xml`, `Bukti/concurrency-aiven-final-20261007.json`). Uji HTTP preview/produksi meliputi 28 kontrol per lingkungan dan memeriksa isi respons berkas sensitif. Alur mahasiswa → admin → dosen → mahasiswa, CSV, perhitungan, serta sesi dan perubahan data setelah redeployment telah diperiksa. Bukti browser mencakup 963 keadaan layout pada kedua tema, navigasi keyboard, dan screenshot online yang benar. Lebar setara zoom memakai override viewport CSS; zoom menu browser tidak diubah. Pengamatan reload bukan ukuran Core Web Vitals.
+
+Lihat `Bukti/PEMERIKSAAN_DAN_BUKTI.md`, `Bukti/MATRIKS_UTS.md`, serta `Bukti/DELIVERY_GATE.md` untuk scope, metode, dan batas pemeriksaan. SQL final berasal dari database produksi MySQL 8.4.8; akun snapshot terkunci. Tiga commit lama tetap dipertahankan; perubahan berikutnya memakai tanggal pengerjaan sebenarnya.
 
 Untuk replay dengan database khusus pada instans UTS yang sudah berjalan:
 

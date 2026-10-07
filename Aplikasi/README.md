@@ -6,7 +6,9 @@ Halaman `/` memperkenalkan sistem kepada publik. Ruang akademik memakai login da
 
 ## Status deployment
 
-Proyek Vercel `uts-sistem-informasi-perkuliahan` sudah dibuat pada akun `akhyarrrrr`. Adapter PHP dan build aset telah disiapkan. Deployment produksi dan koneksi MySQL online belum terverifikasi; URL produksi akan dicatat setelah pengujian selesai.
+**[Buka Perkuliahan](https://uts-sistem-informasi-perkuliahan.vercel.app/)**. Halaman pengenalan terbuka untuk publik; ruang akademik memerlukan akun pribadi. Akun demonstrasi online tersedia pada berkas `Runtime/akses-online.txt` milik pengelola, di luar repo dan ZIP publik.
+
+Vercel `akhyarrrrr` menjalankan PHP 8.5.2 melalui runtime komunitas dan Node 22.x untuk build. Database Aiven MySQL 8.4.8 berada di Bangalore; fungsi menggunakan region `bom1`. Production, preview, dan tes memakai database serta akun berbeda pada satu layanan gratis. HTTPS, `/up`, login, alur ketiga peran, persistensi sesi setelah redeployment, dan perlindungan isi berkas telah diperiksa.
 
 ## Peran dan alur akademik
 
@@ -90,7 +92,11 @@ php vendor/bin/pint --test
 npm run build
 ```
 
-Suite pada 7 Oktober 2026 lulus: 38 tes dan 294 asersi pada MySQL lokal 8.0.46 serta Aiven MySQL 8.4.8. Tiga tes konkurensi lulus secara berurutan pada kedua database tes. Probe adapter lokal memverifikasi halaman publik, login, KHS, dan sesi database yang bertahan setelah proses PHP dimulai ulang. Audit Aiven mencocokkan seluruh metadata kolom, indeks, constraint, serta enam trigger dengan skema lokal; akun aplikasi ditolak saat mencoba DDL dan akses database lingkungan lain. Pengujian browser produksi masih berlangsung.
+Suite final pada 7 Oktober 2026 lulus: **39 tes, 318 asersi** pada Aiven MySQL 8.4.8, dilanjutkan **tiga tes konkurensi** pada database tes. Suite sebelumnya meluluskan 38 tes/294 asersi pada MySQL lokal 8.0.46 dan Aiven. Probe adapter lokal memverifikasi 16 kontrol, termasuk sesi database setelah proses PHP dimulai ulang dan penolakan pembacaan sumber PHP. Audit Aiven mencocokkan seluruh metadata kolom, indeks, constraint, serta enam trigger dengan skema lokal; akun aplikasi ditolak saat mencoba DDL dan akses database lingkungan lain.
+
+Alur browser preview dan produksi meliputi pengembalian KRS, persetujuan, presensi, penolakan nilai belum lengkap, publikasi, koreksi dengan alasan, KHS, dan unduhan CSV. Intan memiliki MPD301 B, 3 SKS, nilai akhir 88,90/A setelah koreksi UAS menjadi 96; IPS/IPK 4,00. Hasilnya cocok dengan perhitungan manual. Bukti UI mencatat ukuran aktual, kedua tema, navigasi keyboard, dan 963 keadaan halaman. Lebar setara zoom diuji dengan viewport CSS; zoom menu browser tidak diubah. Pengukuran reload cache hangat tersedia sebagai pengamatan alat, bukan Core Web Vitals atau uji beban.
+
+Header tetap terlihat saat menggulir. Pada ponsel, menu dan kontrol berada di baris atas, nama pengguna serta peran di baris berikutnya. Tautan dalam halaman memakai scroll halus; perpindahan halaman memakai animasi masuk 180 ms yang dinonaktifkan saat pengguna memilih pengurangan gerak. Tabel lebar mempunyai area gulir sendiri. Tombol ikon mempunyai nama aksesibilitas dan tooltip.
 
 Skrip konkurensi membuat ulang hanya database tes, kemudian memeriksa kursi terakhir, nomor pertemuan yang sama, serta penghapusan dua admin serentak. Jangan menjalankan suite Laravel dan skrip konkurensi bersamaan. Bukti tambahan berada dalam folder `Bukti` pada paket utama.
 
@@ -98,7 +104,7 @@ Skrip konkurensi membuat ulang hanya database tes, kemudian memeriksa kursi tera
 
 Simpan dump database, commit sumber, konfigurasi environment, serta kunci aplikasi dalam penyimpanan pribadi sebelum migration. Dump harus mencakup trigger dan memakai snapshot transaksi untuk tabel InnoDB. Untuk pemulihan, impor ke database UTS kosong, verifikasi skema serta jumlah baris, lalu arahkan aplikasi ke database yang dipulihkan. Jangan menimpa database proyek lain.
 
-Rollback deployment Vercel mengembalikan versi kode; tindakan tersebut tidak mengembalikan data MySQL. Gunakan deployment produksi sebelumnya yang sudah diuji dan pastikan skemanya masih kompatibel. Jika perubahan skema memerlukan pemulihan database, lakukan pemulihan secara terpisah dari backup yang sesuai dan periksa alur login serta KHS kembali. Simpan `APP_KEY` lingkungan yang sama selama rollback.
+Rollback deployment Vercel mengembalikan versi kode; tindakan tersebut tidak mengembalikan data MySQL. Pada proyek Vercel, buka Deployments, pilih deployment produksi yang sudah diuji, lalu gunakan Instant Rollback. Pilih versi yang sudah melindungi isi berkas PHP dan pastikan skemanya masih kompatibel. Jika perubahan skema memerlukan pemulihan database, impor dump transaksi beserta trigger ke database UTS kosong melalui akun migration dan koneksi TLS terverifikasi. Cocokkan skema/jumlah baris sebelum mengganti environment database; periksa `/up`, login, serta KHS kembali. Simpan `APP_KEY` lingkungan yang sama selama rollback. Backup sumber dan database sebelum perubahan disimpan pada `Runtime/backups` pribadi.
 
 ## Batas layanan gratis
 

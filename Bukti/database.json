@@ -1,5 +1,5 @@
 {
-    "captured": "2026-10-07T14:16:23+07:00",
+    "captured": "2026-10-07T15:46:13+07:00",
     "database": "uts_perkuliahan_production",
     "mysql": "8.4.8",
     "laravel": "13.34.0",
@@ -14,14 +14,14 @@
         "ruang": 3,
         "kelas": 12,
         "jadwal": 12,
-        "krs": 12,
-        "krs_detail": 40,
+        "krs": 13,
+        "krs_detail": 41,
         "komponen_nilai": 48,
-        "nilai_komponen": 107,
+        "nilai_komponen": 111,
         "skala_nilai": 14,
-        "pertemuan": 7,
-        "presensi": 43,
-        "activity_log": 2
+        "pertemuan": 8,
+        "presensi": 44,
+        "activity_log": 16
     },
     "dictionary": {
         "users": [
@@ -1040,7 +1040,7 @@
         "update_delete": {
             "updated": 1,
             "after_update": {
-                "id": 4,
+                "id": 5,
                 "kode": "SQL-TEST",
                 "nama": "Ruang uji SQL",
                 "kapasitas": 12

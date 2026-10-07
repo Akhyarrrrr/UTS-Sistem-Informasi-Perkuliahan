@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="D:\USK\S-2\Semester 1\Manajemen Dan Pemodelan Data\Tugas\UTS\Pengerjaan\Aplikasi\phpunit.xml" tests="1" assertions="13" errors="0" failures="0" skipped="0" time="5.512649">
+    <testsuite name="Feature" tests="1" assertions="13" errors="0" failures="0" skipped="0" time="5.512649">
+      <testsuite name="Tests\Feature\AcademicTest" file="D:\USK\S-2\Semester 1\Manajemen Dan Pemodelan Data\Tugas\UTS\Pengerjaan\Aplikasi\tests\Feature\AcademicTest.php" tests="1" assertions="13" errors="0" failures="0" skipped="0" time="5.512649">
+        <testcase name="test_home_is_public_for_guests_and_every_role_without_local_credentials" file="D:\USK\S-2\Semester 1\Manajemen Dan Pemodelan Data\Tugas\UTS\Pengerjaan\Aplikasi\tests\Feature\AcademicTest.php" line="74" class="Tests\Feature\AcademicTest" classname="Tests.Feature.AcademicTest" assertions="13" time="5.512649"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

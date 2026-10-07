@@ -1,6 +1,6 @@
 {
-  "environment": "preview",
-  "url": "https://uts-sistem-informasi-perkuliahan-lb4k166kt-akhyarrrrrs-projects.vercel.app",
+  "environment": "production",
+  "url": "https://uts-sistem-informasi-perkuliahan.vercel.app",
   "results": [
     {
       "check": "halaman publik dirender Laravel",
@@ -39,19 +39,19 @@
     {
       "check": "proteksi atau status /index.php",
       "path": "/index.php",
-      "status": 404,
+      "status": 403,
       "passed": true
     },
     {
       "check": "proteksi atau status /api/index.php",
       "path": "/api/index.php",
-      "status": 404,
+      "status": 403,
       "passed": true
     },
     {
       "check": "proteksi atau status /public/index.php",
       "path": "/public/index.php",
-      "status": 404,
+      "status": 403,
       "passed": true
     },
     {

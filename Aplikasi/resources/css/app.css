@@ -1638,12 +1638,16 @@ html  {
     scroll-padding-top: 100px;
     scroll-behavior: smooth;
 }
-@view-transition {
-    navigation: auto;
+@media(prefers-reduced-motion:no-preference) {
+    main#main, .login-layout {
+        animation: page-arrive 180ms ease-out;
+    }
 }
-::view-transition-old(root), ::view-transition-new(root) {
-    animation-duration: 160ms;
-    animation-timing-function: ease-out;
+@keyframes page-arrive {
+    from {
+        opacity: .6;
+        transform: translateY(4px);
+    }
 }
 .topbar-brand {
     display: none;
@@ -1685,14 +1689,6 @@ html  {
         display: inline;
         margin-left: 8px;
         color: var(--muted);
-    }
-}
-@media(prefers-reduced-motion:reduce) {
-    @view-transition {
-        navigation: none;
-    }
-    ::view-transition-old(root), ::view-transition-new(root) {
-        animation: none;
     }
 }
 .workspace main#main  {
