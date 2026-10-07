@@ -14,6 +14,7 @@
     "routes": [
         { "src": "/(?:.*\/)?\\.[^/]*(?:/.*)?", "status": 404 },
         { "src": "/.*\\.php(?:/.*)?", "status": 404 },
+        { "src": "/", "dest": "/api/index.php" },
         { "handle": "filesystem" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ]
