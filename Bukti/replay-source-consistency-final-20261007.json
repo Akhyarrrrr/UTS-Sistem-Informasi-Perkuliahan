@@ -1,16 +1,7 @@
 {
-  "captured": "2026-10-07",
-  "application_commit_verified": "d3fade3b89a1546d78d37b6774a03ce21f675c16",
-  "public_remote_head_verified": "d3fade3b89a1546d78d37b6774a03ce21f675c16",
-  "mode": "Final authored application comparison after authorized publication; baseline read-only comparison retained in backup.",
-  "files_checked": 109,
-  "unchanged": 109,
-  "changed_or_added": [],
-  "three_old_commits_preserved": [
-    "67573d3",
-    "2a9d226",
-    "f93ff2f"
-  ],
+  "date": "2026-10-07",
+  "passed": true,
+  "application_files_checked": 114,
   "records": [
     {
       "file": "Aplikasi/.editorconfig",
@@ -35,10 +26,6 @@
     {
       "file": "Aplikasi/.vercelignore",
       "sha256": "8b69cec04c5a98ae3200de01aebcd6d403926870805226ae0c7fb9cca071bff7"
-    },
-    {
-      "file": "Aplikasi/README.md",
-      "sha256": "3ac0b09cd176257a711835c49fcbdc4cf2f86168c7944116e75605f5e9d7e8b9"
     },
     {
       "file": "Aplikasi/api/index.php",
@@ -213,6 +200,26 @@
       "sha256": "b7e379c77639fd56144947dbae84c84eb466d9c686ea81f2f013ae85421da923"
     },
     {
+      "file": "Aplikasi/public/build/assets/app-BLZ9_ZXm.css",
+      "sha256": "9a9374238dcd7f94cc16c5b065088dd5219a2bb1100f10ae733687b335261ecc"
+    },
+    {
+      "file": "Aplikasi/public/build/assets/app-LMSKWtnC.js",
+      "sha256": "e2f04991083e4a7c857e110c4c1e57df9327a8fd9dac40277303bfed253a9a31"
+    },
+    {
+      "file": "Aplikasi/public/build/assets/home-Cr4WFRQW.css",
+      "sha256": "45c9c179e367521c52c65c001ddacb4e1396460615ec365be1fdd7600274420b"
+    },
+    {
+      "file": "Aplikasi/public/build/assets/Syne-Variable-5kL3Zkre.ttf",
+      "sha256": "ce5ac77142a65cab2248a1a2ebb740b1d4d9c20b52488877d3ff664d1356104a"
+    },
+    {
+      "file": "Aplikasi/public/build/manifest.json",
+      "sha256": "8bd37acb014ff0ab4a55ad8b47dfe5eb08930ab0531d7d2ec89629517d8899f3"
+    },
+    {
       "file": "Aplikasi/public/favicon.ico",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -243,6 +250,10 @@
     {
       "file": "Aplikasi/public/robots.txt",
       "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f"
+    },
+    {
+      "file": "Aplikasi/README.md",
+      "sha256": "3ac0b09cd176257a711835c49fcbdc4cf2f86168c7944116e75605f5e9d7e8b9"
     },
     {
       "file": "Aplikasi/resources/css/app.css",
@@ -449,5 +460,6 @@
       "sha256": "4798c3cade7c6c3046edf1bb57aeb2cfd454462bf0641149c8b58d72e0e866ec"
     }
   ],
-  "passed": true
+  "method": "Every application ZIP entry matches final source and new extraction; dependency/build installation rerun from lockfiles.",
+  "archive_hash": "Hasil/manifest-paket.json provides the final archive hash; archive cannot contain its own hash."
 }

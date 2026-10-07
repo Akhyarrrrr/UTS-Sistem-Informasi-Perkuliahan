@@ -1,6 +1,6 @@
 # Delivery Gate antislop
 
-Status: **LULUS**. Pemeriksaan 6-7 Oktober 2026: 50 butir PASS. Paket lokal siap ditinjau dalam cakupan dan metode yang dicatat.
+Status: **LULUS**. Pemeriksaan 6-7 Oktober 2026: 50 butir PASS. Paket lokal siap ditinjau dan aplikasi produksi Ready dalam cakupan serta metode yang dicatat. Butir baseline lokal berikut dilengkapi verifikasi online di bagian akhir.
 
 ## Hard Gate
 
@@ -18,7 +18,7 @@ Status: **LULUS**. Pemeriksaan 6-7 Oktober 2026: 50 butir PASS. Paket lokal siap
 - R-33 PASS: perubahan tertulis pada Blade, CSS dan JavaScript sumber lalu dibangun Vite; tidak menggunakan injeksi tampilan runtime (DESIGN.md; replay-install.json).
 - R-34 PASS: kedua tema diperiksa pada seluruh 64 target dan sembilan lebar; font Syne lokal digunakan pada keduanya (ui-final-summary.json).
 - R-35 PASS: build, instalasi dari ZIP dan replay tiga peran berhasil. Pada browser nyata, 11 keluarga kontrol master diperiksa: tambah, validasi wajib, kembali, edit/simpan dan buka/batalkan hapus. Escape dan Tab/Shift+Tab dialog lulus; penghapusan berelasi ditolak, CRUD ruang uji tanpa relasi berhasil (master-controls-browser.json; dialog-browser.json; browser-flow.txt; phpunit-final-20261007.xml; package-checks.json).
-- R-36 PASS: durasi reload diberi label waktu API, zoom diberi label kesetaraan layout, serta deployment dan pengujian produksi tidak diklaim (PEMERIKSAAN_DAN_BUKTI.md; home-performance.json).
+- R-36 PASS: durasi reload diberi label waktu API, zoom diberi label kesetaraan layout, serta deployment produksi dibuktikan dengan status Ready dan pengujian HTTP/alur browser (PEMERIKSAAN_DAN_BUKTI.md; home-performance.json).
 - R-37 PASS: arah akademik editorial, hubungan data, ikon aksi dan revisi Syne mengikuti permintaan Akhyar; dials tercatat sebelum penyempurnaan (DESIGN.md).
 - R-38 PASS: simulasi dinyatakan pada home/login/sidebar; screenshot dan nilai bersumber dari aplikasi lokal (replay.json; screenshots).
 
@@ -64,4 +64,8 @@ Status: **LULUS**. Pemeriksaan 6-7 Oktober 2026: 50 butir PASS. Paket lokal siap
 - R-30 PASS: tampilan dibangun dari hubungan data akademik dan bukti implementasi sendiri; tidak menyalin produk lain (DESIGN.md; screenshots/00-home.png).
 - R-31 PASS: alasan setiap keputusan besar dapat dibaca pada satu baris DESIGN.md, termasuk revisi Syne dan ikon aksi.
 
-Seluruh 50 butir lulus berdasarkan bukti yang dicatat. Tidak ada temuan terbuka dalam cakupan ini. Penyerahan eksternal tidak dilakukan.
+Seluruh 50 butir lulus berdasarkan bukti yang dicatat. Tidak ada temuan terbuka dalam cakupan ini. Unggah LMS tidak dilakukan; publikasi GitHub dan deployment Vercel sudah dilakukan sesuai izin pengguna.
+
+## Verifikasi tambahan versi online
+
+R-03/R-24/R-26/R-32/R-34/R-35/R-36/R-38 tetap lulus pada pemeriksaan online yang dicatat: 963 keadaan audit ditambah 90 keadaan polish final, 39 tes/318 asersi, tiga konkurensi, 28 kontrol HTTP per lingkungan, KHS/CSV/perhitungan manual, sesi setelah redeploy, serta screenshot produksi asli. Bukti: ui-online-20261007.json; ui-navigation-final-20261007.json; browser-console-online-20261007.json; workflow-production-20261007.json; deployment-final-20261007.json. Tab browser baru tidak menghasilkan error/warn setelah transisi lintas dokumen diganti dengan animasi masuk CSS. Storage gagal/reduced motion tetap lulus pada verify-ui.mjs. Zoom menu browser, Core Web Vitals, printer fisik dan uji beban tidak diklaim.

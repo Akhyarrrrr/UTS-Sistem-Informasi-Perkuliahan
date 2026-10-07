@@ -4,7 +4,7 @@
   "archives": [
     {
       "file": "260820701100010_Akhyar_UTS_Aplikasi.zip",
-      "entries_checked": 204,
+      "entries_checked": 246,
       "crc": "PASS",
       "private_credentials_excluded": "PASS",
       "every_entry_matches_final_source": "PASS"
@@ -20,12 +20,12 @@
   "latex_extracted_compile": {
     "passes": 3,
     "exit_code": 0,
-    "pages": 51,
+    "pages": 55,
     "page_text_matches_reviewed_pdf": true,
     "compiler_warnings": []
   },
   "pdf_private_credentials_excluded": true,
   "manifest_files_verified": 8,
-  "app_install_and_feature_tests": "replay-install.json; replay-source-consistency.json; phpunit-final-20261007.xml",
-  "browser_replay": "replay.json; browser-flow.txt"
+  "app_install_and_feature_tests": "replay-install-final-20261007.json; replay-source-consistency-final-20261007.json; phpunit-replay-final-20261007.xml",
+  "browser_replay": "workflow-production-20261007.json; ui-navigation-final-20261007.json"
 }

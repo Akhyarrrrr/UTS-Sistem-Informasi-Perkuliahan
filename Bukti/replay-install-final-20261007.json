@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-07",
+  "database": "uts_perkuliahan_replay_20261007",
+  "extracted_from_final_zip": true,
+  "entry": "install.ps1 -Replay -ReplayDatabase uts_perkuliahan_replay_20261007",
+  "exit_code": 0,
+  "composer": "114 packages from composer.lock",
+  "npm": "npm ci, 39 packages, zero vulnerabilities",
+  "migration": "5 migrations plus AcademicSeeder/DemonstrationSeeder",
+  "build": "Vite 8.3.2; local manifest matches extracted build",
+  "path_method": "U: maps to private Runtime/PaketUji20261007Final/Sistem_Informasi_Perkuliahan",
+  "passed": true
+}

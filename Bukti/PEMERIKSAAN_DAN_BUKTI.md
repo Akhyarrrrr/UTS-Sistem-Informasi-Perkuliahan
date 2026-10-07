@@ -1,6 +1,6 @@
 # Pemeriksaan dan bukti UTS
 
-Status penyerahan: **siap ditinjau secara lokal**. Seluruh 50 butir Delivery Gate lulus; tidak ada temuan terbuka dalam cakupan pemeriksaan.
+Status penyerahan: **aplikasi produksi Ready; paket lokal siap ditinjau**. Seluruh 50 butir Delivery Gate lulus; tidak ada temuan terbuka dalam cakupan pemeriksaan.
 
 Akhyar · 260820701100010 · Kelas A. Audit final: 6-7 Oktober 2026. Acuan adalah enam bagian soal UTS asli; database, ERD, SQL, dan normalisasi berbobot 40%. Pemetaan lengkap ada pada MATRIKS_UTS.md.
 
@@ -20,7 +20,7 @@ Akhyar · 260820701100010 · Kelas A. Audit final: 6-7 Oktober 2026. Acuan adala
 | Aset dan console | Preview tiga peran dimuat; tidak ada pesan error/warn pada pencatatan browser final | ui-interactions-final.json; browser-console.json |
 | Dependensi | npm dan Composer tanpa advisory setelah perbaikan shell-quote 1.11.0 | npm-audit.json; composer-audit.json |
 | Persistensi | Hash 17 tabel akademik/audit tetap sama sesudah restart layanan | persistence.json |
-| Versi | Sumber dibandingkan dengan paket awal dan checkout publik; checkout publik tetap bersih dan tidak diubah | source-comparison.json |
+| Versi | Riwayat tiga commit lama dipertahankan; sumber aplikasi final disinkronkan ke repo dan diuji pada preview sebelum produksi | deployment-final-20261007.json; source-comparison.json |
 | PDF dan paket | Hasil inspeksi PDF terikat pada hash; ZIP diekstrak, CRC/rahasia/kesamaan sumber diperiksa; SHA-256 tersedia pada manifest | pdf-review.json; package-checks.json; manifest-paket.json |
 
 ## Perbaikan yang diselesaikan
@@ -39,4 +39,23 @@ Tiga reload cache hangat pada 1440 x 1000 tanpa throttling menghasilkan durasi A
 
 Database utama dilindungi backup offline sebelum audit. Tes, impor SQL, dan replay memakai database khusus. Instalasi replay memakai drive pendek yang dipetakan ke hasil ekstraksi lokal untuk menghindari batas path Windows. Kredensial, .env aktif, Runtime, vendor, dan node_modules tidak disertakan dalam ZIP; instalasi memasang dependensi dari lockfile.
 
-Paket ini untuk tinjauan lokal. Unggah LMS, push GitHub, deployment Vercel, pengujian beban produksi, serta audit penetrasi produksi tidak dilakukan. Kelulusan berlaku pada skenario dan lingkungan yang dicatat; tidak ada temuan terbuka dalam cakupan tersebut.
+Paket disediakan untuk tinjauan lokal. Repo GitHub diperbarui dan aplikasi telah diterapkan pada Vercel. Unggah LMS, pengujian beban, serta audit penetrasi khusus tidak dilakukan. Kelulusan berlaku pada skenario dan lingkungan yang dicatat; tidak ada temuan terbuka dalam cakupan tersebut.
+
+## Finalisasi deployment dan UI online, 7 Oktober 2026
+
+Produksi: https://uts-sistem-informasi-perkuliahan.vercel.app/ . PHP 8.5.2 melalui vercel-php@0.9.0, Node 22.x, Laravel 13.34.0, Aiven MySQL 8.4.8 gratis di Bangalore; region fungsi bom1. Production/preview/test terpisah, TLS dengan CA terverifikasi, akun aplikasi DML pada database masing-masing. Kredensial disimpan di Runtime pribadi.
+
+| Pemeriksaan tambahan | Hasil | Bukti |
+|---|---|---|
+| Suite final MySQL 8.4 | 39 tes, 318 asersi, nol error/kegagalan; kemudian tiga konkurensi lulus | phpunit-aiven-final-20261007.xml; concurrency-aiven-final-20261007.json |
+| Skema dan TLS | 26 tabel berjalan, 18 domain, 23 FK, 13 CHECK, enam trigger; metadata sama, CA salah/DDL/akses lintas database ditolak | schema-aiven-20261007.json |
+| HTTP preview/produksi | 28 kontrol per lingkungan; status dan isi respons diperiksa | http-preview-20261007.json; http-production-20261007.json |
+| Alur produksi | Intan: KRS dikembalikan/diajukan ulang/disetujui; presensi Hadir; nilai 0 dibedakan dari kosong; publikasi ditolak sebelum lengkap; koreksi UAS 96 menghasilkan 88,90/A, 3 SKS, IPS/IPK 4,00; CSV aktual cocok | workflow-production-20261007.json; khs-production-intan.csv |
+| Persistensi online | Sesi dan catatan studi tetap ada setelah redeployment; adapter memakai sesi database setelah proses PHP baru | ui-navigation-final-20261007.json; vercel-adapter-local-20261007.json |
+| UI online | 963 keadaan audit online dan 90 pemeriksaan tambahan setelah animasi final; kedua tema, enam lebar utama dan tiga lebar setara zoom; tidak ada overflow halaman, tombol tanpa nama, atau gambar terlihat gagal | ui-online-20261007.json; ui-navigation-final-20261007.json |
+| Navigasi | Sticky header, jarak anchor, scroll halus, perpindahan halaman, menu ponsel, Shift+Tab/Escape; console final tanpa error/warn pada pencatatan tab baru | ui-navigation-final-20261007.json; browser-console-online-20261007.json |
+| Screenshot | Capture produksi asli dengan akun simulasi; login tanpa kredensial; home dan mobile final disimpan terpisah | screenshots-online/ |
+
+Tiga reload online cache hangat pada 1440×1000: 747, 706, 704 ms. Ini durasi komunikasi alat, bukan Core Web Vitals. Pemeriksaan zoom memakai lebar CSS setara; zoom menu browser tidak diubah. Cetak diperiksa melalui kontrol, handler native, dan stylesheet A4; printer fisik tidak digunakan. Gangguan DNS/koneksi pada percobaan awal suite ditangani dengan verifikasi jaringan dan menjalankan ulang suite utuh; TLS tidak dinonaktifkan. Laporan hasil gagal awal disimpan sebagai catatan pribadi, bukan hasil lulus final.
+
+Temuan runtime root/document root, respons 404 yang masih membawa PHP, dan error transisi lintas dokumen telah diperbaiki pada bagian bersama. Pengujian final memeriksa isi respons serta navigasi kembali. Tidak ada temuan terbuka dalam cakupan yang dicatat. Aiven gratis mempunyai batas satu CPU/1 GB RAM/1 GB disk/76 koneksi, kemungkinan dimatikan saat tidak aktif, dan tanpa SLA. Tidak ada layanan berbayar yang diaktifkan.

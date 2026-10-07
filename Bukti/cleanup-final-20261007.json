@@ -1,0 +1,32 @@
+{
+  "unused_latex_captures_removed": [
+    "00-home-full.png",
+    "00-home.png",
+    "01-login.jpg",
+    "02-admin.jpg",
+    "03-master.jpg",
+    "04-krs-diajukan.jpg",
+    "05-persetujuan.jpg",
+    "06-dosen.jpg",
+    "07-presensi.jpg",
+    "08-validasi-nilai.jpg",
+    "09-nilai-terbit.jpg",
+    "09-nilai.png",
+    "10-khs-demonstrasi.jpg",
+    "10-khs.png",
+    "11-mobile.jpg",
+    "11-mobile.png",
+    "12-gelap.jpg",
+    "13-khs-akademik.png",
+    "13-mahasiswa.jpg",
+    "14-riwayat.jpg",
+    "15-admin-ringkasan.jpg"
+  ],
+  "obsolete_showcase_png_removed": [
+    "admin.png",
+    "dosen.png",
+    "mahasiswa.png"
+  ],
+  "source_fonts": "Syne only; previous Source Sans/Serif assets removed in prior audit",
+  "audit_history_preserved": true
+}

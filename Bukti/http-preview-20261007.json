@@ -1,6 +1,6 @@
 {
   "environment": "preview",
-  "url": "https://uts-sistem-informasi-perkuliahan-lb4k166kt-akhyarrrrrs-projects.vercel.app",
+  "url": "https://uts-sistem-informasi-perkuliahan-3voqs6qmx-akhyarrrrrs-projects.vercel.app",
   "results": [
     {
       "check": "halaman publik dirender Laravel",
@@ -68,7 +68,7 @@
     },
     {
       "check": "aset tersedia",
-      "path": "/build/assets/app-GYArldQr.css",
+      "path": "/build/assets/app-BLZ9_ZXm.css",
       "status": 200,
       "passed": true
     },
@@ -92,19 +92,19 @@
     },
     {
       "check": "aset tersedia",
-      "path": "/images/showcase/admin.png",
+      "path": "/images/showcase/admin.jpg",
       "status": 200,
       "passed": true
     },
     {
       "check": "aset tersedia",
-      "path": "/images/showcase/dosen.png",
+      "path": "/images/showcase/dosen.jpg",
       "status": 200,
       "passed": true
     },
     {
       "check": "aset tersedia",
-      "path": "/images/showcase/mahasiswa.png",
+      "path": "/images/showcase/mahasiswa.jpg",
       "status": 200,
       "passed": true
     },

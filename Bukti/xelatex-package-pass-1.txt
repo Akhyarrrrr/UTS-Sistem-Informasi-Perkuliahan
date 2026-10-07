@@ -195,7 +195,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--140
 Underfull \hbox (badness 10000) in paragraph at lines 210--210
 []|\TU/TimesNewRoman(0)/m/n/10.95 enum(’Hadir’,’Izin’,’Sakit’,
 ) [15]
-Underfull \hbox (badness 1009) in paragraph at lines 157--157
+Underfull \hbox (badness 1009) in paragraph at lines 158--158
 []|\TU/TimesNewRoman(0)/m/n/10.95 fakultas, prodi, ruang,
 [16]
 Bab 4.
@@ -204,76 +204,97 @@ Bab 4.
 (./assets/yatim.sql) (./assets/ketidaksesuaian.sql) [23] [24]
 Bab 5.
 [25] [26] [27] [28]
-Underfull \hbox (badness 2837) in paragraph at lines 342--343
+Underfull \hbox (badness 2837) in paragraph at lines 343--344
 \TU/TimesNewRoman(0)/m/n/12 serta audit dalam transaksi.
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--343
+Underfull \hbox (badness 10000) in paragraph at lines 344--344
 []|\TU/TimesNewRoman(0)/m/n/12 Pemeriksaan jumlah
 
-Underfull \hbox (badness 5302) in paragraph at lines 343--343
+Underfull \hbox (badness 5302) in paragraph at lines 344--344
 \TU/TimesNewRoman(0)/m/n/12 admin dan delete sebe-
 
-Underfull \hbox (badness 5970) in paragraph at lines 344--344
+Underfull \hbox (badness 5970) in paragraph at lines 345--345
 []|\TU/TimesNewRoman(0)/m/n/12 Tema dan fokus
 
-Underfull \hbox (badness 4686) in paragraph at lines 344--344
+Underfull \hbox (badness 4686) in paragraph at lines 345--345
 []|\TU/TimesNewRoman(0)/m/n/12 Login dan halaman ke-
 
-Underfull \hbox (badness 1406) in paragraph at lines 344--344
+Underfull \hbox (badness 1406) in paragraph at lines 345--345
 \TU/TimesNewRoman(0)/m/n/12 salahan belum membaca
 
-Underfull \hbox (badness 6078) in paragraph at lines 345--345
+Underfull \hbox (badness 6078) in paragraph at lines 346--346
 []|\TU/TimesNewRoman(0)/m/n/12 Dependensi pem-
 
-Underfull \hbox (badness 6188) in paragraph at lines 345--345
+Underfull \hbox (badness 6188) in paragraph at lines 346--346
 []|\TU/TimesNewRoman(0)/m/n/12 Audit npm menemukan
 
-Underfull \hbox (badness 7326) in paragraph at lines 345--345
+Underfull \hbox (badness 7326) in paragraph at lines 346--346
 \TU/TimesNewRoman(0)/m/n/12 shell-quote versi rentan
 
-Underfull \hbox (badness 1694) in paragraph at lines 345--346
+Underfull \hbox (badness 1694) in paragraph at lines 346--347
 []|\TU/TimesNewRoman(0)/m/n/12 Saya menetapkan versi per-
 
-Underfull \hbox (badness 1325) in paragraph at lines 345--346
+Underfull \hbox (badness 1325) in paragraph at lines 346--347
 \TU/TimesNewRoman(0)/m/n/12 de dan memperbarui lockfi-
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--346
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
 []|\TU/TimesNewRoman(0)/m/n/12 Skrip penyerahan sebe-
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--346
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
 \TU/TimesNewRoman(0)/m/n/12 halaman lulus tanpa
 
-Underfull \hbox (badness 5217) in paragraph at lines 346--346
+Underfull \hbox (badness 5217) in paragraph at lines 347--347
 \TU/TimesNewRoman(0)/m/n/12 membaca hasil inspeksi
 
-Underfull \hbox (badness 1502) in paragraph at lines 346--346
+Underfull \hbox (badness 1502) in paragraph at lines 347--347
 \TU/TimesNewRoman(0)/m/n/12 sin dari keputusan inspeksi,
 
-Underfull \hbox (badness 3396) in paragraph at lines 346--346
+Underfull \hbox (badness 3396) in paragraph at lines 347--347
 \TU/TimesNewRoman(0)/m/n/12 sh PDF, dan mensyaratkan
 (./hasil-pengujian.tex) [29] [30]
 Bab 6.
 [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
+
+LaTeX Warning: Reference `fig:online-grades' on page 45 undefined on input line
+ 403.
+
+
+LaTeX Warning: Reference `fig:online-khs' on page 45 undefined on input line 40
+3.
+
+[45] [46] [47] [48]
 Lampiran A.
 
-Underfull \hbox (badness 2005) in paragraph at lines 409--409
+Underfull \hbox (badness 2005) in paragraph at lines 436--436
 []|\TU/TimesNewRoman(0)/m/n/12 Komputer/web se-
 
-Underfull \hbox (badness 3068) in paragraph at lines 410--411
+Underfull \hbox (badness 3068) in paragraph at lines 437--438
 []|\TU/TimesNewRoman(0)/m/n/12 route, controller, service;
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 []|\TU/TimesNewRoman(0)/m/n/12 migration, kamus data,
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--413
+Underfull \hbox (badness 10000) in paragraph at lines 440--440
 []|\TU/TimesNewRoman(0)/m/n/12 Implementasi
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
 []|\TU/TimesNewRoman(0)/m/n/12 KRS–persetujuan–
 
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
 \TU/TimesNewRoman(0)/m/n/12 presensi–nilai–KHS;
-[45] (./laporan_uts.aux) )
+[49] (./laporan_uts.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `laporan_uts.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
 (see the transcript file for additional information)
-Output written on laporan_uts.pdf (51 pages).
+Output written on laporan_uts.pdf (55 pages).
 Transcript written on laporan_uts.log.

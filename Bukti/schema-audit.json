@@ -1,5 +1,5 @@
 {
-    "captured": "2026-10-06T17:44:26+00:00",
+    "captured": "2026-10-07T09:15:50+00:00",
     "comparison": "SHOW CREATE TABLE: kolom, tipe, NULL, default, PK, UNIQUE, FK, CHECK; ACTION_STATEMENT seluruh trigger. Counter AUTO_INCREMENT dan deklarasi charset redundan dinormalisasi; metadata kolom, charset, dan collation tetap dibandingkan.",
     "table_counts": {
         "uts_perkuliahan": {
@@ -9,14 +9,14 @@
             "audit": 1,
             "infrastruktur": 8
         },
-        "uts_perkuliahan_replay_20261006": {
+        "uts_perkuliahan_replay_20261007": {
             "total": 26,
             "akademik": 16,
             "akun": 1,
             "audit": 1,
             "infrastruktur": 8
         },
-        "uts_perkuliahan_sqltest_20261006": {
+        "uts_perkuliahan_sqltest_20261007": {
             "total": 18,
             "akademik": 16,
             "akun": 1,

@@ -10,7 +10,7 @@ Halaman publik: ENERGY 3 / RHYTHM 3 / MOTION 3. Ruang kerja: 2 / 2 / 2.
 - Reveal masuk sekali dan berhenti. Pergantian stage menelusuri proses saat menggulir; reduced motion menonaktifkan transisi. Fallback tanpa observer tetap memperlihatkan isi.
 - Ruang kerja mengutamakan tindakan, tabel, dan formulir. Border memisahkan kelompok catatan; radius kecil dan transisi singkat tidak mengganggu pembacaan.
 - Default terang, tema gelap konsisten pada home/login/workspace/errors. Penyimpanan preferensi gagal tetap memungkinkan pergantian tema.
-- Identitas P/Perkuliahan, nama Akhyar dan NPM dipertahankan. Screenshot berasal dari aplikasi lokal; semua profil/nilai kebijakan demonstrasi diberi label simulasi.
+- Identitas P/Perkuliahan, nama Akhyar dan NPM dipertahankan. Screenshot pilihan peran berasal dari aplikasi produksi; dokumentasi lokal tetap menjadi bukti replay. Semua profil/nilai kebijakan demonstrasi diberi label simulasi.
 - Bukti: screenshot 00–14, qa-ui-20261006.json, ui-interactions.json, contrast.json, ui-resilience.json, browser-flow.txt, DELIVERY_GATE.md.
 
 - Revisi atas permintaan Akhyar: aksi memakai ikon SVG lokal (simpan/disk, edit/pensil, hapus/tempat sampah, cetak/printer, ekspor/unduh, peran/pengguna). Nama tindakan tetap pada aria-label dan title; ikon dekoratif disembunyikan dari pembaca layar. Navigasi tetap bernama agar konteks akademik mudah ditemukan.
@@ -20,3 +20,8 @@ Halaman publik: ENERGY 3 / RHYTHM 3 / MOTION 3. Ruang kerja: 2 / 2 / 2.
 
 - Dialog hapus memakai elemen HTML native dengan warna tema yang sama; Batal/Escape mengembalikan fokus, Tab/Shift+Tab mengitari dua tindakan, dan form mencegah kirim berulang. Bukti: dialog-browser.json, master-controls-browser.json, ui-resilience.json.
 - Perintah instalasi tetap memakai monospace untuk membedakan sintaks dari teks antarmuka Syne.
+
+- Header publik dan ruang kerja sticky. Pada ponsel, kontrol menu/tema/keluar berada di baris atas dan nama/peran pengguna pada baris berikutnya. Gutter serta batas lebar konten mengikuti header agar sisi kiri/kanan sejajar.
+- Scroll anchor memakai CSS native dengan jarak untuk header. Pergantian halaman memakai animasi masuk 180 ms; transisi lintas dokumen dihapus setelah memunculkan error pembatalan pada Chrome. Pengurangan gerak mematikan animasi. Tidak ada library animasi tambahan.
+- Copy akses membedakan akun online dari instalasi salinan Windows. Nilai belum lengkap, belum terbit, nol, SKS pilihan dan SKS dengan nilai terbit memakai istilah berbeda sesuai data.
+- Bukti tambahan: ui-navigation-final-20261007.json, browser-console-online-20261007.json, screenshots-online/production-home-final.jpg dan production-khs-mobile-final.jpg.

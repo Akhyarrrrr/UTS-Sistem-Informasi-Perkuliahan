@@ -1,6 +1,6 @@
 {
   "all_fonts_embedded": true,
-  "pages": 51,
+  "pages": 55,
   "fonts": [
     "/GCIAAB+CMR12",
     "/IUQHAX+Consolas",
@@ -14,7 +14,7 @@
   ],
   "all_a4": true,
   "blank_pages": [],
-  "links": 105,
+  "links": 125,
   "page_details": [
     {
       "page": 1,
@@ -29,7 +29,7 @@
     },
     {
       "page": 2,
-      "characters": 1451,
+      "characters": 1548,
       "size_pt": [
         0,
         0,
@@ -51,7 +51,7 @@
     },
     {
       "page": 4,
-      "characters": 978,
+      "characters": 1131,
       "size_pt": [
         0,
         0,
@@ -62,7 +62,7 @@
     },
     {
       "page": 5,
-      "characters": 538,
+      "characters": 536,
       "size_pt": [
         0,
         0,
@@ -73,7 +73,7 @@
     },
     {
       "page": 6,
-      "characters": 1371,
+      "characters": 1738,
       "size_pt": [
         0,
         0,
@@ -84,7 +84,7 @@
     },
     {
       "page": 7,
-      "characters": 1179,
+      "characters": 1313,
       "size_pt": [
         0,
         0,
@@ -139,7 +139,7 @@
     },
     {
       "page": 12,
-      "characters": 1721,
+      "characters": 1757,
       "size_pt": [
         0,
         0,
@@ -150,7 +150,7 @@
     },
     {
       "page": 13,
-      "characters": 1865,
+      "characters": 1895,
       "size_pt": [
         0,
         0,
@@ -172,7 +172,7 @@
     },
     {
       "page": 15,
-      "characters": 1462,
+      "characters": 1694,
       "size_pt": [
         0,
         0,
@@ -403,7 +403,7 @@
     },
     {
       "page": 36,
-      "characters": 2017,
+      "characters": 2190,
       "size_pt": [
         0,
         0,
@@ -458,7 +458,7 @@
     },
     {
       "page": 41,
-      "characters": 547,
+      "characters": 567,
       "size_pt": [
         0,
         0,
@@ -502,29 +502,29 @@
     },
     {
       "page": 45,
-      "characters": 1555,
+      "characters": 1466,
       "size_pt": [
         0,
         0,
         595.28,
         841.89
       ],
-      "text_start": "39\nGambar 6.8: Halaman publik dengan visual hubungan data dan hasil demonstrasi. Sumber:\ndokume"
+      "text_start": "39\nGambar 6.8: Halaman publik produksi dengan visual relasi akademik. Sumber: dokumentasi\naplik"
     },
     {
       "page": 46,
-      "characters": 124,
+      "characters": 358,
       "size_pt": [
         0,
         0,
         595.28,
         841.89
       ],
-      "text_start": "40\nGambar 6.9: KHS pada viewport ponsel 390 piksel. Tabel dapat digeser di dalam area tabel\ntan"
+      "text_start": "40\nsedangkan Tab dan Shift+Tab berputar pada dua tindakan (Bukti/dialog\u2010browser\n.json). Tema te"
     },
     {
       "page": 47,
-      "characters": 736,
+      "characters": 740,
       "size_pt": [
         0,
         0,
@@ -535,7 +535,7 @@
     },
     {
       "page": 48,
-      "characters": 1758,
+      "characters": 2557,
       "size_pt": [
         0,
         0,
@@ -546,7 +546,51 @@
     },
     {
       "page": 49,
-      "characters": 827,
+      "characters": 1873,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "43\nre/HttpOnly/SameSite Lax, proxy HTTPS, dan kunci aplikasi tetap per lingkungan.\nMigration, s"
+    },
+    {
+      "page": 50,
+      "characters": 149,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "44\nGambar 6.11: Nilai Intan 88,90/A setelah koreksi dan publikasi\u037e input terkunci. Area isi\ndip"
+    },
+    {
+      "page": 51,
+      "characters": 1403,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "45\nGambar 6.12: KHS produksi Intan dengan 3 SKS, IPS dan IPK 4,00. Area isi diperbesar dari\ntan"
+    },
+    {
+      "page": 52,
+      "characters": 684,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "46\nSaya menyimpan backup sumber serta database sebelum perubahan. Rollback\nV ercel memulihkan k"
+    },
+    {
+      "page": 53,
+      "characters": 980,
       "size_pt": [
         0,
         0,
@@ -556,8 +600,8 @@
       "text_start": "KESIMPULAN\nMelalui implementasi ini, saya menghubungkan rancangan database dengan alur apli-\nka"
     },
     {
-      "page": 50,
-      "characters": 1564,
+      "page": 54,
+      "characters": 1978,
       "size_pt": [
         0,
         0,
@@ -567,7 +611,7 @@
       "text_start": "DAFTAR PUSTAKA\n1. Universitas Syiah Kuala. (2025). UTS Manajemen dan Pemodelan Data. Dokumen\nso"
     },
     {
-      "page": 51,
+      "page": 55,
       "characters": 1355,
       "size_pt": [
         0,
@@ -578,7 +622,7 @@
       "text_start": "LAMPIRAN A\nPEMETAAN PERSYARATAN DAN BERKAS\nBagian soal Pembahasan Bukti yang dapat diperiksa\nKo"
     }
   ],
-  "sha256": "90e31d4bf5a8a09ca39d0210126a51cbda8baa1ed068ce4e936d182993a82fae",
+  "sha256": "828c0342a73a294d1bbdff816e755fb956a4ca9316c4726768ff91069160959e",
   "visual_reviewed_pages": [
     1,
     2,
@@ -630,13 +674,16 @@
     48,
     49,
     50,
-    51
+    51,
+    52,
+    53,
+    54,
+    55
   ],
   "visual_review": "PASS",
   "visual_notes": [
-    "Seluruh 51 halaman diperiksa pada sembilan lembar visual.",
-    "Perapian terakhir hanya mengubah halaman 45 dan 46; hash render 49 halaman lainnya identik. Kedua halaman diperiksa kembali.",
-    "Paragraf konfirmasi utuh; tabel panjang, ERD, kode, caption, daftar otomatis dan screenshot terbaca dalam margin.",
-    "Seluruh halaman A4, tanpa halaman kosong; semua font tertanam."
+    "55 halaman ditinjau pada sepuluh lembar visual; halaman 36, 37, dan 51 diperiksa pada render penuh sesudah perbaikan.",
+    "Paragraf penyusunan PDF utuh pada halaman 36; screenshot nilai dan KHS online diperbesar dari area isi dengan caption yang menjelaskan crop.",
+    "Kamus data, tabel panjang, ERD, kode, daftar otomatis, caption serta referensi silang berada dalam margin. Tidak ada overfull, peringatan referensi, atau font yang tidak tertanam."
   ]
 }
