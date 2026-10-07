@@ -56,6 +56,7 @@ Tambahkan nilai berikut melalui Environment Variables Vercel. Buat kunci dan kre
 | --- | --- |
 | `APP_NAME` | `Sistem Informasi Perkuliahan` |
 | `APP_ENV` | `production` |
+| `VERCEL_PHP_DOCROOT` | `public`, agar router PHP memakai document root aplikasi. |
 | `APP_DEBUG` | `false` |
 | `APP_KEY` | Kunci acak tetap yang dibuat sekali untuk lingkungan tersebut. |
 | `APP_URL` | URL HTTPS lingkungan yang benar. |
