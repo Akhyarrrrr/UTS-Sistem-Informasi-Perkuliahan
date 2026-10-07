@@ -1,10 +1,42 @@
 {
   "environment": "adapter Vercel lokal, PHP 8.5, MySQL 8.0.46",
-  "checked_at": "2026-10-07T13:17:20+0700",
+  "checked_at": "2026-10-07T15:15:32+0700",
   "results": [
     {
       "check": "halaman publik melalui adapter",
       "status": 200
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /index.php",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /INDEX.PHP",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /api/index.php",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /public/index.php",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /index.php/path",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /.env",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /.git/config",
+      "status": 404
+    },
+    {
+      "check": "berkas sensitif ditolak tanpa isi sumber: /%2eenv",
+      "status": 404
     },
     {
       "check": "/up",

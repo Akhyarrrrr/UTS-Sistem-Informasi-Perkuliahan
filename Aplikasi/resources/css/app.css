@@ -1636,6 +1636,64 @@ button.icon-action:not(.button) {
 }
 html  {
     scroll-padding-top: 100px;
+    scroll-behavior: smooth;
+}
+@view-transition {
+    navigation: auto;
+}
+::view-transition-old(root), ::view-transition-new(root) {
+    animation-duration: 160ms;
+    animation-timing-function: ease-out;
+}
+.topbar-brand {
+    display: none;
+    font-weight: 700;
+    text-decoration: none;
+}
+@media(max-width:780px) {
+    .workspace .topbar {
+        display: grid;
+        grid-template-columns: minmax(0,1fr) 44px 44px;
+        gap: 6px 10px;
+    }
+    .topbar-left {
+        gap: 10px;
+        min-width: 0;
+    }
+    .topbar-brand {
+        display: inline;
+        font-size: .92rem;
+    }
+    .workspace .topbar-right {
+        display: contents;
+    }
+    .topbar-right .theme-button {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .topbar-right>form {
+        grid-column: 3;
+        grid-row: 1;
+    }
+    .topbar-right .user-name {
+        grid-column: 1/-1;
+        grid-row: 2;
+        max-width: none;
+        font-size: .76rem;
+    }
+    .user-name small {
+        display: inline;
+        margin-left: 8px;
+        color: var(--muted);
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    @view-transition {
+        navigation: none;
+    }
+    ::view-transition-old(root), ::view-transition-new(root) {
+        animation: none;
+    }
 }
 .workspace main#main  {
     scroll-margin-top: 100px;

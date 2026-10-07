@@ -100,4 +100,18 @@ class DeploymentTest extends TestCase
 
         $this->get('http://untrusted.example/login')->assertStatus(400);
     }
+
+    public function test_vercel_denies_source_paths_without_serving_their_contents(): void
+    {
+        $routes = json_decode(file_get_contents(base_path('vercel.json')), true, flags: JSON_THROW_ON_ERROR)['routes'];
+        foreach (['/index.php', '/INDEX.PHP', '/api/index.php', '/public/index.php', '/index.php/path', '/.env', '/.git/config', '/%2eenv'] as $path) {
+            $matched = array_values(array_filter($routes, fn (array $route): bool => isset($route['src']) && preg_match('~^'.$route['src'].'$~', rawurldecode($path))));
+            $this->assertSame('/api/index.php', $matched[0]['dest']);
+            $this->assertSame(404, $matched[0]['status']);
+
+            $process = new Process([PHP_BINARY, '-r', '$_SERVER["REQUEST_URI"] = $argv[1]; require $argv[2];', $path, base_path('api/index.php')]);
+            $process->mustRun();
+            $this->assertSame('Halaman tidak ditemukan.', $process->getOutput());
+        }
+    }
 }

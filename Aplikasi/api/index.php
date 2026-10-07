@@ -1,5 +1,13 @@
 <?php
 
+$requestPath = rawurldecode(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/');
+if (preg_match('~(?:^|/)\.[^/]*|\.php(?:/|$)~i', $requestPath)) {
+    http_response_code(404);
+    header('Content-Type: text/plain; charset=UTF-8');
+    echo 'Halaman tidak ditemukan.';
+    exit;
+}
+
 $storage = sys_get_temp_dir().'/perkuliahan';
 
 foreach (['app/private', 'framework/cache', 'framework/sessions', 'framework/views', 'logs'] as $directory) {
