@@ -1,4 +1,4 @@
--- Struktur aktual sistem UTS; MySQL 8.0.46
+-- Struktur aktual sistem UTS; MySQL 8.4.8
 SET NAMES utf8mb4;
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -98,7 +98,7 @@ CREATE TABLE `ruang` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ruang_kode_unique` (`kode`),
   CONSTRAINT `chk_ruang_0` CHECK ((`kapasitas` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `kelas` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -237,7 +237,7 @@ CREATE TABLE `activity_log` (
   PRIMARY KEY (`id`),
   KEY `activity_log_user_id_foreign` (`user_id`),
   CONSTRAINT `activity_log_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DELIMITER $$
 CREATE TRIGGER `check_krs_detail_insert` BEFORE INSERT ON `krs_detail` FOR EACH ROW BEGIN IF (SELECT periode_id FROM kelas WHERE id=NEW.kelas_id) <> (SELECT periode_id FROM krs WHERE id=NEW.krs_id) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Periode kelas harus sama dengan KRS'; END IF; END$$

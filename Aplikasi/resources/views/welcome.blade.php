@@ -93,7 +93,7 @@
             'admin'=>['Kelola hubungan, tinjau keputusan.','Rawat katalog akademik, tawarkan kelas, atur jadwal, dan tinjau pengajuan KRS. Jejak perubahan membantu memeriksa keputusan yang telah dilakukan.',['CRUD seluruh master akademik','Persetujuan dan pengembalian KRS','Rekap serta riwayat perubahan'],'admin.png','Dashboard admin pada aplikasi Perkuliahan'],
         ] as $key=>$role)
         <div class="role-panel" id="role-{{ $key }}" data-role-panel="{{ $key }}">
-            <div class="role-copy"><p class="role-name">Ruang kerja {{ ucfirst($key) }}</p><h3>{{ $role[0] }}</h3><p>{{ $role[1] }}</p><ul>@foreach($role[2] as $feature)<li>{{ $feature }}</li>@endforeach</ul><a class="home-text-link" href="{{ auth()->check()?route('dashboard'):route('login') }}">{{ auth()->check()?'Buka ruang kerja saya':'Masuk dengan akun lokal' }}</a></div>
+            <div class="role-copy"><p class="role-name">Ruang kerja {{ ucfirst($key) }}</p><h3>{{ $role[0] }}</h3><p>{{ $role[1] }}</p><ul>@foreach($role[2] as $feature)<li>{{ $feature }}</li>@endforeach</ul><a class="home-text-link" href="{{ auth()->check()?route('dashboard'):route('login') }}">{{ auth()->check()?'Buka ruang kerja saya':'Masuk dengan akun pribadi' }}</a></div>
             <figure class="product-preview"><img src="{{ asset('images/showcase/'.$role[3]) }}" alt="{{ $role[4] }}" width="1440" height="1000" loading="lazy"><figcaption>Dokumentasi aplikasi lokal · data simulasi</figcaption></figure>
         </div>
         @endforeach
