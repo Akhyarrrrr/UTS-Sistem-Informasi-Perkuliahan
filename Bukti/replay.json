@@ -1,21 +1,23 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-07",
   "url": "http://localhost:8089",
-  "database": "uts_perkuliahan_replay",
+  "database": "uts_perkuliahan_replay_20261006",
   "installed_from_zip": true,
-  "install": [
-    "composer install",
-    "migrate --seed",
-    "npm ci",
-    "npm run build"
-  ],
+  "install_evidence": "replay-install.json",
+  "code_consistency": "replay-source-consistency.json",
   "flow": [
-    "mahasiswa mengajukan KRS",
-    "admin menyetujui",
-    "publikasi nilai kosong ditolak",
-    "dosen menyimpan 80,90,85,95 dan menerbitkan",
-    "dosen menyimpan Hadir",
-    "mahasiswa melihat 88.50/A/IPS 4.00"
+    "admin creates PDB308, 2 SKS, class A capacity 12, Friday 13:00-14:40",
+    "Raka saves and submits 2 SKS; one seat reserved",
+    "empty return reason rejected; return with reason accepted",
+    "Raka saves revision and resubmits; admin approves",
+    "teacher creates meeting and records Hadir",
+    "incomplete publication rejected",
+    "80,90,85,95 produce 88.50/A and are published",
+    "empty correction reason rejected; reason opens correction; republished",
+    "Raka KHS displays 2 SKS,88.50/A,IPS4.00,IPK4.00",
+    "CSV downloaded through the browser"
   ],
+  "browser_record": "browser-flow.txt (ZIP labels)",
+  "csv": "khs-browser.csv",
   "passed": true
 }

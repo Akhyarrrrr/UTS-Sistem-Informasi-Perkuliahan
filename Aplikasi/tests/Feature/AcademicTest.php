@@ -9,6 +9,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -68,6 +69,39 @@ class AcademicTest extends TestCase
         $this->assertAuthenticatedAs($user);
         $this->post('/logout')->assertRedirect('/login');
         $this->assertGuest();
+    }
+
+    public function test_home_is_public_for_guests_and_every_role_without_local_credentials(): void
+    {
+        $this->assertSame('/', route('home', absolute: false));
+        $this->get('/')->assertOk()->assertSee('Rencana')->assertDontSee('admin@demo.test');
+        foreach (['admin@demo.test', 'dosen@demo.test', 'mahasiswa@demo.test'] as $email) {
+            $this->asRole($email)->get('/')->assertOk()->assertSee('Buka ruang kerja')->assertDontSee('admin@demo.test');
+        }
+    }
+
+    public function test_repeated_login_is_limited_and_password_is_never_flashed(): void
+    {
+        $email = 'throttle-audit@demo.test';
+        $key = 'login:'.hash('sha256', $email.'|127.0.0.1');
+        RateLimiter::clear($key);
+        for ($attempt = 0; $attempt < 5; $attempt++) {
+            $this->post('/login', ['email' => $email, 'password' => 'wrong'])->assertSessionHasErrors('email')->assertSessionMissing('_old_input.password');
+        }
+        $this->post('/login', ['email' => $email, 'password' => 'wrong'])->assertSessionHasErrors('email');
+        $this->assertStringContainsString('Terlalu banyak', session('errors')->first('email'));
+        RateLimiter::clear($key);
+    }
+
+    public function test_duplicate_meeting_is_a_validation_error_and_records_one_audit(): void
+    {
+        $this->asRole('dosen@demo.test');
+        $data = ['nomor' => 32, 'tanggal' => '2026-10-06', 'topik' => 'Pertemuan uji duplikasi'];
+        $this->post('/kelas/4/pertemuan', $data)->assertSessionHasNoErrors()->assertRedirect();
+        $this->post('/kelas/4/pertemuan', $data)->assertSessionHasErrors('akademik');
+        $this->assertSame(1, DB::table('pertemuan')->where('kelas_id', 4)->where('nomor', 32)->count());
+        $meeting = DB::table('pertemuan')->where('kelas_id', 4)->where('nomor', 32)->value('id');
+        $this->assertSame(1, DB::table('activity_log')->where('entitas', 'pertemuan')->where('record_id', $meeting)->count());
     }
 
     public function test_admin_pages_all_render_and_have_database_content(): void
@@ -277,8 +311,8 @@ class AcademicTest extends TestCase
     {
         foreach ([
             fn () => DB::table('nilai_komponen')->where('krs_detail_id', $this->detail(1))->update(['nilai' => 101]),
-            fn () => DB::table('kelas')->where('id',1)->update(['dosen_id' => 999999]),
-            fn () => DB::table('nilai_komponen')->where('krs_detail_id',$this->detail(1))->limit(1)->update(['komponen_nilai_id' => DB::table('komponen_nilai')->where('kelas_id',4)->value('id')]),
+            fn () => DB::table('kelas')->where('id', 1)->update(['dosen_id' => 999999]),
+            fn () => DB::table('nilai_komponen')->where('krs_detail_id', $this->detail(1))->limit(1)->update(['komponen_nilai_id' => DB::table('komponen_nilai')->where('kelas_id', 4)->value('id')]),
         ] as $operation) {
             try {
                 $operation();

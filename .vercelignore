@@ -1,0 +1,17 @@
+Runtime
+ReviewPDF
+PaketUji
+LaTeX
+Hasil
+Bukti
+SQL
+.git
+.vercel
+**/.env*
+**/vendor
+**/node_modules
+**/.agents
+**/.claude
+**/.factory
+**/.codex
+**/.ai

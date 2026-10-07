@@ -1,0 +1,39 @@
+{
+  "environment": "adapter Vercel lokal, PHP 8.5, MySQL 8.0.46",
+  "checked_at": "2026-10-07T13:17:20+0700",
+  "results": [
+    {
+      "check": "halaman publik melalui adapter",
+      "status": 200
+    },
+    {
+      "check": "/up",
+      "status": 200
+    },
+    {
+      "check": "/tidak-ada",
+      "status": 404
+    },
+    {
+      "check": "host asing ditolak",
+      "status": 400
+    },
+    {
+      "check": "login dan sesi MySQL",
+      "status": 200
+    },
+    {
+      "check": "sesi bertahan setelah proses baru",
+      "status": 200
+    },
+    {
+      "check": "KHS melalui adapter",
+      "status": 200
+    },
+    {
+      "check": "halaman admin ditolak untuk mahasiswa",
+      "status": 403
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-07",
+  "site": "http://localhost:8089",
+  "tab": "6",
+  "action": "Click Hapus in replay master list; confirm prompt opened",
+  "automation_result": "Native confirm blocks browser input and cannot be dismissed through exposed automation APIs; no deletion submitted",
+  "attempts": [
+    "getJsDialog",
+    "pressKey Escape",
+    "close tab"
+  ],
+  "user_input_requested": "Press Escape or choose Batal on the native confirmation",
+  "confirmation_handler_vm": "ui-resilience.json verifies cancellation, allowed submission, repeat blocking and reset",
+  "delivery_status": "PASS; resolved with shared native HTML dialog and verified browser evidence",
+  "status": "RESOLVED",
+  "resolution": "Dialog native replaced by in-app HTML dialog; actual browser Cancel, Escape, Tab/Shift+Tab, protected rejection and successful deletion verified. Prior tab closed through ordinary turn cleanup.",
+  "proof": "dialog-browser.json; master-controls-browser.json; ui-resilience.json",
+  "user_input_required": false
+}

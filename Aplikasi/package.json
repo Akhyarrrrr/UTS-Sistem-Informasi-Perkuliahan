@@ -2,17 +2,19 @@
     "$schema": "https://www.schemastore.org/package.json",
     "private": true,
     "type": "module",
+    "engines": {
+        "node": "22.x"
+    },
     "scripts": {
         "build": "vite build",
         "dev": "vite"
+    },
+    "overrides": {
+        "shell-quote": "1.11.0"
     },
     "devDependencies": {
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",
         "vite": "^8.0.0"
-    },
-    "dependencies": {
-        "@fontsource-variable/source-sans-3": "^5.3.0",
-        "@fontsource-variable/source-serif-4": "^5.3.0"
     }
 }

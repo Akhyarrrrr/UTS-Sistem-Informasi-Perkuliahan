@@ -1,0 +1,29 @@
+[
+  {
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:8088/images/showcase/admin.png"
+      }
+    ],
+    "requested_role": "Admin"
+  },
+  {
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:8088/images/showcase/dosen.png"
+      }
+    ],
+    "requested_role": "Dosen"
+  },
+  {
+    "images": [
+      {
+        "loaded": true,
+        "src": "http://localhost:8088/images/showcase/mahasiswa.png"
+      }
+    ],
+    "requested_role": "Mahasiswa"
+  }
+]

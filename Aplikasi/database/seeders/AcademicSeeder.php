@@ -10,11 +10,15 @@ class AcademicSeeder extends Seeder
 {
     public function run(): void
     {
+        $plainPassword = config('app.demo_password');
+        if (! app()->environment('testing') && (! is_string($plainPassword) || strlen($plainPassword) < 16)) {
+            throw new \RuntimeException('DEMO_PASSWORD minimal 16 karakter wajib diatur sebelum membuat akun demonstrasi.');
+        }
         if (DB::table('fakultas')->exists()) {
             return;
         }
-        DB::transaction(function () {
-            $password = Hash::make(env('DEMO_PASSWORD') ?: 'DemoForTesting2026!');
+        DB::transaction(function () use ($plainPassword) {
+            $password = Hash::make($plainPassword ?: 'DemoForTesting2026!');
             $account = fn ($name, $email, $role) => DB::table('users')->insertGetId(['name' => $name, 'email' => $email, 'role' => $role, 'password' => $password, 'created_at' => now(), 'updated_at' => now()]);
             $admin = $account('Administrator akademik', 'admin@demo.test', 'admin');
             DB::table('fakultas')->insert([['kode' => 'FMIPA', 'nama' => 'Fakultas Matematika dan Ilmu Pengetahuan Alam'], ['kode' => 'FT', 'nama' => 'Fakultas Teknik']]);
@@ -54,7 +58,7 @@ class AcademicSeeder extends Seeder
                     DB::table('krs_detail')->insert(['krs_id' => $id, 'kelas_id' => $c]);
                 }
 
-return $id;
+                return $id;
             };
             $enroll(1, 2, [1, 2, 3, 4], 'disetujui');
             $enroll(1, 1, [9, 10, 11], 'disetujui');

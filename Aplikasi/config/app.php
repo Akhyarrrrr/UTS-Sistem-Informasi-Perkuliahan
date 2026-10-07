@@ -99,6 +99,10 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'demo_password' => env('DEMO_PASSWORD'),
+
+    'vercel_url' => env('VERCEL_URL'),
+
     'previous_keys' => [
         ...array_filter(
             explode(',', (string) env('APP_PREVIOUS_KEYS', ''))

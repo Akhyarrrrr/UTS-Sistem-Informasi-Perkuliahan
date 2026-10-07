@@ -1,41 +1,14 @@
-# Sistem Informasi Perkuliahan
+# Sistem Informasi Perkuliahan · UTS Akhyar
 
-**UTS Manajemen dan Pemodelan Data** · Akhyar · NPM 260820701100010 · Kelas A
+NPM 260820701100010 · Kelas A · Manajemen dan Pemodelan Data
 
-Aplikasi Laravel 13, PHP 8.5, dan MySQL 8.0 untuk mengelola perkuliahan dari penyusunan KRS sampai penerbitan KHS. Admin menyiapkan data akademik dan menyetujui KRS, dosen mencatat presensi serta nilai, dan mahasiswa mengikuti perkembangan studinya.
-
-Seluruh profil peserta, nilai, jadwal, dan aturan akademik merupakan **data simulasi**. Identitas penyusun digunakan pada satu profil demonstrasi.
-
-![KHS Raka Wijaya: nilai PDB308 88,50/A dan IPS 4,00](Bukti/replay-khs.jpg)
-
-Tangkapan layar asli dari pengujian paket hasil ekstraksi. Mahasiswa simulasi Raka Wijaya mengambil PDB308, mendapat presensi Hadir, lalu menerima nilai terbit 88,50/A dengan IPS 4,00.
-
-## Alur dan peran
-
-| Peran | Pekerjaan |
-|---|---|
-| Admin | CRUD pengguna dan data akademik, kelas dan jadwal, persetujuan KRS, aturan SKS, skala nilai, rekap, serta riwayat perubahan |
-| Dosen | Kelas yang diampu, pertemuan, presensi, komponen nilai, publikasi nilai, koreksi dengan alasan, dan rekap peserta |
-| Mahasiswa | KRS, status persetujuan, jadwal, presensi pribadi, KHS, IPS, dan IPK |
-
-Pencarian, filter, pagination, ekspor CSV, halaman cetak KRS/KHS/jadwal, serta tema terang dan gelap tersedia dalam aplikasi. Font Source Sans 3 dan Source Serif 4 dilayani secara lokal; lisensinya ada di [Aplikasi/public/licenses](Aplikasi/public/licenses).
-
-KRS diajukan memesan kapasitas kelas, sedangkan pengembalian melepasnya. Pengajuan memeriksa periode, prodi, batas SKS, mata kuliah ganda, benturan jadwal, dan kursi. Transaksi dan penguncian kelas melindungi pengajuan bersamaan.
-
-Nilai kosong berarti belum dinilai. Publikasi memerlukan nilai lengkap seluruh peserta aktif. Bobot terkunci sejak publikasi pertama; koreksi nilai terbit memerlukan alasan dan menyimpan nilai sebelum serta sesudah perubahan. IPS dihitung dari nilai terbit berbobot SKS; IPK simulasi memakai pengambilan terbaru yang telah terbit ketika mata kuliah diulang.
-
-## Mengambil kode dari GitHub
-
-```powershell
-git clone https://github.com/Akhyarrrrr/UTS-Sistem-Informasi-Perkuliahan.git
-Set-Location UTS-Sistem-Informasi-Perkuliahan
-```
+Aplikasi Laravel 13 / PHP 8.5 / MySQL 8.0. Semua profil, nilai, jadwal, dan kebijakan akademik adalah data simulasi; identitas penyusun dipakai pada laporan dan satu profil demonstrasi.
 
 ## Instalasi pertama di Windows
 
-1. Gunakan folder hasil clone yang dapat ditulis. Pertahankan susunan `Aplikasi`, `SQL`, `Bukti`, dan skrip pada tingkat yang sama.
+1. Ekstrak seluruh ZIP ke folder yang dapat ditulis. Pertahankan susunan `Aplikasi`, `SQL`, `Bukti`, dan skrip pada tingkat yang sama.
 2. Sediakan PHP 8.5 dengan PDO MySQL, mbstring, tokenizer, openssl, fileinfo, XML, dan zip; Composer 2; Node.js 22.12+ atau 24; serta MySQL 8.0. Port 8088 dan 3319 harus tersedia. Aplikasi telah diuji pada PHP 8.5.0, Node 24.18.0, dan MySQL 8.0.46.
-3. Buka PowerShell di folder `UTS-Sistem-Informasi-Perkuliahan`, yaitu folder repo yang memuat `install.ps1`:
+3. Buka PowerShell di folder `Sistem_Informasi_Perkuliahan`, yaitu folder hasil ekstraksi yang memuat `install.ps1`:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\check.ps1
@@ -50,9 +23,9 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -MySqlBin 'D:\tools\mysql
 powershell -ExecutionPolicy Bypass -File .\start.ps1 -MySqlBin 'D:\tools\mysql\bin'
 ```
 
-Instalasi memasang dependensi dari `composer.lock` dan `package-lock.json`, membuat instans MySQL khusus, mengatur `.env`, menjalankan migration/seeder, lalu membangun aset. Internet diperlukan untuk mengunduh dependensi pada instalasi pertama. Font dan aset aplikasi dilayani secara lokal setelah build. Tidak diperlukan Docker. Dua salinan aplikasi tidak dapat memakai port 8088 dan 3319 secara bersamaan; skrip memeriksa pemilik port sebelum memakai atau menghentikan layanan.
+Instalasi memasang dependensi dari `composer.lock` dan `package-lock.json`, membuat instans MySQL khusus, mengatur `.env`, menjalankan migration/seeder, lalu membangun aset. Internet diperlukan untuk mengunduh dependensi pada instalasi pertama. Font dan aset aplikasi dilayani secara lokal setelah build. Tidak diperlukan Docker.
 
-Buka **http://localhost:8088**. Akun dan kata sandi demo yang dibuat instalasi berada dalam `Runtime/akses-demo.txt`. Tiga akun utama: `admin@demo.test`, `dosen@demo.test`, dan `mahasiswa@demo.test`; semua akun simulasi memakai kata sandi instalasi yang sama. Akun Raka Wijaya untuk hasil demonstrasi: `mhs11@demo.test`. Kata sandi lokal tidak disertakan dalam repo.
+Buka **http://localhost:8088** untuk halaman pengenalan publik. Login mengarahkan pengguna ke ruang kerja sesuai peran; halaman pengenalan tetap dapat diakses sesudah login. Akun dan kata sandi demo yang dibuat instalasi berada dalam `Runtime/akses-demo.txt`. Tiga akun utama: `admin@demo.test`, `dosen@demo.test`, dan `mahasiswa@demo.test`; semua akun simulasi memakai kata sandi instalasi yang sama. Akun Raka Wijaya untuk hasil demonstrasi: `mhs11@demo.test`. Kata sandi lokal tidak disertakan dalam ZIP.
 
 Skrip tidak menggunakan MySQL utama komputer. Data berada di `Runtime/mysql-data`, pada port 3319 dengan koneksi loopback. Aplikasi memakai `uts_perkuliahan`; tes memakai `uts_perkuliahan_test`. Jangan memindahkan atau menghapus Runtime saat layanan masih berjalan.
 
@@ -77,8 +50,6 @@ Admin membuat/meninjau kelas, mahasiswa menyimpan dan mengajukan KRS, admin meny
 
 ## Pengujian
 
-Pemeriksaan aplikasi pada **4 Oktober 2026** menghasilkan **32 tes lulus dengan 248 assertion**. Dua proses PHP yang memperebutkan satu kursi terakhir menghasilkan satu pengajuan diterima dan satu ditolak. Import snapshot SQL menghasilkan 18 tabel, 6 trigger, 23 FK, dan tanpa baris yatim. Rincian hasil dan metode terdapat pada [Bukti/README.md](Bukti/README.md); file bukti mempertahankan tanggal pengujian aslinya.
-
 ```powershell
 cd Aplikasi
 php artisan test --compact --log-junit ../Bukti/phpunit.xml
@@ -87,7 +58,7 @@ npm run build
 php scripts/export-evidence.php
 ```
 
-Tes Laravel mempunyai guard nama database khusus. Skrip konkurensi **membuat ulang hanya `uts_perkuliahan_test`**, lalu menjalankan dua proses PHP untuk kursi terakhir. Jangan menjalankan tes Laravel dan skrip konkurensi bersamaan karena keduanya memakai database tes yang sama.
+Tes Laravel mempunyai guard nama database khusus. Skrip konkurensi **membuat ulang hanya `uts_perkuliahan_test`**, lalu menjalankan dua proses PHP untuk kursi terakhir, duplikasi pertemuan, serta perlindungan admin terakhir. Jangan menjalankan tes Laravel dan skrip konkurensi bersamaan karena keduanya memakai database tes yang sama.
 
 ## Snapshot SQL dan pemulihan
 
@@ -106,18 +77,34 @@ File struktur disediakan untuk penilaian DDL dan pembuatan tabel akademik pada d
 
 ## Hosting
 
-Sesuaikan `APP_URL`, `APP_KEY`, koneksi MySQL, dan cookie HTTPS; pertahankan kunci aplikasi selama data terenkripsi/sesi masih digunakan. Jalankan build dan migration pada lingkungan target. MySQL produksi harus eksternal jika aplikasi berjalan sebagai fungsi Vercel. PHP tersedia lewat runtime komunitas; Laravel membutuhkan adapter/runtime yang diuji tersendiri. Rujukan: [Vercel runtimes](https://vercel.com/docs/functions/runtimes), [Laravel deployment](https://laravel.com/docs/13.x/deployment). Deployment publik belum dilakukan.
+Proyek `uts-sistem-informasi-perkuliahan` telah dibuat pada akun Vercel `akhyarrrrr`, dengan Root Directory `Aplikasi` dan Node 22.x. Konfigurasi menggunakan `vercel-php@0.9.0`, entry point `api/index.php`, build `npm ci`/`npm run build`, serta aset statis dalam `public`. Deployment produksi dan koneksi MySQL online belum terverifikasi.
 
-## Susunan repo
+Panduan environment, pemisahan database dan izin akun, TLS, pengujian preview, backup, rollback, serta batas Aiven gratis tersedia dalam [README aplikasi](Aplikasi/README.md). Sesi dan cache online memakai database; berkas sementara serta kompilasi Blade memakai `/tmp`. Kata sandi dan kunci aplikasi disimpan secara pribadi. Migration dan seeding dilakukan terpisah dari build.
 
-| Folder / berkas | Isi |
-|---|---|
-| [Aplikasi](Aplikasi) | Kode Laravel, migration, seeder, tes, font, dan aset hasil build |
-| [SQL](SQL) | Struktur, snapshot data simulasi, dan query pembuktian |
-| [Bukti](Bukti/README.md) | Hasil pengujian aplikasi dan screenshot asli |
-| [install.ps1](install.ps1) | Pemasangan dan konfigurasi pertama |
-| [start.ps1](start.ps1), [stop.ps1](stop.ps1) | Menjalankan dan menghentikan layanan tanpa menghapus data |
-| [check.ps1](check.ps1) | Memeriksa prasyarat dan port |
-| [DESIGN.md](DESIGN.md) | Arahan visual antarmuka |
+## Laporan
 
-Environment, Runtime, database biner, cache, log, `vendor`, dan `node_modules` dikecualikan dari Git. Font beserta lisensi dan aset Vite hasil build disertakan. Paket laporan PDF dan sumber LaTeX disimpan terpisah dari repo aplikasi.
+Laporan menggunakan XeLaTeX, Times New Roman 12 pt, A4, spasi 1,5, dan margin L3,5/R3/T3/B3 cm. Dari paket sumber LaTeX, jalankan tiga kali:
+
+```powershell
+xelatex -interaction=nonstopmode -halt-on-error laporan_uts.tex
+```
+
+Font Times New Roman dan Consolas harus tersedia. Semua gambar dan cuplikan kode yang dipakai laporan sudah ada dalam ZIP LaTeX; tidak perlu menjalankan `prepare-evidence.py` untuk kompilasi sumber final.
+
+## Audit 6-7 Oktober 2026
+
+Audit lokal awal meluluskan 35 tes Laravel dengan 285 asersi serta perbandingan DDL/metadata 18 tabel dan enam trigger antara database utama, hasil migration baru, dan impor SQL. Setelah persiapan Vercel, suite meluluskan 38 tes dengan 294 asersi dan tiga tes konkurensi pada MySQL lokal 8.0.46 serta Aiven MySQL 8.4.8 pada 7 Oktober 2026. Bukti: `Bukti/phpunit-vercel-local-20261007.xml`, `Bukti/phpunit-aiven-20261007.xml`, `Bukti/concurrency-vercel-local-20261007.json`, `Bukti/concurrency-aiven-20261007.json`, `Bukti/schema-aiven-20261007.json`, dan `Bukti/vercel-adapter-local-20261007.json`.
+
+Lihat `Bukti/PEMERIKSAAN_DAN_BUKTI.md`, `Bukti/MATRIKS_UTS.md`, serta `Bukti/DELIVERY_GATE.md` untuk audit lokal sebelumnya. Pemeriksaan online masih berlangsung; PDF dan ZIP dalam `Hasil` tetap menjadi baseline lokal sampai paket akhir diregenerasikan dari sumber yang sudah diuji. Salinan GitHub belum diperbarui.
+
+Untuk replay dengan database khusus pada instans UTS yang sudah berjalan:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -Replay -ReplayDatabase uts_perkuliahan_replay_20261006
+cd Aplikasi
+php artisan serve --host=127.0.0.1 --port=8089
+```
+
+Replay memakai database berbeda dari `uts_perkuliahan`. Pilih database replay kosong untuk pemeriksaan instalasi baru. Kredensial tetap disediakan secara lokal oleh konfigurasi; jangan memasukkan `Runtime` ke paket publik.
+
+Pada Windows, ekstrak paket ke direktori pendek (misalnya D:\UTS) untuk menghindari batas panjang path saat Composer mengekstrak dependensi. Uji replay menggunakan pemetaan drive pendek ke salinan lokal yang terpisah.

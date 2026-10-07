@@ -44,7 +44,7 @@ DB::rollBack();
 $results['update_delete'] = ['updated' => $updated, 'after_update' => $read, 'deleted' => $deleted, 'persisted' => DB::table('ruang')->where('kode', 'SQL-TEST')->exists()];
 $evidence = ['captured' => now()->toIso8601String(), 'database' => $database, 'mysql' => DB::selectOne('SELECT VERSION() version')->version, 'laravel' => $app->version(), 'counts' => $counts, 'dictionary' => $dictionary, 'queries' => $queries, 'results' => $results, 'ips' => Academic::transcript(1, 2), 'ipk' => Academic::transcript(1)];
 file_put_contents($folder.'/database.json', json_encode($evidence, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-$schema = "-- Struktur aktual sistem UTS; MySQL 8.0.46\nSET NAMES utf8mb4;\n";
+$schema = "-- Struktur aktual sistem UTS; MySQL {$evidence['mysql']}\nSET NAMES utf8mb4;\n";
 foreach ($tables as $table) {
     $schema .= $pdo->query("SHOW CREATE TABLE `$table`")->fetch(PDO::FETCH_NUM)[1].";\n\n";
 }

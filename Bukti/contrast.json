@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-07",
+  "method": "Computed foreground/background colours of visible direct text, ancestor background compositing, WCAG relative luminance; 1440x900, two themes, Syne. Screen-reader-only, hidden dialog and aria-hidden content excluded.",
+  "page_theme_pairs": 128,
+  "text_samples": 6972,
+  "minimum_ratio": 5.187,
+  "failures": [],
+  "passed": true,
+  "confirmation_dialog": "18 additional layout states; two themes contrast-dialog.json"
+}

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title',($row?'Ubah ':'Tambah ').strtolower($title))
 @section('content')
-<div class="page-heading"><div><p class="eyebrow">Data akademik / {{ $title }}</p><h1>{{ $row?'Ubah':'Tambah' }} {{ strtolower($title) }}</h1><p class="muted">Hubungkan data dengan referensi yang sesuai. Catatan yang digunakan tetap terlindungi.</p></div><a class="button secondary" href="{{ route('master.'.$entity.'.index') }}">Kembali ke daftar</a></div>
+<div class="page-heading"><div><p class="eyebrow">Data akademik / {{ $title }}</p><h1>{{ $row?'Ubah':'Tambah' }} {{ strtolower($title) }}</h1><p class="muted">Hubungkan data dengan referensi yang sesuai. Catatan yang digunakan tetap terlindungi.</p></div><a class="button secondary icon-action" href="{{ route('master.'.$entity.'.index') }}" aria-label="Kembali ke daftar" title="Kembali ke daftar"><x-icon name="back"/><span class="control-label sr-only">Kembali ke daftar</span></a></div>
 <form class="panel form-panel" method="post" action="{{ $row?route('master.'.$entity.'.update',$row->id):route('master.'.$entity.'.store') }}" data-busy>@csrf
 @if($row)@method('PUT')
 @endif<div class="form-grid">
@@ -21,5 +21,5 @@
 @endif @error($key)<p class="field-error" id="error-{{ $key }}">{{ $message }}</p>@enderror
 @if($key==='password')<p class="field-hint">Minimal 10 karakter. Gunakan kata sandi berbeda untuk akun produksi.</p>
 @endif</div>
-@endforeach</div><div class="form-footer"><p class="muted">Data simulasi · perubahan dicatat pada riwayat</p><button class="button primary">Simpan {{ strtolower($title) }}</button></div><p class="form-status" role="status"></p></form>
+@endforeach</div><div class="form-footer"><p class="muted">Data simulasi · perubahan dicatat pada riwayat</p><button class="button primary icon-action" aria-label="Simpan {{ strtolower($title) }}" title="Simpan {{ strtolower($title) }}"><x-icon name="save"/><span class="control-label sr-only">Simpan {{ strtolower($title) }}</span></button></div><p class="form-status" role="status"></p></form>
 @endsection

@@ -4,84 +4,87 @@ namespace App\Http\Controllers;
 
 use App\Services\Academic;
 use App\Services\MasterData;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use stdClass;
 
 class MasterController extends Controller
 {
-    private function entity(Request $r): string
+    private function entity(Request $request): string
     {
-        return explode('.', $r->route()->getName())[1];
+        return explode('.', $request->route()->getName())[1];
     }
 
-    public function index(Request $r)
+    public function index(Request $request): View
     {
-        $entity = $this->entity($r);
+        $entity = $this->entity($request);
         [$title,$fields] = MasterData::definition($entity);
         $query = DB::table($entity);
-        if ($r->filled('q')) {
-            $query->where(function ($q) use ($fields, $r) {
-                foreach ($fields as $key => $f) {
-                    if (in_array($f[1], ['text', 'email'])) {
-                        $q->orWhere($key, 'like', '%'.$r->string('q').'%');
+        if ($request->filled('q')) {
+            $query->where(function ($searchQuery) use ($fields, $request) {
+                foreach ($fields as $key => $field) {
+                    if (in_array($field[1], ['text', 'email'])) {
+                        $searchQuery->orWhere($key, 'like', '%'.$request->string('q').'%');
                     }
                 }
             });
         }
         foreach (['prodi_id', 'periode_id', 'role'] as $filter) {
-            if (isset($fields[$filter]) && $r->filled($filter)) {
-                $query->where($filter, $r->input($filter));
+            if (isset($fields[$filter]) && $request->filled($filter)) {
+                $query->where($filter, $request->input($filter));
             }
         }
         $rows = $query->orderByDesc('id')->paginate(12)->withQueryString();
         $options = [];
-        foreach ($fields as $key => $f) {
-            $options[$key] = MasterData::options($f[1]);
+        foreach ($fields as $key => $field) {
+            $options[$key] = MasterData::options($field[1]);
         }
 
         return view('master.index', compact('entity', 'title', 'fields', 'rows', 'options'));
     }
 
-    public function create(Request $r)
+    public function create(Request $request): View
     {
-        return $this->form($r, null);
+        return $this->form($request, null);
     }
 
-    public function edit(Request $r, int $id)
+    public function edit(Request $request, int $id): View
     {
-        return $this->form($r, DB::table($this->entity($r))->find($id) ?? abort(404));
+        return $this->form($request, DB::table($this->entity($request))->find($id) ?? abort(404));
     }
 
-    private function form(Request $r, $row)
+    private function form(Request $request, ?stdClass $row): View
     {
-        $entity = $this->entity($r);
+        $entity = $this->entity($request);
         [$title,$fields] = MasterData::definition($entity);
         $options = [];
-        foreach ($fields as $key => $f) {
-            $options[$key] = MasterData::options($f[1]);
+        foreach ($fields as $key => $field) {
+            $options[$key] = MasterData::options($field[1]);
         }
 
         return view('master.form', compact('entity', 'title', 'fields', 'options', 'row'));
     }
 
-    public function store(Request $r)
+    public function store(Request $request): RedirectResponse
     {
-        return $this->save($r, null);
+        return $this->save($request, null);
     }
 
-    public function update(Request $r, int $id)
+    public function update(Request $request, int $id): RedirectResponse
     {
-        DB::table($this->entity($r))->find($id) ?? abort(404);
+        DB::table($this->entity($request))->find($id) ?? abort(404);
 
-        return $this->save($r, $id);
+        return $this->save($request, $id);
     }
 
-    private function save(Request $r, ?int $id)
+    private function save(Request $request, ?int $id): RedirectResponse
     {
-        $entity = $this->entity($r);
-        $data = $r->validate(MasterData::rules($entity, $id));
+        $entity = $this->entity($request);
+        $data = $request->validate(MasterData::rules($entity, $id));
         if ($entity === 'users') {
             if (! empty($data['password'])) {
                 $data['password'] = Hash::make($data['password']);
@@ -91,6 +94,10 @@ class MasterController extends Controller
         }
         try {
             DB::transaction(function () use ($entity, $data, $id) {
+                if ($entity === 'users') {
+                    // ponytail: serialize account mutations; narrow the lock if account volume grows.
+                    DB::table('users')->orderBy('id')->lockForUpdate()->get(['id']);
+                }
                 if ($id) {
                     DB::table($entity)->where('id', $id)->lockForUpdate()->first();
                 }
@@ -110,7 +117,7 @@ class MasterController extends Controller
                     }
                 }
                 Academic::audit($id ? 'Ubah data' : 'Tambah data', $entity, $saved, $data);
-            });
+            }, 3);
         } catch (QueryException $e) {
             if (in_array($e->getCode(), ['23000', '45000', 'HY000'])) {
                 Academic::fail('Data belum dapat disimpan. Periksa keunikan kode, hubungan, dan batas nilainya.');
@@ -120,37 +127,43 @@ class MasterController extends Controller
         return redirect()->route('master.'.$entity.'.index')->with('success', 'Data berhasil disimpan.');
     }
 
-    public function destroy(Request $r, int $id)
+    public function destroy(Request $request, int $id): RedirectResponse
     {
-        $entity = $this->entity($r);
-        $old = DB::table($entity)->find($id) ?? abort(404);
-        if ($entity === 'users' && ($id === auth()->id() || ($old->role === 'admin' && DB::table('users')->where('role', 'admin')->count() === 1))) {
-            Academic::fail('Akun yang sedang digunakan atau admin terakhir tidak dapat dihapus.');
-        }
-        if ($entity === 'skala_nilai') {
-            MasterData::guards($entity, (array) $old, $id);
-            if ((float) $old->minimum === 0.0) {
-                Academic::fail('Skala minimum nol diperlukan untuk menghitung seluruh rentang nilai.');
-            }
-        }
-        if ($entity === 'periode' && $old->aktif) {
-            Academic::fail('Tentukan periode utama lain sebelum menghapus periode ini.');
-        }
-        if ($entity === 'jadwal' && Academic::reserved($old->kelas_id)) {
-            Academic::fail('Jadwal kelas dengan peserta dikunci.');
-        }
+        $entity = $this->entity($request);
         try {
             DB::transaction(function () use ($entity, $id) {
+                if ($entity === 'users') {
+                    DB::table('users')->orderBy('id')->lockForUpdate()->get(['id']);
+                }
+                $old = DB::table($entity)->where('id', $id)->lockForUpdate()->first() ?? abort(404);
+                if ($entity === 'users' && ($id === auth()->id() || ($old->role === 'admin' && DB::table('users')->where('role', 'admin')->count() === 1))) {
+                    Academic::fail('Akun yang sedang digunakan atau admin terakhir tidak dapat dihapus.');
+                }
+                if ($entity === 'skala_nilai') {
+                    MasterData::guards($entity, (array) $old, $id);
+                    if ((float) $old->minimum === 0.0) {
+                        Academic::fail('Skala minimum nol diperlukan untuk menghitung seluruh rentang nilai.');
+                    }
+                }
+                if ($entity === 'periode' && $old->aktif) {
+                    Academic::fail('Tentukan periode utama lain sebelum menghapus periode ini.');
+                }
+                if ($entity === 'jadwal') {
+                    DB::table('kelas')->where('id', $old->kelas_id)->lockForUpdate()->first();
+                    if (Academic::reserved($old->kelas_id)) {
+                        Academic::fail('Jadwal kelas dengan peserta dikunci.');
+                    }
+                }
                 if ($entity === 'kelas' && ! DB::table('krs_detail')->where('kelas_id', $id)->exists() && ! DB::table('jadwal')->where('kelas_id', $id)->exists() && ! DB::table('pertemuan')->where('kelas_id', $id)->exists()) {
                     DB::table('komponen_nilai')->where('kelas_id', $id)->delete();
                 }
                 DB::table($entity)->where('id', $id)->delete();
                 Academic::audit('Hapus data', $entity, $id);
-            });
+            }, 3);
         } catch (QueryException $e) {
             Academic::fail('Data masih digunakan oleh catatan lain sehingga tidak dapat dihapus.');
         }
 
-        return back()->with('success','Data yang belum digunakan berhasil dihapus.');
+        return back()->with('success', 'Data yang belum digunakan berhasil dihapus.');
     }
 }

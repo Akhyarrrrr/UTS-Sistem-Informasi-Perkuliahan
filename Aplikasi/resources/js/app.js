@@ -2,7 +2,8 @@ const themeButton = document.querySelector('.theme-button');
 if (themeButton) {
     const labelTheme = () => {
         const dark = document.documentElement.dataset.theme === 'dark';
-        themeButton.textContent = dark ? 'Tema terang' : 'Tema gelap';
+        themeButton.querySelector('.control-label').textContent = dark ? 'Tema terang' : 'Tema gelap';
+        themeButton.title = dark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap';
         themeButton.setAttribute('aria-label', dark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap');
     };
     labelTheme();
@@ -48,12 +49,39 @@ document.querySelectorAll('.password-toggle').forEach(button => button.addEventL
     const input = document.getElementById(button.getAttribute('aria-controls'));
     const show = input.type === 'password';
     input.type = show ? 'text' : 'password';
-    button.textContent = show ? 'Sembunyikan' : 'Tampilkan';
+    button.querySelector('.control-label').textContent = show ? 'Sembunyikan' : 'Tampilkan';
+    button.setAttribute('aria-label', show ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+    button.title = show ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi';
     button.setAttribute('aria-pressed', String(show));
 }));
+const confirmation = document.getElementById('delete-confirmation');
+let pendingDeletion, deletionButton, confirmedDeletion;
 document.querySelectorAll('form[data-confirm]').forEach(form => form.addEventListener('submit', event => {
-    if (!window.confirm(form.dataset.confirm)) event.preventDefault();
+    if (form === confirmedDeletion) { confirmedDeletion = undefined; return; }
+    event.preventDefault();
+    if (form.dataset.submitting || !confirmation) return;
+    pendingDeletion = form;
+    deletionButton = event.submitter;
+    document.getElementById('confirm-message').textContent = form.dataset.confirm;
+    confirmation.returnValue = '';
+    confirmation.showModal();
 }));
+confirmation?.addEventListener('close', () => {
+    const form = pendingDeletion, button = deletionButton;
+    pendingDeletion = deletionButton = undefined;
+    button?.focus();
+    if (confirmation.returnValue === 'delete' && form) {
+        confirmedDeletion = form;
+        form.requestSubmit(button);
+    }
+});
+confirmation?.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const buttons = [...confirmation.querySelectorAll('button')];
+    const first = buttons[0], last = buttons.at(-1);
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+});
 document.querySelectorAll('form[data-busy]').forEach(form => form.addEventListener('submit', event => {
     if (event.defaultPrevented) return;
     if (form.dataset.submitting) { event.preventDefault(); return; }
@@ -71,6 +99,11 @@ window.addEventListener('pageshow', () => document.querySelectorAll('form[data-b
     if (status) status.textContent = '';
 }));
 document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
+document.querySelectorAll('.table-wrap').forEach(table => {
+    table.tabIndex = 0;
+    table.setAttribute('role', 'region');
+    table.setAttribute('aria-label', 'Tabel data. Gunakan tombol panah untuk menggeser tabel yang lebar.');
+});
 const choices = document.querySelectorAll('.course-choice');
 const selectedSks = document.getElementById('selected-sks');
 const countSks = () => {
@@ -79,3 +112,59 @@ const countSks = () => {
 choices.forEach(choice => choice.addEventListener('change', countSks));
 countSks();
 document.getElementById('error-summary')?.focus();
+
+const home = document.querySelector('.home-body');
+if (home) {
+    home.classList.add('js-ready');
+    const homeMenu = document.querySelector('.home-menu-button');
+    const homeNav = document.getElementById('home-navigation');
+    const closeHomeMenu = () => {
+        homeNav.classList.remove('open');
+        homeMenu.setAttribute('aria-expanded', 'false');
+    };
+    homeMenu.addEventListener('click', () => {
+        const open = homeNav.classList.toggle('open');
+        homeMenu.setAttribute('aria-expanded', String(open));
+    });
+    homeNav.addEventListener('click', event => {
+        if (event.target.closest('a')) closeHomeMenu();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && homeNav.classList.contains('open')) {
+            closeHomeMenu();
+            homeMenu.focus();
+        }
+    });
+    const roleButtons = [...document.querySelectorAll('[data-role]')];
+    const showRole = role => {
+        roleButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.role === role)));
+        document.querySelectorAll('[data-role-panel]').forEach(panel => { panel.hidden = panel.dataset.rolePanel !== role; });
+    };
+    roleButtons.forEach(button => button.addEventListener('click', () => showRole(button.dataset.role)));
+    showRole('mahasiswa');
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        }), { threshold: .12 });
+        reveals.forEach(element => revealObserver.observe(element));
+    } else {
+        reveals.forEach(element => element.classList.add('revealed'));
+    }
+    if ('IntersectionObserver' in window) {
+        const nodes = [...document.querySelectorAll('.journey-node')];
+        const lines = [...document.querySelectorAll('.journey-line')];
+        const stages = [0, 0, 1, 2, 2, 3];
+        const steps = [...document.querySelectorAll('[data-journey-step]')];
+        const journeyObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const stage = stages[steps.indexOf(entry.target)];
+            nodes.forEach((node, index) => node.classList.toggle('active', index <= stage));
+            lines.forEach((line, index) => line.classList.toggle('active', index < stage));
+        }), { rootMargin: '-20% 0px -40% 0px' });
+        steps.forEach(step => journeyObserver.observe(step));
+    }
+}

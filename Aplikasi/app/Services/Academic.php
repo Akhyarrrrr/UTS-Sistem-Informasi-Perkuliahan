@@ -3,8 +3,11 @@
 namespace App\Services;
 
 use App\Models\User;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use stdClass;
 
 class Academic
 {
@@ -19,22 +22,22 @@ class Academic
         DB::table('activity_log')->insert(['user_id' => auth()->id(), 'aksi' => $action, 'entitas' => $entity, 'record_id' => $id, 'detail' => json_encode($detail), 'created_at' => now()]);
     }
 
-    public static function period(?int $id = null)
+    public static function period(?int $id = null): ?stdClass
     {
         return $id ? DB::table('periode')->find($id) : DB::table('periode')->orderByDesc('aktif')->orderByDesc('tahun_mulai')->orderByDesc('id')->first();
     }
 
-    public static function student(User $user)
+    public static function student(User $user): stdClass
     {
         return DB::table('mahasiswa')->where('user_id', $user->id)->first() ?? abort(403, 'Profil mahasiswa belum dihubungkan.');
     }
 
-    public static function classQuery()
+    public static function classQuery(): Builder
     {
         return DB::table('kelas as k')->join('matakuliah as m', 'm.id', '=', 'k.matakuliah_id')->join('dosen as d', 'd.id', '=', 'k.dosen_id')->join('periode as p', 'p.id', '=', 'k.periode_id')->select('k.*', 'm.nama as matakuliah', 'm.kode as kode_mk', 'm.sks', 'm.prodi_id', 'd.nama as dosen', 'd.user_id as dosen_user_id', 'p.nama as periode');
     }
 
-    public static function teachingClass(User $user, int $id)
+    public static function teachingClass(User $user, int $id): stdClass
     {
         $class = self::classQuery()->where('k.id', $id)->first() ?? abort(404);
         abort_unless($user->role === 'admin' || ($user->role === 'dosen' && $class->dosen_user_id === $user->id), 403);
@@ -42,7 +45,7 @@ class Academic
         return $class;
     }
 
-    public static function participants(int $class)
+    public static function participants(int $class): Collection
     {
         return DB::table('krs_detail as kd')->join('krs as r', 'r.id', '=', 'kd.krs_id')->join('mahasiswa as m', 'm.id', '=', 'r.mahasiswa_id')->where('kd.kelas_id', $class)->where('r.status', 'disetujui')->select('kd.id', 'm.nama', 'm.npm', 'm.id as mahasiswa_id')->orderBy('m.nama')->get();
     }
@@ -55,7 +58,7 @@ class Academic
         return DB::transactionLevel() ? $query->lockForUpdate()->get(['d.id'])->count() : $query->count();
     }
 
-    public static function window($period): void
+    public static function window(?stdClass $period): void
     {
         if (! $period || today()->toDateString() < $period->krs_mulai || today()->toDateString() > $period->krs_selesai) {
             self::fail('Periode pengisian KRS sedang ditutup.');
@@ -171,7 +174,8 @@ class Academic
         }, 3);
     }
 
-    public static function result(int $detail)
+    /** @return array{nilai: float, huruf: string, angka: float}|null */
+    public static function result(int $detail): ?array
     {
         $d = DB::table('krs_detail')->find($detail) ?? abort(404);
         $components = DB::table('komponen_nilai')->where('kelas_id', $d->kelas_id)->get();
@@ -262,6 +266,7 @@ class Academic
         });
     }
 
+    /** @return array{rows: array, sks: int, ip: float|null, pending: int} */
     public static function transcript(int $student, ?int $period = null): array
     {
         $rows = DB::table('krs_detail as d')->join('krs as r', 'r.id', '=', 'd.krs_id')->join('kelas as k', 'k.id', '=', 'd.kelas_id')->join('matakuliah as m', 'm.id', '=', 'k.matakuliah_id')->join('periode as p', 'p.id', '=', 'k.periode_id')->where('r.mahasiswa_id', $student)->where('r.status', 'disetujui')->when($period, fn ($q) => $q->where('r.periode_id', $period))->select('d.id', 'm.id as mk_id', 'm.kode', 'm.nama', 'm.sks', 'k.published_at', 'p.nama as periode', 'p.tahun_mulai', 'p.semester')->orderBy('p.tahun_mulai')->orderByRaw("FIELD(p.semester,'Ganjil','Genap')")->get();
@@ -276,13 +281,13 @@ class Academic
             }
             $results[] = $row;
         }
-        $counted = $period ? $results : array_values(array_reduce($results,function ($carry,$row) {
+        $counted = $period ? $results : array_values(array_reduce($results, function ($carry, $row) {
             if ($row->hasil) {
                 $carry[$row->mk_id] = $row;
             }
 
-return $carry;
-        },[]));
+            return $carry;
+        }, []));
         foreach ($counted as $row) {
             if ($row->hasil) {
                 $sks += $row->sks;
@@ -290,6 +295,6 @@ return $carry;
             }
         }
 
-        return ['rows' => $results, 'sks' => $sks, 'ip' => $sks ? round($points / $sks,2) : null, 'pending' => $pending];
+        return ['rows' => $results, 'sks' => $sks, 'ip' => $sks ? round($points / $sks, 2) : null, 'pending' => $pending];
     }
 }

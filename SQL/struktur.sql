@@ -98,7 +98,7 @@ CREATE TABLE `ruang` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ruang_kode_unique` (`kode`),
   CONSTRAINT `chk_ruang_0` CHECK ((`kapasitas` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `kelas` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,

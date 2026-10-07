@@ -1,0 +1,34 @@
+{
+  "method": "Node VM executes actual theme initializer and app.js with controlled storage, motion preference, dialog return value and form events; CSS reduction rules checked. This supplements actual browser dialog and keyboard tests.",
+  "checks": [
+    {
+      "saved": "dark",
+      "reduced": false,
+      "observer": true,
+      "themeAndRevealFallback": "PASS"
+    },
+    {
+      "saved": "invalid",
+      "reduced": true,
+      "observer": true,
+      "themeAndRevealFallback": "PASS"
+    },
+    {
+      "blocked": true,
+      "reduced": true,
+      "observer": false,
+      "themeAndRevealFallback": "PASS"
+    },
+    {
+      "confirmationCancel": "PASS",
+      "confirmationEscapeReset": "PASS",
+      "confirmedSubmitOnce": "PASS",
+      "firstSubmitBusy": "PASS",
+      "repeatedSubmitBlocked": "PASS",
+      "pageshowReset": "PASS",
+      "dialogKeyboardWrap": "PASS",
+      "actualDeleteFormsUseBusyGuard": "PASS"
+    }
+  ],
+  "reducedMotionCss": "PASS"
+}

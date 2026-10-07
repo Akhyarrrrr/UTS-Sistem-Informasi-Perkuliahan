@@ -2,8 +2,8 @@
 @section('title','Rencana studi')
 @section('content')
 @php($locked=$krs && in_array($krs->status,['diajukan','disetujui']))
-<div class="page-heading"><div><p class="eyebrow">Kartu rencana studi</p><h1>Rencana studi</h1><p class="muted">{{ $student->nama }} · {{ $student->npm }} · {{ $period->nama }}</p></div><button type="button" class="button secondary" data-print>Cetak KRS</button></div>
-<form class="filterbar no-print" method="get">@include('partials.period-filter')<button class="button secondary">Lihat periode</button></form>
+<div class="page-heading"><div><p class="eyebrow">Kartu rencana studi</p><h1>Rencana studi</h1><p class="muted">{{ $student->nama }} · {{ $student->npm }} · {{ $period->nama }}</p></div><button type="button" class="button secondary icon-action" data-print aria-label="Cetak KRS" title="Cetak KRS"><x-icon name="print"/><span class="control-label sr-only">Cetak KRS</span></button></div>
+<form class="filterbar no-print" method="get">@include('partials.period-filter')<button class="button secondary icon-action" aria-label="Lihat periode" title="Lihat periode"><x-icon name="filter"/><span class="control-label sr-only">Lihat periode</span></button></form>
 <section class="study-summary"><div><span class="muted">Status KRS</span><strong>{{ ucfirst($krs?->status ?? 'Belum dibuat') }}</strong></div><div><span class="muted">SKS pilihan</span><strong><span id="selected-sks">{{ $classes->whereIn('id',$selected)->sum('sks') }}</span> / {{ $limit }}</strong></div><div><span class="muted">Pengisian KRS</span><strong>{{ \Carbon\Carbon::parse($period->krs_mulai)->format('d M') }} – {{ \Carbon\Carbon::parse($period->krs_selesai)->format('d M Y') }}</strong></div></section>
 @if($krs?->catatan)<div class="notice info"><strong>Catatan admin</strong><p>{{ $krs->catatan }}</p></div>
 @endif
@@ -15,8 +15,8 @@
 @endif
 @empty<tr><td colspan="6"><div class="empty"><h3>Kelas belum ditawarkan</h3><p>Pilih periode lain atau hubungi admin akademik.</p></div></td></tr>
 @endforelse</tbody></table></div>
-@if(!$locked)<div class="form-footer"><p class="muted">Draf belum memesan kursi. Pemeriksaan kapasitas dilakukan saat pengajuan.</p><button class="button secondary">Simpan draf KRS</button></div>
+@if(!$locked)<div class="form-footer"><p class="muted">Draf belum memesan kursi. Pemeriksaan kapasitas dilakukan saat pengajuan.</p><button class="button secondary icon-action" aria-label="Simpan draf KRS" title="Simpan draf KRS"><x-icon name="save"/><span class="control-label sr-only">Simpan draf KRS</span></button></div>
 @endif<p class="form-status" role="status"></p></form>
-@if($krs?->status==='draf')<section class="panel publication no-print"><h2>Ajukan rencana studi</h2><p class="muted">Pilihan yang sudah disimpan akan diperiksa lalu memesan kursi sambil menunggu persetujuan.</p><form method="post" action="{{ route('krs.submit',$krs->id) }}" data-busy>@csrf<button class="button primary">Ajukan KRS</button><p class="form-status" role="status"></p></form></section>
+@if($krs?->status==='draf')<section class="panel publication no-print"><h2>Ajukan rencana studi</h2><p class="muted">Pilihan yang sudah disimpan akan diperiksa lalu memesan kursi sambil menunggu persetujuan.</p><form method="post" action="{{ route('krs.submit',$krs->id) }}" data-busy>@csrf<button class="button primary icon-action" aria-label="Ajukan KRS" title="Ajukan KRS"><x-icon name="send"/><span class="control-label sr-only">Ajukan KRS</span></button><p class="form-status" role="status"></p></form></section>
 @endif
 @endsection

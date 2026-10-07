@@ -24,3 +24,15 @@
 !**/storage/logs/.gitignore
 .DS_Store
 Thumbs.db
+
+**/.vercel/
+
+**/.agents/
+
+**/.claude/
+
+**/.factory/
+
+**/.ai/
+.vercel
+.env*

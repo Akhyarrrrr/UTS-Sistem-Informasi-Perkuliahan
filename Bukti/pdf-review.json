@@ -1,0 +1,642 @@
+{
+  "all_fonts_embedded": true,
+  "pages": 51,
+  "fonts": [
+    "/GCIAAB+CMR12",
+    "/IUQHAX+Consolas",
+    "/JPAYTX+TimesNewRomanPS-BoldMT",
+    "/QKLXOE+TimesNewRomanPS-ItalicMT",
+    "/QWUZLI+CMMI12",
+    "/TADBJX+Consolas-Italic",
+    "/VCPJPR+CMSY10",
+    "/VEWCOY+Consolas-Bold",
+    "/ZDMHVV+TimesNewRomanPSMT"
+  ],
+  "all_a4": true,
+  "blank_pages": [],
+  "links": 105,
+  "page_details": [
+    {
+      "page": 1,
+      "characters": 276,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "LAPORAN UJIAN TENGAH SEMESTER\nSISTEM INFORMASI PERKULIAHAN\nLaravel, MySQL, dan Pemodelan Basis "
+    },
+    {
+      "page": 2,
+      "characters": 1451,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "RINGKASAN\nSaya membangun Sistem Informasi Perkuliahan untuk mengelola hubungan antara ma-\nhasis"
+    },
+    {
+      "page": 3,
+      "characters": 1624,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "DAFTAR ISI\nRingkasan i\nPendahuluan 1\n1 Komputer dan Web Server 2\n1.1 Spesifikasi komputer aktua"
+    },
+    {
+      "page": 4,
+      "characters": 978,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "iii\n4.9 Penilaian, IPS, dan IPK . . . . . . . . . . . . . . . . . . . . . . . . . 24\n5 Implemen"
+    },
+    {
+      "page": 5,
+      "characters": 538,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "DAFTAR TABEL\n1.1 Lingkungan implementasi yang digunakan. . . . . . . . . . . . . . . 2\n2.1 Pemb"
+    },
+    {
+      "page": 6,
+      "characters": 1371,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "DAFTAR GAMBAR\n1.1 Alur permintaan dan penyimpanan data pada lingkungan lokal. . . . . 3\n4.1 ERD"
+    },
+    {
+      "page": 7,
+      "characters": 1179,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "PENDAHULUAN\nLatar belakang\nCatatan perkuliahan tidak cukup disimpan sebagai daftar mahasiswa da"
+    },
+    {
+      "page": 8,
+      "characters": 1302,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB I\nKOMPUTER DAN WEB SERVER\n1.1 Spesifikasi komputer aktual\nSaya memperoleh spesifikasi melal"
+    },
+    {
+      "page": 9,
+      "characters": 933,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "3\naplikasi hanya diberi hak pada database UTS. Kata sandi dibuat saat konfigurasi lokal\ndan tid"
+    },
+    {
+      "page": 10,
+      "characters": 715,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB II\nPEMROGRAMAN WEB\n2.1 Peran PHP dan Laravel\nPHP menjalankan logika pada server. Laravel me"
+    },
+    {
+      "page": 11,
+      "characters": 1537,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "5\n2.2 Struktur proyek dan koneksi\nLokasi Tanggung jawab\nroutes/web.php Route resource dan tinda"
+    },
+    {
+      "page": 12,
+      "characters": 1721,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "6\nCreate dan update memakai validasi yang sama, kemudian menjalankan guard bisnis\ndalam transak"
+    },
+    {
+      "page": 13,
+      "characters": 1865,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "7\nDelete tidak menghapus hubungan secara diam-diam. FK dengan RESTRICT melin-\ndungi master yang"
+    },
+    {
+      "page": 14,
+      "characters": 1974,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "8\n2.4 Pengajuan KRS dan konkurensi\nKRS draf tidak mereservasi\u037e KRS diajukan dan disetujui memes"
+    },
+    {
+      "page": 15,
+      "characters": 1462,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB III\nDATABASE SERVER\n3.1 RDBMS dan pembagian entitas\nSaya menggunakan MySQL karena hubungan "
+    },
+    {
+      "page": 16,
+      "characters": 1059,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "10\n3.2 Kamus data aktual\nSaya membangkitkan kamus berikut dari information_schema.COLUMNS. PK m"
+    },
+    {
+      "page": 17,
+      "characters": 902,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "11\n3.2.3 prodi\nProgram studi dan batas SKS simulasi yang digunakan pada pengajuan KRS.\nKolom Ti"
+    },
+    {
+      "page": 18,
+      "characters": 836,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "12\n3.2.6 matakuliah\nKatalog mata kuliah. SKS dan prodi dikunci oleh aplikasi setelah mata kulia"
+    },
+    {
+      "page": 19,
+      "characters": 1226,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "13\n3.2.9 kelas\nPenawaran mata kuliah pada satu periode, dengan pengampu dan kapasitas. Waktu\nte"
+    },
+    {
+      "page": 20,
+      "characters": 1100,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "14\n3.2.12 krs_detail\nPengambilan satu kelas dalam KRS. Total SKS dihitung melalui JOIN ke mata "
+    },
+    {
+      "page": 21,
+      "characters": 998,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "15\n3.2.16 pertemuan\nPertemuan kelas dengan nomor, tanggal, dan topik.\nKolom Tipe aktual NULL Ku"
+    },
+    {
+      "page": 22,
+      "characters": 1932,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "16\n3.3 Kunci unik, FK, dan aturan integritas\nTabel Keunikan bisnis selain PK (UNIQUE)\nusers ema"
+    },
+    {
+      "page": 23,
+      "characters": 709,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB IV\nRELASIONAL, SQL, DAN NORMALISASI\n4.1 ERD dan kardinalitas\nDiagram dibagi menjadi dua kel"
+    },
+    {
+      "page": 24,
+      "characters": 1138,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "18\nperiode\nPK id\u037e UQ nama\nkelas\nPK id\nFK MK, periode,\ndosen\njadwal\nPK id\nFK kelas, ruang\nkrs\nPK"
+    },
+    {
+      "page": 25,
+      "characters": 2071,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "19\nMataKuliah = {\nMPD301 / A / 3 SKS / Dr. Ahmad Fadhli / {\nTugas:80, Kuis:90, UTS:85, UAS:95},"
+    },
+    {
+      "page": 26,
+      "characters": 1870,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "20\nP pengambilan ulang bercampur\u037e tanpa C mata kuliah bercampur\u037e tanpa N komponen\nbercampur. V "
+    },
+    {
+      "page": 27,
+      "characters": 2405,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "21\nkarena mahasiswa pada periode yang sama dapat memilih penawaran A atau B. Pada\ntahap ini mas"
+    },
+    {
+      "page": 28,
+      "characters": 1623,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "22\nJOIN komponen_nilai c ON c.kelas_id=k.id\nLEFT JOIN nilai_komponen n ON n.krs_detail_id=d.id\n"
+    },
+    {
+      "page": 29,
+      "characters": 1886,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "23\n4.8.2 UPDATE dan DELETE dalam transaksi\nSaya menguji query dengan membuat ruang sementara de"
+    },
+    {
+      "page": 30,
+      "characters": 1374,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "24\n4.9 Penilaian, IPS, dan IPK\nBobot default adalah Tugas 20%, Kuis 10%, UTS 30%, dan UAS 40%. "
+    },
+    {
+      "page": 31,
+      "characters": 1226,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB V\nIMPLEMENTASI LOKAL\n5.1 Menjalankan dan menghentikan aplikasi\nPaket aplikasi memuat migrat"
+    },
+    {
+      "page": 32,
+      "characters": 113,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "26\nGambar 5.1: Halaman masuk dengan penjelasan tiga peran. Sumber: dokumentasi pengujian\nlokal,"
+    },
+    {
+      "page": 33,
+      "characters": 170,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "27\nGambar 5.2: Ringkasan admin dengan jumlah data dan antrian KRS dari database. Area isi\ndiper"
+    },
+    {
+      "page": 34,
+      "characters": 454,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "28\nGambar 5.3: Daftar mata kuliah dengan pencarian, program studi, dan tindakan CRUD. Area\nisi "
+    },
+    {
+      "page": 35,
+      "characters": 1553,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "29\n5.3 Kendala nyata dan perbaikannya\nSaya mencatat kendala berdasarkan pemeriksaan kode dan ha"
+    },
+    {
+      "page": 36,
+      "characters": 2017,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "30\n5.4 Skenario tes dan paket reproduksi\nKelompok pengujian Hasil yang diperiksa\nLogin dan akse"
+    },
+    {
+      "page": 37,
+      "characters": 838,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "BAB VI\nHASIL APLIKASI\n6.1 Demonstrasi alur ketiga peran\nUrutan hasil diperlihatkan melalui peng"
+    },
+    {
+      "page": 38,
+      "characters": 175,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "32\nGambar 6.1: KRS mahasiswa berstatus diajukan, dengan 2 SKS dan satu kursi dipesan. Area\nisi "
+    },
+    {
+      "page": 39,
+      "characters": 558,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "33\nGambar 6.2: Admin meninjau pengajuan beserta pilihan mata kuliahnya. Area isi diperbesar\ndar"
+    },
+    {
+      "page": 40,
+      "characters": 172,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "34\nGambar 6.3: Dashboard dosen yang memusatkan pekerjaan pada kelas dan publikasi. Area\nisi dip"
+    },
+    {
+      "page": 41,
+      "characters": 547,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "35\nGambar 6.4: Presensi kelas praktikum tersimpan sebagai Hadir. Area isi diperbesar dari\ntangk"
+    },
+    {
+      "page": 42,
+      "characters": 163,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "36\nGambar 6.5: Penolakan publikasi ketika komponen peserta belum lengkap. Area isi\ndiperbesar d"
+    },
+    {
+      "page": 43,
+      "characters": 439,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "37\nGambar 6.6: Nilai praktikum 88,50/A yang telah diterbitkan. Area isi diperbesar dari\ntangkap"
+    },
+    {
+      "page": 44,
+      "characters": 475,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "38\nGambar 6.7: KHS mahasiswa pada akhir demonstrasi lengkap. Area isi diperbesar dari\ntangkapan"
+    },
+    {
+      "page": 45,
+      "characters": 1555,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "39\nGambar 6.8: Halaman publik dengan visual hubungan data dan hasil demonstrasi. Sumber:\ndokume"
+    },
+    {
+      "page": 46,
+      "characters": 124,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "40\nGambar 6.9: KHS pada viewport ponsel 390 piksel. Tabel dapat digeser di dalam area tabel\ntan"
+    },
+    {
+      "page": 47,
+      "characters": 736,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "41\nGambar 6.10: Tema gelap pada dashboard mahasiswa. Area isi diperbesar dari tangkapan\nlayar a"
+    },
+    {
+      "page": 48,
+      "characters": 1758,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "42\npe menutup menu serta mengembalikan fokus. Saya mengukur kontras teks utama dan\nsekunder pad"
+    },
+    {
+      "page": 49,
+      "characters": 827,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "KESIMPULAN\nMelalui implementasi ini, saya menghubungkan rancangan database dengan alur apli-\nka"
+    },
+    {
+      "page": 50,
+      "characters": 1564,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "DAFTAR PUSTAKA\n1. Universitas Syiah Kuala. (2025). UTS Manajemen dan Pemodelan Data. Dokumen\nso"
+    },
+    {
+      "page": 51,
+      "characters": 1355,
+      "size_pt": [
+        0,
+        0,
+        595.28,
+        841.89
+      ],
+      "text_start": "LAMPIRAN A\nPEMETAAN PERSYARATAN DAN BERKAS\nBagian soal Pembahasan Bukti yang dapat diperiksa\nKo"
+    }
+  ],
+  "sha256": "90e31d4bf5a8a09ca39d0210126a51cbda8baa1ed068ce4e936d182993a82fae",
+  "visual_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "visual_review": "PASS",
+  "visual_notes": [
+    "Seluruh 51 halaman diperiksa pada sembilan lembar visual.",
+    "Perapian terakhir hanya mengubah halaman 45 dan 46; hash render 49 halaman lainnya identik. Kedua halaman diperiksa kembali.",
+    "Paragraf konfirmasi utuh; tabel panjang, ERD, kode, caption, daftar otomatis dan screenshot terbaca dalam margin.",
+    "Seluruh halaman A4, tanpa halaman kosong; semua font tertanam."
+  ]
+}

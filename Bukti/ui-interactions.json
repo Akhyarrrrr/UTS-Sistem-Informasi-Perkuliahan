@@ -1,0 +1,66 @@
+[
+  {
+    "failed": [],
+    "panels": [
+      "admin"
+    ],
+    "selected": [
+      "admin"
+    ],
+    "test": "role switch"
+  },
+  {
+    "failed": [],
+    "panels": [
+      "mahasiswa"
+    ],
+    "selected": [
+      "mahasiswa"
+    ],
+    "test": "role switch"
+  },
+  {
+    "failed": [],
+    "panels": [
+      "dosen"
+    ],
+    "selected": [
+      "dosen"
+    ],
+    "test": "role switch"
+  },
+  {
+    "expanded": "false",
+    "focus": "Menu",
+    "test": "home menu Escape"
+  },
+  {
+    "test": "password toggle",
+    "type": "text"
+  },
+  {
+    "focus": "error-summary",
+    "passwordEmpty": true,
+    "test": "failed login"
+  },
+  {
+    "expanded": "true",
+    "focus": "PPerkuliahanSistem informasi akademik",
+    "test": "workspace menu opens"
+  },
+  {
+    "focus": "Presensi saya",
+    "test": "menu Shift Tab wraps"
+  },
+  {
+    "expanded": "false",
+    "focus": "Menu",
+    "test": "workspace menu Escape"
+  },
+  {
+    "clientWidth": 275,
+    "scrollLeft": 40,
+    "scrollWidth": 640,
+    "test": "keyboard table scroll"
+  }
+]

@@ -14,9 +14,17 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias(['role' => Role::class]);
+        // Middleware is configured before the console kernel loads application config.
+        if (env('VERCEL')) {
+            $middleware->trustProxies(at: '*', headers: Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO);
+            $middleware->trustHosts(at: fn () => array_map(
+                fn (string $host): string => '^'.preg_quote($host, '/').'$',
+                array_filter([parse_url(config('app.url'), PHP_URL_HOST), config('app.vercel_url')]),
+            ), subdomains: false);
+        }
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
-    })->create();
+    })->create()->addAbsoluteCachePathPrefix(sys_get_temp_dir());

@@ -6,7 +6,7 @@ use App\Http\Controllers\MasterController;
 use App\Services\MasterData;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/dashboard');
+Route::view('/', 'welcome')->name('home');
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
@@ -40,6 +40,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/krs', [$academic, 'krs'])->name('krs');
         Route::post('/krs', [$academic, 'saveKrs'])->name('krs.save');
         Route::post('/krs/{id}/ajukan', [$academic, 'submitKrs'])->name('krs.submit');
-        Route::get('/presensi-saya',[$academic, 'myAttendance'])->name('my-attendance');
+        Route::get('/presensi-saya', [$academic, 'myAttendance'])->name('my-attendance');
     });
 });

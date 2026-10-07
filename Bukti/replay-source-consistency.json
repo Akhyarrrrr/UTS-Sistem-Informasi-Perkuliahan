@@ -1,0 +1,459 @@
+{
+  "date": "2026-10-07",
+  "passed": true,
+  "application_files_checked": 112,
+  "application_tree_sha256": "a1b85761d92894922f2964262a0f243eb232869454833e4c21bbe02a0f6b6ed9",
+  "records": [
+    {
+      "file": ".editorconfig",
+      "sha256": "fe39e0ad06edea8e256e44f1fc4f319a8acfa785a7470af5cf6b9ed12dc34406"
+    },
+    {
+      "file": ".env.example",
+      "sha256": "140ee8a041e4b0f9824416d018c741246f52ede3d738f448ece1be9a4ab4368d"
+    },
+    {
+      "file": ".gitattributes",
+      "sha256": "a40eb27ee0b545ca5b5542daaf99fec51f84f23b3766a6353864ef2a115bc51c"
+    },
+    {
+      "file": ".gitignore",
+      "sha256": "3ee1060a695b64e763d8a438ac1fe87494ff00d92680c3f63ca56bc103ed4142"
+    },
+    {
+      "file": ".npmrc",
+      "sha256": "e968d1d336604e9986ea31306a4d9e1442f4312fca262f444384baf928d6560e"
+    },
+    {
+      "file": "AGENTS.md",
+      "sha256": "08d8fd27cb427f1a205761fc938a0cc5b8027b04cb1bece93a2046fb8884c334"
+    },
+    {
+      "file": "CLAUDE.md",
+      "sha256": "08d8fd27cb427f1a205761fc938a0cc5b8027b04cb1bece93a2046fb8884c334"
+    },
+    {
+      "file": "README.md",
+      "sha256": "1ed7f729d514ddbddaac5944a07298c3c896099ae3cab8667030145cf8ff0e47"
+    },
+    {
+      "file": "app/Http/Controllers/AcademicController.php",
+      "sha256": "190aecbc9080747d51fd4b61ad10bc828a0657d3b0ffe184d0fccf16dfe4d4bf"
+    },
+    {
+      "file": "app/Http/Controllers/AuthController.php",
+      "sha256": "016b44cf63c845e31eadf9014490f5bc980db97209204568676b52fd6c85f875"
+    },
+    {
+      "file": "app/Http/Controllers/Controller.php",
+      "sha256": "25d1c1ef8e6cc8a376553faacfba2b07d9dfaee9bdbb84f14f77517580e9deb1"
+    },
+    {
+      "file": "app/Http/Controllers/MasterController.php",
+      "sha256": "28b9f960019dcc9c9d74f808c9321ef92d1daef681747cf598ef5c7480ff0e11"
+    },
+    {
+      "file": "app/Http/Middleware/Role.php",
+      "sha256": "018a19f4bf2097bdedd6a59e9e0b60e4c61843c3749b1d0dbd63730a66d1a26e"
+    },
+    {
+      "file": "app/Models/User.php",
+      "sha256": "52662e1674fa621f944c3598c796d790a6261b8809f0394b793e4c4e08f81c51"
+    },
+    {
+      "file": "app/Providers/AppServiceProvider.php",
+      "sha256": "2f0ee549b29f474d96855b40754174c3fa19153fbd569e26f2740f789da9f686"
+    },
+    {
+      "file": "app/Services/Academic.php",
+      "sha256": "0d310e5344a3994312c42584aed60642899bfdced341dd81f741fac519cf104f"
+    },
+    {
+      "file": "app/Services/MasterData.php",
+      "sha256": "b6b1ec1f5fa94abd169d7fb8e2feadc02ba3bad1bb43389a8483ce6ba3ccfe4a"
+    },
+    {
+      "file": "artisan",
+      "sha256": "f91a517c0c5d3a904c3f390933964a5e08ec1fc68146882730daac4aca4ffcec"
+    },
+    {
+      "file": "boost.json",
+      "sha256": "20b79b08169e6e381d1e590b9d5682e7033b6b2b473dce238530b6059526e9d1"
+    },
+    {
+      "file": "bootstrap/app.php",
+      "sha256": "9ef46e58de66df2f67c8742bc4c09498eb27c2e056431903803a2c61cc0e394b"
+    },
+    {
+      "file": "bootstrap/cache/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "bootstrap/providers.php",
+      "sha256": "f720e185207a343d4c19fc99dbb317a4187efbcd7d38a303a695bbdd77ffb943"
+    },
+    {
+      "file": "composer.json",
+      "sha256": "d0cd3f2831510b1968bd5f29867f6d2b104da3494c9c255dd32fcda303a24040"
+    },
+    {
+      "file": "composer.lock",
+      "sha256": "2108abcd7529b8bd44c5534d51cbf07e944bb4ea29bfe62a6abe31994bcc32f3"
+    },
+    {
+      "file": "config/app.php",
+      "sha256": "87498190c06c5b06f9ffefc3185777d190b0e3775229e934977c69413d46ff92"
+    },
+    {
+      "file": "config/auth.php",
+      "sha256": "c7e204e9785c9f596d66fb884b493f658f2327f157646bdb4088efd6b3a7773f"
+    },
+    {
+      "file": "config/cache.php",
+      "sha256": "ee4ad2bba1edfcff52e9599f37371f2370d0b167cc226ce72d46cdf6edf2dc55"
+    },
+    {
+      "file": "config/database.php",
+      "sha256": "02cd62f589b43d33f9ceac740705dac1dec9740eb2bb9e6e202d4b66a15244cf"
+    },
+    {
+      "file": "config/filesystems.php",
+      "sha256": "ba7060d7a23e490c3ce830656f6d24ad3ccf5b868e3293f2a12e411959dc5635"
+    },
+    {
+      "file": "config/logging.php",
+      "sha256": "beb1ffd0db910f6f0b4f75214c3d5aa385d692733ece8a450f4c169d2c99ce38"
+    },
+    {
+      "file": "config/mail.php",
+      "sha256": "c43ff49a31c5f32ce21eb7159f2a4b3cd2f4074eaed5838d265646dbfedd3474"
+    },
+    {
+      "file": "config/queue.php",
+      "sha256": "6101774da7c8b79af46d0028f2b8b31a484c3f7eda10b76e5b27b6093ad364a4"
+    },
+    {
+      "file": "config/services.php",
+      "sha256": "b7ee786ea1adbc92db9f229f479431c94503527c47051da3862eb0e4d7db70aa"
+    },
+    {
+      "file": "config/session.php",
+      "sha256": "64272cfbef6f47c65bf857f1c5b1e853700c0d0278de46b86663fd83ef4aeed8"
+    },
+    {
+      "file": "database/.gitignore",
+      "sha256": "e758642d95e83e907e010b6e46b07b3f953c7cef11fe5ebefc2a77b9d7b4d5f7"
+    },
+    {
+      "file": "database/factories/UserFactory.php",
+      "sha256": "50bdc543f1b09d1a57260be55ad0e1a68aee4b34f63e1109dc94d9bcd3080526"
+    },
+    {
+      "file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "sha256": "10d79883bc08ce46510f9ad8b1830b4d06d586dc56ae2c8bac3b3e491f69a90f"
+    },
+    {
+      "file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "sha256": "fbb4665e5a977e71df4e74ec75b3c06ca4f17ad0de7138fe9786639189978e77"
+    },
+    {
+      "file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "sha256": "df4910687180313a14a3f96a8bddd808ae145ed1b107cd772caf865c0dc2b746"
+    },
+    {
+      "file": "database/migrations/2026_10_04_000001_create_academic_tables.php",
+      "sha256": "9e3d9581aa25e8ff6109b17a9fbf1596179f2e1c51fff8a35c2964b692930bb4"
+    },
+    {
+      "file": "database/migrations/2026_10_04_000002_strengthen_academic_integrity.php",
+      "sha256": "4f75ad88e3ddefa224fe448dde1e2a4f6307e85b902357b53911f284d980360a"
+    },
+    {
+      "file": "database/seeders/AcademicSeeder.php",
+      "sha256": "9a12319b51bea6ae3e9d94671e5f9b23fe3a33628a78012b19d2bfe6458baa1a"
+    },
+    {
+      "file": "database/seeders/DatabaseSeeder.php",
+      "sha256": "a39deb294cfb64046d256163136578cb24e409416b127cd0bd1317eddb794e5d"
+    },
+    {
+      "file": "database/seeders/DemonstrationSeeder.php",
+      "sha256": "b63fad9223b290b62725e49fd62f833d2caab970f5bd417b6d49116c83471b7d"
+    },
+    {
+      "file": "lang/id/validation.php",
+      "sha256": "6e4198fbc1b40b5adcd1f83fa5c940899c53a049b81f7e2d90aa517353cc0ef8"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "9783512cf8c013b6172a6e7617a98773b154bf6b8345bea0cd884dad97020eed"
+    },
+    {
+      "file": "package.json",
+      "sha256": "e545aa3cb7b86cdebbde2ff08d0afdb17ea55a8a1ae8781084ca9395545b65d9"
+    },
+    {
+      "file": "phpunit.xml",
+      "sha256": "9e22072c9576d59f4005d68bfc5db41c3051803e20f176ac5daf9d36c5a558c8"
+    },
+    {
+      "file": "public/.htaccess",
+      "sha256": "b7e379c77639fd56144947dbae84c84eb466d9c686ea81f2f013ae85421da923"
+    },
+    {
+      "file": "public/build/assets/Syne-Variable-5kL3Zkre.ttf",
+      "sha256": "ce5ac77142a65cab2248a1a2ebb740b1d4d9c20b52488877d3ff664d1356104a"
+    },
+    {
+      "file": "public/build/assets/app-27pQGRVe.css",
+      "sha256": "1d122e8a0aab2b4601f076311805d91f6c6816451a471d56419e26798b1a9111"
+    },
+    {
+      "file": "public/build/assets/app-eXK68jUV.js",
+      "sha256": "83ccb3dbf591df1e3b2c7d5b8ab6d66009407d02a6b9fe8217e07249cdf7eed9"
+    },
+    {
+      "file": "public/build/assets/home-Dw3ryf-c.css",
+      "sha256": "18fbb337621b4e928220d6c922717a28ca854764a0f460bed021810bcfe6a5c4"
+    },
+    {
+      "file": "public/build/manifest.json",
+      "sha256": "42a4819b7db74f5bda1482b56caa09e0c235cfee6321485411a781cb35b850a8"
+    },
+    {
+      "file": "public/favicon.ico",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "public/favicon.svg",
+      "sha256": "ed7c33071873d98201755406a30e61d72fc8e436350540e0e4431ba2005fa8af"
+    },
+    {
+      "file": "public/images/showcase/admin.png",
+      "sha256": "1e96efbd0c326318a7b0e9f7fff325aee784e8c44582fbb2d79b5e31603acb4a"
+    },
+    {
+      "file": "public/images/showcase/dosen.png",
+      "sha256": "d0d384cf2fbc498ab261c38904decf0d9808cf050487e636ce833d302607410e"
+    },
+    {
+      "file": "public/images/showcase/mahasiswa.png",
+      "sha256": "a555171ad0ca6942e24a6b83aa15338deff6540e478d65113f8b4c897f783a18"
+    },
+    {
+      "file": "public/index.php",
+      "sha256": "eba77cba39695b6bd091fe5211d481f7ebb2ce2d8d26230b5a609465d0a4aff9"
+    },
+    {
+      "file": "public/licenses/Syne-OFL.txt",
+      "sha256": "cc43cdce6f91c57989af8459341c276655e34224e954fa69c2ad700831a742d8"
+    },
+    {
+      "file": "public/robots.txt",
+      "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f"
+    },
+    {
+      "file": "resources/css/app.css",
+      "sha256": "bac5dd8cee22a109faf8080e9e1691c96cef1dd4b29c60197387677b2f970fc7"
+    },
+    {
+      "file": "resources/css/home.css",
+      "sha256": "dbc429d76e6e6e59425c2cb13c1b28cf62fae8470175ceb920b8eac6d6c9e34b"
+    },
+    {
+      "file": "resources/fonts/Syne-Variable.ttf",
+      "sha256": "ce5ac77142a65cab2248a1a2ebb740b1d4d9c20b52488877d3ff664d1356104a"
+    },
+    {
+      "file": "resources/js/app.js",
+      "sha256": "7b2f45608dc47552778e350958fbd7bc5177224fa894cb04d378e744f7f5ffba"
+    },
+    {
+      "file": "resources/views/academic/activity.blade.php",
+      "sha256": "1c853b343403c35fdd3705be77a2a1df563a7f0e9b3bdd854659c2331665da24"
+    },
+    {
+      "file": "resources/views/academic/approvals.blade.php",
+      "sha256": "a16375babebb4ebcc3bcf9f8bb557ce7103351a34925bd48a38196fbd4c33e09"
+    },
+    {
+      "file": "resources/views/academic/attendance.blade.php",
+      "sha256": "1b1424956673b7929e0501a9857db5895c02dffbc7ae06fec4244780d48474b7"
+    },
+    {
+      "file": "resources/views/academic/classes.blade.php",
+      "sha256": "d0df2446676c17c02c2b445687868af1a239a6ab7be39a500cf4e541e5bbfd0c"
+    },
+    {
+      "file": "resources/views/academic/dashboard.blade.php",
+      "sha256": "1a877f6207aef931c2d691d964339a69ceb96dc91e0e2e70e80cdc303db2d94a"
+    },
+    {
+      "file": "resources/views/academic/grades.blade.php",
+      "sha256": "57a5dcebcdb217c51114c5e0e73a0ed3dad509f4ee73336c6c3f932b8ab07f94"
+    },
+    {
+      "file": "resources/views/academic/khs.blade.php",
+      "sha256": "30820e92a54ff7429565fa86580cf68ad4199e18900dbcb49c49e6aa92fbc6c4"
+    },
+    {
+      "file": "resources/views/academic/krs.blade.php",
+      "sha256": "4e3a8d7f91f3c44930edcf4a20d0df3fa8e7fd22778bde1bac828236807fdf3c"
+    },
+    {
+      "file": "resources/views/academic/my-attendance.blade.php",
+      "sha256": "282ee28b2db6cb0b9b259fca052d0bc4b1d615bf110e742ea4cad911bec3ca2e"
+    },
+    {
+      "file": "resources/views/academic/schedule.blade.php",
+      "sha256": "39c46fcbd975fc58b8e10d9a8273e6a57e65a983c2752f9133a0e3b64f01c85d"
+    },
+    {
+      "file": "resources/views/auth/login.blade.php",
+      "sha256": "c9b7bd16666add7d4d35be11c0b69e7ea63eada009c392afe8349bf0fb534217"
+    },
+    {
+      "file": "resources/views/components/icon.blade.php",
+      "sha256": "ed8b3414b6388b0aeb1e930742df046f48e29d0deb6ba0c9f20c814dce391100"
+    },
+    {
+      "file": "resources/views/errors/403.blade.php",
+      "sha256": "2c9e7840eca36adb682c33704310715f4ac0bb02dc65184c94939d7c3654226e"
+    },
+    {
+      "file": "resources/views/errors/404.blade.php",
+      "sha256": "bb6c4bf89fccb8a91404a7429418cdf2684556aab7cd7ed7fd7bccd44ef5af37"
+    },
+    {
+      "file": "resources/views/layouts/app.blade.php",
+      "sha256": "616cb70ec20e68b16e02148ddeac92058c507f06132243464626c2cfc4869a8e"
+    },
+    {
+      "file": "resources/views/master/form.blade.php",
+      "sha256": "1abf81e2be4ab413b648dc77a5f017c199d22b1f5f9a69470161ae950f33e8cd"
+    },
+    {
+      "file": "resources/views/master/index.blade.php",
+      "sha256": "4b6f21638213eaa680cf7971bd63956c769e4572f871cd8acaa4b16b7d2c6565"
+    },
+    {
+      "file": "resources/views/partials/pagination.blade.php",
+      "sha256": "bd76d8be3561a4970cf5ac5066301ebe0da9da846f9b5e81b0e2823c39e7d170"
+    },
+    {
+      "file": "resources/views/partials/period-filter.blade.php",
+      "sha256": "1f9889ddac2e523fecb7c9dd751f9d10bdfdb9d251a3be3c396d740b3354de41"
+    },
+    {
+      "file": "resources/views/partials/theme-init.blade.php",
+      "sha256": "449c012c0359f5a343daa5c6149941c8625846d7f68218ab1742ac12eda60d2d"
+    },
+    {
+      "file": "resources/views/welcome.blade.php",
+      "sha256": "fde5f1f1d4807e918347e880ff91c79e3513815111183c33ab801b9a619da645"
+    },
+    {
+      "file": "routes/console.php",
+      "sha256": "9adccc33e7dd400683e434774077c7fdb2f299c5712cedf16a43fdf56f2850fa"
+    },
+    {
+      "file": "routes/web.php",
+      "sha256": "e97433ff205bebc321e53ef5dbbed98109da39699a889b4c3b5eaf5d2843c715"
+    },
+    {
+      "file": "scripts/activate-demo.php",
+      "sha256": "775043721b30844b35721f18d397adcec1756a4b7b0bd364611888d528992840"
+    },
+    {
+      "file": "scripts/audit-schema.php",
+      "sha256": "da38b89ae5336274df39def93848ca07b92fe4071f89b7955f1443d33f76fd72"
+    },
+    {
+      "file": "scripts/configure-local.php",
+      "sha256": "9e40f1417490771e9c212ea814735fc316e0805eed0a653ca9e7a55fb8369dda"
+    },
+    {
+      "file": "scripts/export-evidence.php",
+      "sha256": "c4cd7f1de284b2ff9e4a44903074e13e36fb8cb081e7f2bbe6124cca14e3ae52"
+    },
+    {
+      "file": "scripts/format-views.php",
+      "sha256": "d410f498210ea72421dd52c67dd2cd11d6b8ab3a051be74c37b2ebe06c6f2092"
+    },
+    {
+      "file": "scripts/stop-mysql.php",
+      "sha256": "bfbf8995e71e83b41611e3dd3d1dcd83ee3fb0d6d090a9863ef7a0535b0882aa"
+    },
+    {
+      "file": "scripts/test-concurrency.php",
+      "sha256": "e4dced81a6501daa6c0c758fe62c915e0152db566372152a96498005cf611056"
+    },
+    {
+      "file": "scripts/verify-runtime.php",
+      "sha256": "11c63d1fd62c37a0eb5dac176c4da8b7a5935d1abce9b7841002bd71be4aa525"
+    },
+    {
+      "file": "scripts/verify-snapshot.php",
+      "sha256": "1f2363afd761c344dfd2727bf9e9736450bfd5aec54c901a7d14f037a4bd2dd2"
+    },
+    {
+      "file": "storage/app/.gitignore",
+      "sha256": "993b9e3709d7b5189da331725d1169d79e561a509db2490b722b525073d2d976"
+    },
+    {
+      "file": "storage/app/private/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "storage/app/public/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "storage/framework/.gitignore",
+      "sha256": "37bc9570de232e9db87ce530b3e4e2d5fa8d75f3bd587069fd26e2fb4ef1ffa5"
+    },
+    {
+      "file": "storage/framework/cache/.gitignore",
+      "sha256": "32f79194633ddb34f013c6ee8819d112104ff822357adf308ec385b46a7f42f6"
+    },
+    {
+      "file": "storage/framework/cache/data/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "storage/framework/sessions/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "storage/framework/testing/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "storage/framework/views/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "file": "tests/Feature/AcademicTest.php",
+      "sha256": "ae6e358dfbcea8b139eaeec12dba2b3a17cfd7b2699304ce6f27652d6f7a1859"
+    },
+    {
+      "file": "tests/Feature/MasterCrudTest.php",
+      "sha256": "08fe0629655350570e614433ac41a9942a78effcd26f0f98b695465b851a16be"
+    },
+    {
+      "file": "tests/TestCase.php",
+      "sha256": "c7c209f5579c42647c1f7b2a79ac828e8b54ac62a98442045a6e94fa2c0d0ebc"
+    },
+    {
+      "file": "tests/Unit/ExampleTest.php",
+      "sha256": "ffacae5c1a2a44c809420af5b3b404910da1b12167d58764dac6d10b8ba8cfaf"
+    },
+    {
+      "file": "vite.config.js",
+      "sha256": "4798c3cade7c6c3046edf1bb57aeb2cfd454462bf0641149c8b58d72e0e866ec"
+    }
+  ],
+  "excluded_changes": [],
+  "archive_sha256": "External Hasil/manifest-paket.json is authoritative; an archive cannot contain its own hash.",
+  "method": "Every application entry, including showcase images, Syne, build and lockfiles, matches source and installed ZIP extraction."
+}
