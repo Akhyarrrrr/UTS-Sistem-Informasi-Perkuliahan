@@ -1,9 +1,0 @@
-{
-  "url": "http://127.0.0.1:8091/khs",
-  "database": "uts_perkuliahan_replay_20261007",
-  "method": "Fresh final ZIP extraction, install from lockfiles, real Chrome login using generated private credentials, seed Raka KHS and actual CSV download.",
-  "khs": "PDB308\tPraktikum Basis Data\t2\t88,50\tA\t4,00\tTerbit",
-  "csvIncludes8850": true,
-  "console": [],
-  "passed": true
-}

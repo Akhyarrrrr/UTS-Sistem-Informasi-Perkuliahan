@@ -95,7 +95,7 @@ class MasterController extends Controller
         try {
             DB::transaction(function () use ($entity, $data, $id) {
                 if ($entity === 'users') {
-                    // ponytail: serialize account mutations; narrow the lock if account volume grows.
+                    // Lock account mutations together to protect the last administrator.
                     DB::table('users')->orderBy('id')->lockForUpdate()->get(['id']);
                 }
                 if ($id) {
