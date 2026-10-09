@@ -1,114 +1,89 @@
-# Sistem Informasi Perkuliahan · UTS Akhyar
+# Sistem Informasi Perkuliahan
 
-NPM 260820701100010 · Kelas A · Manajemen dan Pemodelan Data
+UTS Manajemen dan Pemodelan Data, Kelas A — Akhyar, NPM 260820701100010.
 
-Aplikasi Laravel 13 / PHP 8.5 / MySQL 8.0 lokal dan MySQL 8.4 online. Semua profil, nilai, jadwal, dan kebijakan akademik adalah data simulasi; identitas penyusun dipakai pada laporan dan satu profil demonstrasi.
+[Aplikasi online](https://uts-sistem-informasi-perkuliahan.vercel.app/) · [Repositori](https://github.com/Akhyarrrrr/UTS-Sistem-Informasi-Perkuliahan)
 
-**[Akses aplikasi online](https://uts-sistem-informasi-perkuliahan.vercel.app/)**. Halaman pengenalan terbuka untuk publik. Akun ruang akademik dan kata sandi online disimpan pada `Runtime/akses-online.txt` pribadi; tidak ada kredensial publik. Panduan instalasi berikut ditujukan untuk menjalankan salinan aplikasi pada komputer Windows.
+Aplikasi Laravel 13, PHP 8.5, dan MySQL untuk data master, penawaran kelas, KRS, presensi, penilaian, KHS, IPS/IPK, serta riwayat perubahan. Nama, jadwal, nilai, dan aturan akademik merupakan simulasi tugas. Akun online diberikan secara pribadi.
 
-## Instalasi pertama di Windows
+## Instalasi lokal di Windows
 
-1. Ekstrak seluruh ZIP ke folder yang dapat ditulis. Pertahankan susunan `Aplikasi`, `SQL`, `Bukti`, dan skrip pada tingkat yang sama.
-2. Sediakan PHP 8.5 dengan PDO MySQL, mbstring, tokenizer, openssl, fileinfo, XML, dan zip; Composer 2; Node.js 22.12+ atau 24; serta MySQL 8.0. Port 8088 dan 3319 harus tersedia. Aplikasi telah diuji pada PHP 8.5.0, Node 24.18.0, dan MySQL 8.0.46.
-3. Buka PowerShell di folder `Sistem_Informasi_Perkuliahan`, yaitu folder hasil ekstraksi yang memuat `install.ps1`:
+Sediakan PHP 8.5 beserta ekstensi yang disyaratkan Composer, termasuk PDO MySQL; Composer 2; Node.js 22.x minimal 22.12; dan MySQL 8.0. Port 3319 dan 8088 harus tersedia. Dependensi pertama kali diunduh melalui internet.
+
+Clone repositori, lalu buka PowerShell di folder yang memuat `install.ps1`:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\check.ps1
+git clone https://github.com/Akhyarrrrr/UTS-Sistem-Informasi-Perkuliahan.git
+cd UTS-Sistem-Informasi-Perkuliahan
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-Jika lokasi MySQL berbeda:
+Jika lokasi MySQL berbeda, tambahkan `-MySqlBin 'D:\tools\mysql\bin'` pada perintah instalasi dan mulai. Lokasi bawaan adalah `C:\Program Files\MySQL\MySQL Server 8.0\bin`.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -MySqlBin 'D:\tools\mysql\bin'
-powershell -ExecutionPolicy Bypass -File .\start.ps1 -MySqlBin 'D:\tools\mysql\bin'
-```
+Buka [http://localhost:8088](http://localhost:8088). Instalasi memasang dependensi dari lockfile, membuat database, menyiapkan `.env` dan `.env.testing`, menjalankan migration/seeder, serta membangun aset. Font dan aset aplikasi dilayani secara lokal sesudah build.
 
-Instalasi memasang dependensi dari `composer.lock` dan `package-lock.json`, membuat instans MySQL khusus, mengatur `.env`, menjalankan migration/seeder, lalu membangun aset. Internet diperlukan untuk mengunduh dependensi pada instalasi pertama. Font dan aset aplikasi dilayani secara lokal setelah build. Tidak diperlukan Docker.
+Layanan memakai MySQL khusus pada `127.0.0.1:3319`. Database aplikasi adalah `uts_perkuliahan`; database tes adalah `uts_perkuliahan_test`. Direktori data, akses demo, dan log berada di **`Catatan_Pribadi/Layanan_Lokal` pada folder induk repositori**, sehingga tidak menjadi bagian kode publik. Contoh: repositori `D:\UTS\Pengerjaan` memakai `D:\UTS\Catatan_Pribadi\Layanan_Lokal`.
 
-Buka **http://localhost:8088** untuk halaman pengenalan publik. Login mengarahkan pengguna ke ruang kerja sesuai peran; halaman pengenalan tetap dapat diakses sesudah login. Akun dan kata sandi demo yang dibuat instalasi berada dalam `Runtime/akses-demo.txt`. Tiga akun utama: `admin@demo.test`, `dosen@demo.test`, dan `mahasiswa@demo.test`; semua akun simulasi memakai kata sandi instalasi yang sama. Akun Raka Wijaya untuk hasil demonstrasi: `mhs11@demo.test`. Kata sandi lokal tidak disertakan dalam ZIP.
+Email akun utama: `admin@demo.test`, `dosen@demo.test`, `mahasiswa@demo.test` (Akhyar), dan `mhs12@demo.test` (Intan). Kata sandi lokal dibuat saat instalasi dan dapat dibaca pada `Catatan_Pribadi/Layanan_Lokal/akses-demo.txt`. Kata sandi tidak disertakan dalam repositori.
 
-Skrip tidak menggunakan MySQL utama komputer. Data berada di `Runtime/mysql-data`, pada port 3319 dengan koneksi loopback. Aplikasi memakai `uts_perkuliahan`; tes memakai `uts_perkuliahan_test`. Jangan memindahkan atau menghapus Runtime saat layanan masih berjalan.
-
-## Menjalankan berikutnya
+## Menjalankan dan menghentikan
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 powershell -ExecutionPolicy Bypass -File .\stop.ps1
 ```
 
-`stop.ps1` menghentikan layanan dan mempertahankan data. Jangan menjalankan `migrate:fresh` pada database aplikasi yang ingin dipertahankan. Seeder hanya membuat data awal ketika belum ada fakultas; pengulangan instalasi tidak mengganti catatan yang sudah ada.
+Penghentian mempertahankan data. Hentikan layanan sebelum memindahkan direktori data. Jangan menjalankan `migrate:fresh` pada database utama yang ingin dipertahankan; perintah itu menghapus tabel. Seeder membuat data awal ketika belum ada fakultas dan mempertahankan data yang sudah ada.
 
-## Demo yang tersedia
+## Urutan demonstrasi
 
-- Admin: persetujuan KRS Nadia Rahma; CRUD master; aturan SKS dan skala; rekap dan riwayat.
-- Dosen utama: MPD301 A/B, PSD304 A, serta PDB308 A. PSD304 mempunyai nilai yang belum lengkap untuk demonstrasi validasi.
-- Akhyar: KRS 11 SKS, 8 SKS bernilai terbit, IPS sementara 3,75, IPK 3,55. Satu nilai belum terbit.
-- Raka Wijaya: PDB308, presensi Hadir, nilai 88,50/A, IPS 4,00. `DemonstrationSeeder` mereproduksi hasil akhir demonstrasi browser; audit menyebut sumber seeder secara jelas.
-- Instalasi baru melalui seeder: `mhs12@demo.test` (Intan) belum memiliki KRS dan dapat dipakai untuk mencoba alur baru. Pada aplikasi online serta snapshot SQL final, alurnya telah selesai: MPD301 B, 3 SKS, nilai 88,90/A, IPS/IPK 4,00. Untuk alur baru, pilih profil tanpa KRS dan kelas yang belum menerbitkan nilai.
+1. **Admin:** periksa periode, katalog, kelas, jadwal, skala nilai, profil, dan akun.
+2. **Mahasiswa:** simpan pilihan KRS sebagai draf, lalu ajukan. Draf tidak memesan kursi; pengajuan dan persetujuan memesan kursi.
+3. **Admin:** kembalikan pengajuan dengan alasan atau setujui. Pengembalian membuka revisi dan melepaskan kursi.
+4. **Dosen:** buka kelas yang diampu, buat pertemuan, catat presensi, simpan nilai komponen, lalu terbitkan nilai lengkap dengan bobot 100%.
+5. **Mahasiswa:** baca jadwal, presensi, KHS, IPS/IPK; unduh CSV atau gunakan cetak.
+6. **Dosen dan admin:** koreksi nilai terbit dengan alasan, terbitkan ulang, lalu periksa riwayat. Bobot tetap terkunci sesudah publikasi pertama.
 
-Admin membuat/meninjau kelas, mahasiswa menyimpan dan mengajukan KRS, admin menyetujui atau mengembalikan dengan alasan, dosen mencatat pertemuan/presensi dan nilai, lalu menerbitkan nilai. Nilai kosong berarti belum dinilai. Koreksi hasil terbit membutuhkan alasan; bobot tetap dikunci setelah terbit pertama.
+Pada instalasi seeder baru, Intan belum memiliki KRS. Contoh MPD301 B memakai 3 SKS dan bobot Tugas/Kuis/UTS/UAS 20/10/30/40%. Nilai 80/90/85/95 menghasilkan 88,50/A; koreksi UAS ke 96 menghasilkan 88,90/A dan IPS/IPK 4,00. Pada aplikasi online dan snapshot SQL, alur Intan sudah selesai. Untuk mempraktikkan perubahan dari awal, gunakan lokal dengan profil dan kelas yang belum selesai.
 
-## Pengujian
+Akhyar mempunyai 11 SKS pilihan, 8 SKS terbit, IPS sementara 3,75, dan IPK 3,55. Nilai kosong berarti belum dinilai. Hanya hasil terbit masuk KHS/IPS; IPK memakai pengambilan terbaru yang sudah terbit untuk tiap mata kuliah.
+
+## Struktur dan pengujian
+
+| Lokasi | Isi |
+|---|---|
+| `Aplikasi/app`, `routes`, `resources` | Controller, aturan akademik, route, dan antarmuka |
+| `Aplikasi/database` | Migration, batasan integritas, dan seeder |
+| `Aplikasi/tests` | Pengujian peran, CRUD, KRS, penilaian, dan deployment |
+| `Aplikasi/scripts` | Konfigurasi lokal, penghentian MySQL, dan aktivasi akun snapshot |
+| `SQL` | DDL, data simulasi, dan query pembuktian |
+| `install.ps1`, `start*.ps1`, `stop.ps1` | Instalasi dan pengelolaan layanan lokal |
+
+Dari folder `Aplikasi`:
 
 ```powershell
-cd Aplikasi
-php artisan test --compact --log-junit ../Bukti/phpunit.xml
-php scripts/test-concurrency.php
+php artisan test --compact
+npm ci
 npm run build
-php scripts/export-evidence.php
 ```
 
-Tes Laravel mempunyai guard nama database khusus. Skrip konkurensi **membuat ulang hanya `uts_perkuliahan_test`**, lalu menjalankan dua proses PHP untuk kursi terakhir, duplikasi pertemuan, serta perlindungan admin terakhir. Jangan menjalankan tes Laravel dan skrip konkurensi bersamaan karena keduanya memakai database tes yang sama.
+Tes memiliki pemeriksaan nama database khusus agar tidak dijalankan pada database utama. Pemeriksaan 9 Oktober 2026 menghasilkan 39 tes dan 318 asersi lulus. Build aset berhasil. Konkurensi kursi terakhir, nomor pertemuan, dan admin terakhir juga telah diperiksa melalui dua proses bersamaan.
 
-## Snapshot SQL dan pemulihan
+## SQL
 
-- `SQL/struktur.sql`: struktur aktual, indeks, FK, CHECK, dan trigger.
-- `SQL/data-simulasi.sql`: snapshot akhir demonstrasi. Kata sandi/remember token asli tidak diekspor; akun dikunci sampai diaktifkan secara lokal.
-- `SQL/query-pembuktian.sql`: JOIN, agregasi SKS, pemeriksaan baris yatim, serta UPDATE/DELETE transaksi.
-- `Bukti/database.json`: tipe kolom, jumlah baris, query, keluaran SQL, IPS/IPK, dan waktu snapshot.
+`struktur.sql` memuat 18 tabel akademik/akun/audit dan enam trigger; `data-simulasi.sql` memuat keadaan akhir demonstrasi; `query-pembuktian.sql` memuat JOIN, agregasi, pemeriksaan hubungan, serta operasi transaksi. Database aplikasi lengkap memiliki 26 tabel, termasuk infrastruktur Laravel.
 
-Jalur utama instalasi adalah migration + seeder. Untuk memulihkan snapshot pada **database kosong UTS**, jalankan konfigurasi lokal, lalu `php artisan migrate --force` tanpa `--seed`. Setelah semua tabel kosong dibuat, impor **hanya `data-simulasi.sql`** memakai klien MySQL yang mengarah ke port 3319. Jangan mengimpor `struktur.sql` di atas tabel yang sudah dibuat migration. Selanjutnya jalankan:
+Jalur instalasi utama menggunakan migration dan seeder. Untuk memakai snapshot pada **database UTS kosong**, jalankan konfigurasi lokal, kemudian `php artisan migrate --force` tanpa seeder; impor **hanya** `SQL/data-simulasi.sql` dengan klien MySQL ke port 3319. Jangan menimpa data utama. Akun snapshot dikunci dan dapat diaktifkan secara lokal dari folder `Aplikasi` melalui:
 
 ```powershell
 php scripts/activate-demo.php
 ```
 
-File struktur disediakan untuk penilaian DDL dan pembuatan tabel akademik pada database kosong tanpa migration. Jika memilih jalur DDL mandiri, tabel infrastruktur Laravel (sessions/cache/locks) juga perlu dibuat dari migration bawaan sebelum aplikasi dijalankan.
+Jangan mengimpor `struktur.sql` di atas tabel migration. DDL mandiri tidak menyertakan tabel sesi/cache Laravel, sehingga migration infrastruktur tetap diperlukan sebelum menjalankan aplikasi.
 
-## Hosting
+## Konfigurasi online
 
-Proyek `uts-sistem-informasi-perkuliahan` pada akun Vercel `akhyarrrrr` terhubung dengan repo `Akhyarrrrr/UTS-Sistem-Informasi-Perkuliahan`, Root Directory `Aplikasi`, dan Node 22.x. Runtime `vercel-php@0.9.0` menjalankan PHP 8.5.2, entry point `api/index.php`, serta aset statis dalam `public`. Aiven MySQL 8.4.8 gratis berada di Bangalore; region fungsi `bom1`. Production, preview, dan tes memakai database/akun terpisah. Aplikasi online telah diperiksa melalui HTTPS dan alur akademik; URL utama tercantum di atas.
+Root proyek Vercel adalah `Aplikasi`; Node 22.x membangun aset dan `vercel-php@0.9.0` menjalankan `api/index.php`. Database online memakai Aiven MySQL dengan TLS. Sesi dan cache berada pada database, sedangkan berkas sementara fungsi berada di `/tmp`. Kunci aplikasi, kredensial database, dan akun demonstrasi disimpan secara pribadi. Build tidak menjalankan migration atau seeder; perubahan database dilakukan terpisah.
 
-Panduan environment, pemisahan database dan izin akun, TLS, pengujian preview, backup, rollback, serta batas Aiven gratis tersedia dalam [README aplikasi](Aplikasi/README.md). Sesi dan cache online memakai database; berkas sementara serta kompilasi Blade memakai `/tmp`. Kata sandi dan kunci aplikasi disimpan secara pribadi. Migration dan seeding dilakukan terpisah dari build.
-
-## Laporan
-
-Laporan menggunakan XeLaTeX, Times New Roman 12 pt, A4, spasi 1,5, dan margin L3,5/R3/T3/B3 cm. Dari paket sumber LaTeX, jalankan tiga kali:
-
-```powershell
-xelatex -interaction=nonstopmode -halt-on-error laporan_uts.tex
-```
-
-Font Times New Roman dan Consolas harus tersedia. Semua gambar dan cuplikan kode yang dipakai laporan sudah ada dalam ZIP LaTeX; tidak perlu menjalankan `prepare-evidence.py` untuk kompilasi sumber final.
-
-## Audit 6-7 Oktober 2026
-
-Audit lokal awal meluluskan 35 tes Laravel dengan 285 asersi serta perbandingan DDL/metadata 18 tabel dan enam trigger antara database utama, hasil migration baru, dan impor SQL. Setelah persiapan Vercel, suite meluluskan 38 tes dengan 294 asersi dan tiga tes konkurensi pada MySQL lokal 8.0.46 serta Aiven MySQL 8.4.8 pada 7 Oktober 2026. Bukti: `Bukti/phpunit-vercel-local-20261007.xml`, `Bukti/phpunit-aiven-20261007.xml`, `Bukti/concurrency-vercel-local-20261007.json`, `Bukti/concurrency-aiven-20261007.json`, `Bukti/schema-aiven-20261007.json`, dan `Bukti/vercel-adapter-local-20261007.json`.
-
-Suite final Aiven meluluskan **39 tes dan 318 asersi**, disusul tiga tes konkurensi berurutan (`Bukti/phpunit-aiven-final-20261007.xml`, `Bukti/concurrency-aiven-final-20261007.json`). Uji HTTP preview/produksi meliputi 28 kontrol per lingkungan dan memeriksa isi respons berkas sensitif. Alur mahasiswa → admin → dosen → mahasiswa, CSV, perhitungan, serta sesi dan perubahan data setelah redeployment telah diperiksa. Bukti browser mencakup 963 keadaan layout pada kedua tema, navigasi keyboard, dan screenshot online yang benar. Lebar setara zoom memakai override viewport CSS; zoom menu browser tidak diubah. Pengamatan reload bukan ukuran Core Web Vitals.
-
-Lihat `Bukti/PEMERIKSAAN_DAN_BUKTI.md`, `Bukti/MATRIKS_UTS.md`, serta `Bukti/DELIVERY_GATE.md` untuk scope, metode, dan batas pemeriksaan. SQL final berasal dari database produksi MySQL 8.4.8; akun snapshot terkunci. Tiga commit lama tetap dipertahankan; perubahan berikutnya memakai tanggal pengerjaan sebenarnya.
-
-Untuk replay dengan database khusus pada instans UTS yang sudah berjalan:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -Replay -ReplayDatabase uts_perkuliahan_replay_20261006
-cd Aplikasi
-php artisan serve --host=127.0.0.1 --port=8089
-```
-
-Replay memakai database berbeda dari `uts_perkuliahan`. Pilih database replay kosong untuk pemeriksaan instalasi baru. Kredensial tetap disediakan secara lokal oleh konfigurasi; jangan memasukkan `Runtime` ke paket publik.
-
-Pada Windows, ekstrak paket ke direktori pendek (misalnya D:\UTS) untuk menghindari batas panjang path saat Composer mengekstrak dependensi. Uji replay menggunakan pemetaan drive pendek ke salinan lokal yang terpisah.
+Gangguan HTTP 500 sebelumnya berkaitan dengan layanan atau koneksi Aiven yang terputus. Pemilik proyek menyambungkan kembali Aiven secara manual pada 9 Oktober 2026 dan mengonfirmasi aplikasi kembali dapat diakses. Jika gangguan berulang, periksa kondisi Aiven dan pesan exception pada Vercel Logs.

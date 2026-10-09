@@ -124,8 +124,17 @@
     </section>
 
     <section id="jalankan" class="home-section run-section" aria-labelledby="run-title">
-        <div><p class="section-index">06 / Akses aplikasi</p><h2 id="run-title">Masuk ke sistem.<br>Ikuti alur studi.</h2><p>Masuk melalui web menggunakan akun pribadi sesuai peran. Untuk menjalankan salinan di komputer, ikuti instalasi lokal dalam paket aplikasi dan README.</p><a class="button primary icon-action" href="{{ auth()->check()?route('dashboard'):route('login') }}" aria-label="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}" title="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}"><x-icon name="login"/><span class="control-label sr-only">{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}</span></a></div>
-        <div class="run-guide"><h3>Panduan instalasi lokal</h3><p>Langkah berikut untuk memasang salinan aplikasi pada komputer Windows. Jalankan perintah dari folder paket aplikasi.</p><ol><li><strong>Periksa kebutuhan</strong><code>powershell -ExecutionPolicy Bypass -File check.ps1</code></li><li><strong>Pasang dan jalankan</strong><code>powershell -ExecutionPolicy Bypass -File install.ps1</code><code>powershell -ExecutionPolicy Bypass -File start.ps1</code></li><li><strong>Masuk melalui localhost</strong><p>Akses <code>http://localhost:8088</code>. Akun dan kata sandi tersedia pada <code>Runtime/akses-demo.txt</code> yang dibuat saat instalasi.</p></li></ol><p class="small">Instalasi pertama memerlukan internet untuk dependensi. Setelah build, font dan aset dilayani secara lokal.</p></div>
+        <div><p class="section-index">06 / Akses aplikasi</p><h2 id="run-title">Masuk ke sistem.<br>Ikuti alur studi.</h2><p>Masuk melalui web menggunakan akun pribadi sesuai peran. Untuk menjalankan salinan di komputer, ikuti panduan README pada repositori.</p><a class="button primary icon-action" href="{{ auth()->check()?route('dashboard'):route('login') }}" aria-label="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}" title="{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}"><x-icon name="login"/><span class="control-label sr-only">{{ auth()->check()?'Kembali ke ruang kerja':'Buka halaman masuk' }}</span></a></div>
+        <div class="run-guide">
+            <h3>Panduan instalasi lokal</h3>
+            <p>Langkah berikut untuk memasang salinan aplikasi pada komputer Windows. Jalankan perintah dari folder repositori.</p>
+            <ol>
+                <li><strong>Siapkan perangkat</strong><p>Sediakan PHP 8.5, Composer 2, Node.js 22.x, dan MySQL 8.0 sesuai README.</p></li>
+                <li><strong>Pasang dan jalankan</strong><code>powershell -ExecutionPolicy Bypass -File install.ps1</code><code>powershell -ExecutionPolicy Bypass -File start.ps1</code></li>
+                <li><strong>Masuk melalui localhost</strong><p>Akses <code>http://localhost:8088</code>. Akun dan kata sandi tersedia pada <code>Catatan_Pribadi/Layanan_Lokal/akses-demo.txt</code> di folder induk repositori, dibuat saat instalasi.</p></li>
+            </ol>
+            <p class="small">Instalasi pertama memerlukan internet untuk dependensi. Setelah build, font dan aset dilayani secara lokal.</p>
+        </div>
     </section>
 </main>
 <footer class="home-footer"><a class="identity" href="{{ route('home') }}"><span class="identity-mark">P</span><span>Perkuliahan<small>Rencana dan hasil studi.</small></span></a><p>Akhyar · 260820701100010<br>Magister Kecerdasan Artifisial · USK · 2026</p><a href="#main">Kembali ke atas</a></footer>
