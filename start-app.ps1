@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $appDirectory = Join-Path $PSScriptRoot 'Aplikasi'
-$runtimeDirectory = Join-Path $PSScriptRoot 'Runtime'
+$runtimeDirectory = Join-Path (Split-Path $PSScriptRoot -Parent) 'Catatan_Pribadi/Layanan_Lokal'
 New-Item -ItemType Directory -Path $runtimeDirectory -Force | Out-Null
 $listener = Get-NetTCPConnection -LocalPort 8088 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
 if ($listener) {
@@ -19,4 +19,4 @@ for ($attempt = 0; $attempt -lt 30; $attempt++) {
     }
     Start-Sleep -Milliseconds 500
 }
-throw 'Server Laravel belum siap. Periksa Runtime/laravel-error.log.'
+throw "Server Laravel belum siap. Periksa $runtimeDirectory/laravel-error.log."

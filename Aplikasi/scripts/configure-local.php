@@ -1,7 +1,7 @@
 <?php
 
 $base = dirname(__DIR__);
-$runtime = dirname($base).'/Runtime';
+$runtime = dirname($base, 2).'/Catatan_Pribadi/Layanan_Lokal';
 $settings = getopt('', ['database:']);
 $database = $settings['database'] ?? 'uts_perkuliahan';
 if (! preg_match('/^uts_perkuliahan(?:_replay(?:_[0-9]{8})?)?$/', $database)) {
@@ -39,4 +39,4 @@ foreach ($values as $key => $value) {
 file_put_contents($base.'/.env', $env);
 file_put_contents($base.'/.env.testing', preg_replace('/^DB_DATABASE=.*/m', 'DB_DATABASE=uts_perkuliahan_test', str_replace(['APP_ENV=local', 'APP_DEBUG=false'], ['APP_ENV=testing', 'APP_DEBUG=true'], $env)));
 file_put_contents($runtime.'/akses-demo.txt', "Akun demonstrasi lokal\nAdmin: admin@demo.test\nDosen: dosen@demo.test\nMahasiswa: mahasiswa@demo.test\nKata sandi akun demo: ".$credentials['demo']."\nData merupakan simulasi.\n");
-echo "Konfigurasi lokal siap. Kredensial disimpan hanya di Runtime.\n";
+echo "Konfigurasi lokal siap. Kredensial disimpan di Catatan_Pribadi/Layanan_Lokal, di luar repositori.\n";

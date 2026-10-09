@@ -1,6 +1,6 @@
 param([string]$MySqlBin = 'C:\Program Files\MySQL\MySQL Server 8.0\bin')
 $ErrorActionPreference = 'Stop'
-$runtime = Join-Path $PSScriptRoot 'Runtime'
+$runtime = Join-Path (Split-Path $PSScriptRoot -Parent) 'Catatan_Pribadi/Layanan_Lokal'
 $data = Join-Path $runtime 'mysql-data'
 $mysql = $MySqlBin
 New-Item -ItemType Directory -Force -Path $runtime | Out-Null
@@ -23,5 +23,5 @@ for ($attempt=0; $attempt -lt 40; $attempt++) {
     if (Get-NetTCPConnection -LocalPort 3319 -State Listen -ErrorAction SilentlyContinue) { break }
     Start-Sleep -Milliseconds 500
 }
-if (!(Get-NetTCPConnection -LocalPort 3319 -State Listen -ErrorAction SilentlyContinue)) { throw 'MySQL belum siap. Periksa Runtime/mysql-error.log.' }
+if (!(Get-NetTCPConnection -LocalPort 3319 -State Listen -ErrorAction SilentlyContinue)) { throw "MySQL belum siap. Periksa $runtime/mysql-error.log." }
 Write-Output 'MySQL UTS siap pada 127.0.0.1:3319.'
